@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
+import Item from "../Item/Item";
+import axios from 'axios';
 
 import "./GangaDelDia.css";
-
-import Item from "../Item/Item";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CardDeck from "react-bootstrap/CardDeck";
 
 const GangaDelDia = () => {
+  const [products, setProducts] = useState([]);
+
+  const getProductsDay = async () => {
+    const res = await axios.get('http://localhost:3000/productsLast24');
+    setProducts(res.data.products);
+  };
+
+  useEffect(() => {
+    getProductsDay();
+  }, []);
+
   return (
     <Container className="">
       <div className="box-gangaDelDia">
@@ -19,22 +29,9 @@ const GangaDelDia = () => {
         </h5>
       </div>
       <Row className="justify-content-md-center ">
-        {/* <Col xs={12} md={4} lg={3} xl={3}>
-            <Item />
-          </Col>
-          <Col xs={12} md={4} lg={3} xl={3}>
-            <Item />
-          </Col>
-          <Col xs={12} md={4} lg={3} xl={3}>
-            <Item />
-          </Col>
-          <Col xs={12} md={4} lg={3} xl={3}>
-            <Item />
-          </Col> */}
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {products.map((product) => (
+          <Item product={product} key={product._id}/>
+        ))}
       </Row>
     </Container >
   );
