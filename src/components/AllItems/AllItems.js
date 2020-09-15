@@ -1,10 +1,22 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Item from "../Item/Item";
 
 const AllItems = () => {
+  const [products, setProducts] = useState([]);
+
+  const getProductsDay = async () => {
+    const res = await axios.get('http://localhost:3000/products');
+    setProducts(res.data.products);
+  };
+
+  useEffect(() => {
+    getProductsDay();
+  }, []);
+
   return (
     <Container className="mb-3">
       <div className="box-gangaDelDia">
@@ -14,20 +26,9 @@ const AllItems = () => {
         </h5>
       </div>
       <Row className="justify-content-md-center ">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        {products.map((product) => (
+          <Item product={product} key={product._id}/>
+        ))}
       </Row>
     </Container>
   );

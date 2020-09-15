@@ -9,13 +9,11 @@ import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 
-import logo from "../../images/adidas.png";
-
-const item = () => {
+const item = ({product}) => {
   return (
-    <Link className="col-12 col-sm-4 col-lg-3 mb-4" to="/item-especific">
+    <Link className="col-12 col-sm-4 col-lg-3 mb-4" to={"/item-especific/" + product._id}>
       <Card className="border-card">
-        <div className="tag-offer">-25%</div>
+        <div className="tag-offer">-{product.descuento}% Sale</div>
         <div className="group-btn-like">
           <a href="https://react-bootstrap.netlify.app/components/alerts/#additional-content">
             <FontAwesomeIcon icon={faShareAlt} className="btn-share" />
@@ -25,17 +23,16 @@ const item = () => {
           </a>
         </div>
         <div className="box-img-item">
-          <Card.Img variant="top" src={logo} />
+          <Card.Img variant="top" src={product.imagenURL} />
         </div>
         <div className="group-time-item">
           <FontAwesomeIcon icon={faClock} />
           <div className="ml-2">5D 4h 1M</div>
         </div>
         <Card.Body>
-          <Card.Title className="title-item">Adidas</Card.Title>
+          <Card.Title className="title-item">{product.nombre}</Card.Title>
           <Card.Text className="subtitle-item">
-            Descuento de temporada en coleccion de primaver en toda la linea
-            runner
+            {product.descripcion}
           </Card.Text>
           {/* <Button variant="primary">Ver más</Button> */}
         </Card.Body>

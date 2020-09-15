@@ -14,8 +14,9 @@ function App() {
 
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/item-especific" exact component={ItemSpecific} />
-        
+        <Route path="/item-especific/:productId">
+          <ItemSpecific/>
+        </Route>
       </Switch>
     </Router>
   );
