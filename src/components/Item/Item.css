@@ -1,0 +1,60 @@
+.box-img-item{
+    background: #f0f0f0;
+}
+
+.border-card{
+    border: 1px solid red!important;
+}
+
+.box-img-item img{
+    width: 70%;
+    margin: auto;
+    padding: 2rem;
+    display: block;
+}
+
+.title-item{
+    font-family: "made-tomy-sof-regular";
+    font-size: .8rem;
+    margin-bottom: .2rem!important;
+}
+.subtitle-item{
+    font-family: "made-tomy-sof-regular";
+    font-size: .7rem;
+}
+
+.tag-offer{
+    border: 1px solid red;
+    position: absolute;
+    left: .5rem;
+    top: .5rem;
+    color: red;
+    border-radius: 5px;
+    padding: .2rem .4rem;
+    font-size: .7rem;
+}
+
+.group-btn-like{
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    font-size: 1rem;
+}
+
+.btn-share{
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.btn-like{
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.group-time-item{
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: .9rem;
+    margin-top: .5rem;
+}
