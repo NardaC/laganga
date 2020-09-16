@@ -11,7 +11,7 @@ import ItemSpecific from "./components/ItemSpecific/ItemSpecific";
 
 function App() {
   return (
-    <Router className="App">
+    <Router className=" box-home">
       <Menu />
       <FilterCategory/>
       <Switch>

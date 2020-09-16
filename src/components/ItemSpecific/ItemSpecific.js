@@ -28,7 +28,7 @@ const ItemSpecific = () => {
   }, [])
 
   return (
-    <div className="mt-4">
+    <div className="pt-4 box-home">
       <h4 className="title-ganga title-especific">{product.nombre}</h4>
       <Container className="box-details">
         <figure className="w-50 p-3">
