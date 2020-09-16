@@ -12,7 +12,8 @@ const GangaDelDia = () => {
   const [products, setProducts] = useState([]);
 
   const getProductsDay = async () => {
-    const res = await axios.get('http://localhost:3000/productsLast24');
+    //const res = await axios.get('http://localhost:3000/productsLast24');
+    const res = await axios.get('https://la-ganga-api.herokuapp.com/productsLast24');
     setProducts(res.data.products);
   };
 

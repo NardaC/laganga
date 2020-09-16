@@ -18,7 +18,8 @@ const ItemSpecific = () => {
   const [ product, setproduct ] = useState({})
 
   const getProduct = async () => {
-    const res = await axios.get(`http://localhost:3000/products/${productId}`);
+    //const res = await axios.get(`http://localhost:3000/products/${productId}`);
+    const res = await axios.get(`https://la-ganga-api.herokuapp.com/products/${productId}`);
     setproduct(res.data.product);
   }
 
