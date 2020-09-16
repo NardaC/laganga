@@ -21,7 +21,7 @@ const GangaDelDia = () => {
   }, []);
 
   return (
-    <Container className="">
+    <div className="margin-box container-ganga">
       <div className="box-gangaDelDia">
         <h1 className="title-ganga">La ganga del día</h1>
         <h5 className="subtitle-ganga">
@@ -33,7 +33,7 @@ const GangaDelDia = () => {
           <Item product={product} key={product._id}/>
         ))}
       </Row>
-    </Container >
+    </div >
   );
 };
 
