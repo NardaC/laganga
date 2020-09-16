@@ -9,7 +9,8 @@ const AllItems = () => {
   const [products, setProducts] = useState([]);
 
   const getProductsDay = async () => {
-    const res = await axios.get('http://localhost:3000/products');
+    //const res = await axios.get('http://localhost:3000/products');
+    const res = await axios.get('https://la-ganga-api.herokuapp.com/products');
     setProducts(res.data.products);
   };
 

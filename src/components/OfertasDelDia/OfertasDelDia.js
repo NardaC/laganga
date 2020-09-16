@@ -9,7 +9,8 @@ const OfertasDelDia = () => {
   const [products, setProducts] = useState([]);
 
   const getProductsDay = async () => {
-    const res = await axios.get('http://localhost:3000/productsBiggerDiscount');
+    //const res = await axios.get('http://localhost:3000/productsBiggerDiscount');
+    const res = await axios.get('https://la-ganga-api.herokuapp.com/productsBiggerDiscount');
     setProducts(res.data.products);
   };
 

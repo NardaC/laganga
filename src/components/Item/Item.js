@@ -23,7 +23,7 @@ const item = ({product}) => {
           </a>
         </div>
         <div className="box-img-item">
-          <Card.Img variant="top" src={product.imagenURL} />
+          <Card.Img variant="top" src={product.imagenMarcaURL} />
         </div>
         <div className="group-time-item">
           <FontAwesomeIcon icon={faClock} />
