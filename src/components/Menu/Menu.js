@@ -12,23 +12,26 @@ import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
+import Container from "react-bootstrap/Container";
 
 const Menu = () => {
   return (
-    <>
+    <Container className="container-ganga">
       <nav className="navbar navbar-light bg-light justify-content-between ">
         <Link className="navbar-brand" to="/">
           <img src={logo} alt="logo la ganga"  className="logo-ganga"/>
         </Link>
-        <form className="form-inline">
+        <form className="search-container">
           <input
-            className="form-control mr-sm-2"
+            className="search-bar"
             type="search"
-            placeholder="Search"
+            placeholder="Ingresa lo que estas buscando"
             aria-label="Search"
+            autoComplete="off"
+            maxLength="100"
           />
           <button
-            className="btn btn-outline-success my-2 my-sm-0"
+            className="btn  my-2 my-sm-0  search-icon"
             type="submit"
           >
             <FontAwesomeIcon icon={faSearch} />
@@ -36,7 +39,7 @@ const Menu = () => {
         </form>
         <FontAwesomeIcon icon={faUserCircle} />
       </nav>
-    </>
+    </Container>
   );
 };
 

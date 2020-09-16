@@ -18,7 +18,7 @@ const OfertasDelDia = () => {
   }, []);
 
   return (
-    <Container className="">
+    <div className="margin-box container-ganga">
       <div className="box-gangaDelDia">
         <h1 className="title-ganga">Ofertas del día</h1>
       </div>
@@ -27,7 +27,7 @@ const OfertasDelDia = () => {
           <Item product={product} key={product._id}/>
         ))}
       </Row>
-    </Container>
+    </div>
   );
 };
 

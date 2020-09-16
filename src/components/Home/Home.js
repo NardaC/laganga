@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Home.css"
-
+import Container from "react-bootstrap/Container";
 import CarouselBanner from '../CarouselBanner/CarouselBanner'
 import GangaDelDia from '../GangaDelDia/GangaDelDia'
 import OfertasDelDia from '../OfertasDelDia/OfertasDelDia'
@@ -9,7 +9,7 @@ import banner from "../../images/banner/banner-bottom.png"
 
 const Home = () => {
     return (
-        <div>
+        <Container className="container-ganga box-home">
             <CarouselBanner/>
             <GangaDelDia/>
             <OfertasDelDia/>
@@ -17,7 +17,7 @@ const Home = () => {
             <figure>
                 <img src={banner} alt="banner" className="w-100"/>
             </figure>
-        </div>
+        </Container>
     )
 }
 

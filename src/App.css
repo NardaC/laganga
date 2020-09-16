@@ -1,20 +1,81 @@
 @font-face {
-    font-family: "made-tomy-sof-regular";
-    src: url(fonts/MADE\ TOMMY\ SOFT\ REGULAR\ PERSONAL\ USE.OTF);
-  }
+  font-family: "made-tomy-sof-regular";
+  src: url(fonts/MADE\ TOMMY\ SOFT\ REGULAR\ PERSONAL\ USE.OTF);
+}
 
-  .font-made-tomy-sof-regular{
-    font-family: "made-tomy-sof-regular";
-  }
+.font-made-tomy-sof-regular {
+  font-family: "made-tomy-sof-regular";
+}
 
-  .title-ganga {
-    font-family: "made-tomy-sof-regular";
-    font-size: 1.8rem;
-    font-weight: 700;
-  }
+.title-ganga {
+  font-family: "made-tomy-sof-regular";
+  font-size: 1.8rem;
+  font-weight: 700;
+}
 
-  .subtitle-ganga{
-    font-family: "made-tomy-sof-regular";
-    font-size: 1rem;
-    font-weight: 600;
+.subtitle-ganga {
+  font-family: "made-tomy-sof-regular";
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Estilos Judith  :D */
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.margin-box {
+  padding: 0rem 5rem !important;
+}
+/* @media (min-width: 576px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 900px!important;
   }
+  }
+  @media (min-width: 900px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 992px!important;
+  }
+  }
+  @media (min-width: 992px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1200px!important;
+  }
+  }
+  @media (min-width: 1200px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1500px!important;
+  }
+  } */
+.carousel-control-next,
+.carousel-control-prev {
+  width: 8% !important;
+}
+@media (min-width: 576px) {
+  .container-ganga {
+    max-width: 900px !important;
+  }
+}
+@media (min-width: 900px) {
+  .container-ganga {
+    max-width: 992px !important;
+  }
+}
+@media (min-width: 992px) {
+  .container-ganga {
+    max-width: 1200px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .container-ganga {
+    max-width: 1500px !important;
+  }
+}

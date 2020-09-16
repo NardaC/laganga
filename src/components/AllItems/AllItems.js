@@ -18,7 +18,7 @@ const AllItems = () => {
   }, []);
 
   return (
-    <Container className="mb-3">
+    <div className="mb-3 margin-box container-ganga">
       <div className="box-gangaDelDia">
         <h1 className="title-ganga">Todos</h1>
         <h5 className="subtitle-ganga">
@@ -30,7 +30,7 @@ const AllItems = () => {
           <Item product={product} key={product._id}/>
         ))}
       </Row>
-    </Container>
+    </div>
   );
 };
 

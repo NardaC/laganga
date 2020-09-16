@@ -1,0 +1,55 @@
+.fixed-filter{
+    position: fixed;
+    z-index: 100;
+    background-color:#F31454 ;
+    top:200px;
+    padding: 1.5rem 0rem;
+    cursor: pointer;
+}
+.fixed-filter p{
+    color: #ffffff;
+    font-size: 1.2rem;
+    writing-mode: vertical-lr;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0rem;
+    margin-block-start: 0.5em!important;
+    margin-block-end: 0.5em!important;
+}
+.modal-content {
+    padding: 1rem;
+}
+.box-filter h5{
+    font-family: "made-tomy-sof-regular";
+    text-align: center;
+    color:#878787;
+}
+
+hr {
+    margin-top: 0.5rem!important;
+    border: 0;
+    border-top: 1px solid #DEDEDE;
+}
+.icon-category{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.box-marcas{
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-around;
+}
+.btn-category{
+    background-color: #F31454;
+    color:#fff;
+	cursor:pointer;
+	font-weight:500;
+    padding:0.5rem 1rem;
+    width: 50%;
+    outline:none;
+    margin: auto;
+}
+.modal-footer {
+    justify-content: center!important;
+}
