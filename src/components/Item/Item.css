@@ -1,15 +1,21 @@
 .box-img-item{
     background: #f0f0f0;
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .border-card{
     border: 1px solid red!important;
 }
 
+
 .box-img-item img{
-    width: 70%;
+    width: 60%;
     margin: auto;
-    padding: 2rem;
+    padding: 2rem 0rem;
     display: block;
 }
 

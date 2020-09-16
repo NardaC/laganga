@@ -36,35 +36,35 @@ const FilterCategory = () => {
                         <h5>CATEGORIAS</h5>
                         <hr />
                         <div className="icon-category">
-                            <figure>
-                                <img src={categoryRopa} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryRopa} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryDeportes} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryDeportes} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryTecnologia} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryTecnologia} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryCalzado} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryCalzado} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryHogar} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryHogar} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryJuguetes} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryJuguetes} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryElectroHogar} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryElectroHogar} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryBelleza} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryBelleza} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryNuevos} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryNuevos} alt="banner" className="w-70" />
                             </figure>
-                            <figure>
-                                <img src={categoryOficina} alt="banner" className="w-20" />
+                            <figure className="">
+                                <img src={categoryOficina} alt="banner" className="w-70" />
                             </figure>
                         </div>
                     </div>

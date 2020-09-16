@@ -32,8 +32,13 @@ hr {
 .icon-category{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     
+}
+.icon-category figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .box-marcas{
     padding: 1.5rem 4rem;
@@ -53,3 +58,6 @@ hr {
 .modal-footer {
     justify-content: center!important;
 }
+.w-70{
+    width: 70%;
+  }
