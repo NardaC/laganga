@@ -19,7 +19,7 @@ const AllItems = () => {
   }, []);
 
   return (
-    <div className="mb-3 margin-box container-ganga">
+    <div className="mb-3 margin-box">
       <div className="box-gangaDelDia">
         <h1 className="title-ganga">Todos</h1>
         <h5 className="subtitle-ganga">

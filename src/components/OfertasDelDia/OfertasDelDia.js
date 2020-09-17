@@ -19,7 +19,7 @@ const OfertasDelDia = () => {
   }, []);
 
   return (
-    <div className="margin-box container-ganga">
+    <div className="margin-box">
       <div className="box-gangaDelDia">
         <h1 className="title-ganga">Ofertas del día</h1>
       </div>
