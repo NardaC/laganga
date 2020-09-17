@@ -12,7 +12,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 const item = ({product}) => {
   return (
     <Link className="col-12 col-sm-4 col-lg-3 mb-4" to={"/item-especific/" + product._id}>
-      <Card className="border-card">
+      <Card className={product.categoria == 'deporte' ? 'border-card-red' : product.categoria == 'calzado' ? 'border-card-blue' : 'border-card-green' }>
         <div className="tag-offer">-{product.descuento}% Sale</div>
         <div className="group-btn-like">
           <a href="https://react-bootstrap.netlify.app/components/alerts/#additional-content">
