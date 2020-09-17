@@ -7,8 +7,16 @@
     
 }
 
-.border-card{
+.border-card-red{
     border: 1px solid red!important;
+}
+
+.border-card-green{
+    border: 1px solid green!important;
+}
+
+.border-card-blue{
+    border: 1px solid blue!important;
 }
 
 
