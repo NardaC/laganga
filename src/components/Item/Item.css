@@ -31,10 +31,12 @@
     font-family: "made-tomy-sof-regular";
     font-size: .8rem;
     margin-bottom: .2rem!important;
+    color: #000;
 }
 .subtitle-item{
     font-family: "made-tomy-sof-regular";
     font-size: .7rem;
+    color: #08131F;
 }
 
 .tag-offer{
@@ -53,6 +55,7 @@
     right: .5rem;
     top: .5rem;
     font-size: 1rem;
+    
 }
 
 .btn-share{
@@ -63,6 +66,12 @@
 .btn-like{
     margin-left: .5rem;
     margin-right: .5rem;
+    color: #8C8C8C
+}
+
+.btn-like:hover, .btn-like:focus{
+    color: #F31454;
+    cursor: pointer;
 }
 
 .group-time-item{
@@ -71,4 +80,9 @@
     margin-left: 1rem;
     font-size: .9rem;
     margin-top: .5rem;
+}
+
+.item-chronometer{
+    color: #08131F;
+    font-weight: 600;
 }
