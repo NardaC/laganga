@@ -14,7 +14,7 @@ function App() {
 const [filterSearch, setFilterSearch] = React.useState([]);
   const functionFilterSearch =  (arrayFilter) => {
     setFilterSearch(arrayFilter);
-  };
+  }
   return (
     <Router className="box-home">
       <Menu functionFilterSearch={functionFilterSearch}/>
