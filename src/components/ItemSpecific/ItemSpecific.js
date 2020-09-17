@@ -28,9 +28,9 @@ const ItemSpecific = () => {
   }, [])
 
   return (
-    <div className="pt-4 box-home">
+    <Container className="pt-4 box-home container-ganga">
       <h4 className="title-ganga title-especific">{product.nombre}</h4>
-      <Container className="box-details">
+      <div className="box-details margin-box">
         <figure className="w-50 p-3">
           <img src={product.imagenURL} alt="" className="w-100" />
         </figure>
@@ -45,9 +45,9 @@ const ItemSpecific = () => {
           </div>
           <Button>Ir a la web</Button>
         </div>
-      </Container>
-      <Container>
-      <div className="box-gangaDelDia">
+      </div>
+      <div >
+      <div className="box-gangaDelDia margin-box">
           <h1 className="title-ganga">Productos similares</h1>
         </div>
         <Row className="justify-content-md-center ">
@@ -56,11 +56,11 @@ const ItemSpecific = () => {
           <Item />
           <Item />*/}
         </Row>
-      </Container>
+      </div>
       <figure>
                 <img src={banner} alt="banner" className="w-100"/>
             </figure>
-    </div>
+    </Container>
   );
 };
 
