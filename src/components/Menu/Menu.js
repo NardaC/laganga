@@ -30,8 +30,8 @@ const Menu = ({ functionFilterSearch }) => {
   
           return campo.indexOf(textData) > -1;
         });
-         console.log(newData.length, "judith")
-         functionFilterSearch(newData);
+         localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData))
+        //  functionFilterSearch(newData);
          history.push("/buscar/" + textInput);
       
        }
