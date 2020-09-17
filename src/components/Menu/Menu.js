@@ -16,20 +16,26 @@ const Menu = ({ functionFilterSearch }) => {
   let history = useHistory();
   const filterForm = (e) => {
     e.preventDefault();
-    const textInput = searchWord;
-    const dataInput = products;
-    const newData = dataInput.filter(function(item) {
-      const itemData = item.nombre.toUpperCase();
-      const itemDataDescp = item.categoria.toUpperCase();
-      const campo = itemData + " " + itemDataDescp;
-      const textData = textInput.toUpperCase();
-
-      return campo.indexOf(textData) > -1;
-    });
-
-    functionFilterSearch(newData, textInput);
-    console.log(products, "juju");
-    history.push("/buscar/" + textInput);
+      const textInput = searchWord;
+      const dataInput = products;
+      if(textInput===""){
+        
+        return  history.push("/");
+       } else {
+        const newData = dataInput.filter(function (item) {
+          const itemData = item.nombre.toUpperCase();
+          const itemDataDescp = item.categoria.toUpperCase();
+          const campo = itemData + " " + itemDataDescp;
+          const textData = textInput.toUpperCase();
+  
+          return campo.indexOf(textData) > -1;
+        });
+         console.log(newData.length, "judith")
+         functionFilterSearch(newData);
+         history.push("/buscar/" + textInput);
+      
+       }
+     
   };
 
   const getProducts = async () => {
