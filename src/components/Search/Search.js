@@ -9,7 +9,6 @@ import {
 const Search = ({ filterSearch }) => {
     let { searchWords } = useParams();
     console.log(JSON.parse(localStorage.getItem("searchFilterLocalStorage")))
-    console.log(filterSearch, "judith13")
     return (
         <Container className="container-ganga margin-box" >
             <div className="box-search">
