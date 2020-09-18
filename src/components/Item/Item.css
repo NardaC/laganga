@@ -1,88 +1,89 @@
-.box-img-item{
-    background: #f0f0f0;
-    height: 9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+.box-img-item {
+  background: #f0f0f0;
+  height: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.border-deporte{
-    border: 1px solid red!important;
+.border-deporte {
+  border: 1px solid red !important;
 }
 
-.border-tecnologia{
-    border: 1px solid green!important;
+.border-tecnologia {
+  border: 1px solid green !important;
 }
 
-.border-calzado{
-    border: 1px solid blue!important;
+.border-calzado {
+  border: 1px solid blue !important;
 }
 
-
-.box-img-item img{
-    width: 50%;
-    margin: auto;
-    padding: 2rem 0rem;
-    display: block;
+.box-img-item img {
+  width: 50%;
+  margin: auto;
+  padding: 2rem 0rem;
+  display: block;
 }
 
-.title-item{
-    font-family: "made-tomy-sof-regular";
-    font-size: .8rem;
-    margin-bottom: .2rem!important;
-    color: #000;
+.title-item {
+  font-family: "made-tomy-sof-regular";
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem !important;
+  color: #000;
 }
-.subtitle-item{
-    font-family: "made-tomy-sof-regular";
-    font-size: .7rem;
-    color: #08131F;
-}
-
-.tag-offer{
-    border: 1px solid red;
-    position: absolute;
-    left: .5rem;
-    top: .5rem;
-    color: red;
-    border-radius: 5px;
-    padding: .2rem .4rem;
-    font-size: .7rem;
+.subtitle-item {
+  font-family: "made-tomy-sof-regular";
+  font-size: 0.7rem;
+  color: #08131f;
 }
 
-.group-btn-like{
-    position: absolute;
-    right: .5rem;
-    top: .5rem;
-    font-size: 1rem;
-    
+.tag-offer {
+  border: 1px solid red;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  color: red;
+  border-radius: 5px;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.7rem;
 }
 
-.btn-share{
-    margin-left: .5rem;
-    margin-right: .5rem;
+.group-btn-like {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  font-size: 1rem;
 }
 
-.btn-like{
-    margin-left: .5rem;
-    margin-right: .5rem;
-    color: #8C8C8C
+.btn-share {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-.btn-like:hover, .btn-like:focus{
-    color: #F31454;
-    cursor: pointer;
+.btn-like {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: #8c8c8c;
 }
 
-.group-time-item{
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-    font-size: .9rem;
-    margin-top: .5rem;
+.btn-like:hover,
+.btn-like:focus {
+  color: #f31454;
+  cursor: pointer;
 }
 
-.item-chronometer{
-    color: #08131F;
-    font-weight: 600;
+.group-time-item {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.item-chronometer {
+  color: #08131f;
+  font-weight: 600;
+}
+.item-carousel div {
+  max-width: 100% !important;
 }

@@ -3,12 +3,31 @@ import Item from "../Item/Item";
 import axios from 'axios';
 
 import "./GangaDelDia.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import CardDeck from "react-bootstrap/CardDeck";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const GangaDelDia = () => {
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 4,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+const GangaDelDia = (props) => {
   const [products, setProducts] = useState([]);
 
   const getProductsDay = async () => {
@@ -29,11 +48,23 @@ const GangaDelDia = () => {
           Aprovecha las mejores marcas, con el descuento que tú deseas.
         </h5>
       </div>
-      <Row className="justify-content-md-center ">
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={props.deviceType !== "mobile" ? true : false}
+        autoPlaySpeed={2000}
+        deviceType={props.deviceType}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        swipeable={false}
+        draggable={false}
+        showDots={false}
+      >
         {products.map((product) => (
-          <Item product={product} key={product._id}/>
+          <div className="item-carousel">
+            <Item product={product} key={product._id} />
+          </div>
         ))}
-      </Row>
+      </Carousel>
     </div >
   );
 };

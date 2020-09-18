@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 import "./Item.css";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
+// import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 const item = ({ product }) => {
   return (
@@ -25,7 +24,7 @@ const item = ({ product }) => {
         <div className="box-img-item">
           <Card.Img variant="top" src={product.imagenMarcaURL} />
         </div>
-        <Link to={"/item-especific/" + product._id} className="link">
+        <a href={"/item-especific/" + product._id} className="link">
           <div className="group-time-item">
             <FontAwesomeIcon icon={faClock} />
             <div className="ml-2 item-chronometer">5D 4h 1M</div>
@@ -35,9 +34,8 @@ const item = ({ product }) => {
             <Card.Text className="subtitle-item">
               {product.descripcion}
             </Card.Text>
-            {/* <Button variant="primary">Ver más</Button> */}
           </Card.Body>
-        </Link>
+        </a>
       </Card>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
+
 import Carousel from "react-bootstrap/Carousel";
 import banner1M from "../../images/banner/banner1-mobile.png";
 import banner2M from "../../images/banner/banner2-mobile.png";
