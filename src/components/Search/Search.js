@@ -4,6 +4,7 @@ import "./search.css";
 import Item from "./../Item/Item";
 import { useParams } from "react-router-dom";
 
+
 const Search = ({ filterSearch }) => {
   let { searchWords } = useParams();
   console.log(JSON.parse(localStorage.getItem("searchFilterLocalStorage")));
