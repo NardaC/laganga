@@ -1,16 +1,38 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import Item from "../Item/Item";
 
-const OfertasDelDia = () => {
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 4,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+const OfertasDelDia = (props) => {
   const [products, setProducts] = useState([]);
 
   const getProductsDay = async () => {
     //const res = await axios.get('http://localhost:3000/productsBiggerDiscount');
-    const res = await axios.get('https://la-ganga-api.herokuapp.com/productsBiggerDiscount');
+    const res = await axios.get(
+      "https://la-ganga-api.herokuapp.com/productsBiggerDiscount"
+    );
     setProducts(res.data.products);
   };
 
@@ -23,11 +45,24 @@ const OfertasDelDia = () => {
       <div className="box-gangaDelDia">
         <h1 className="title-ganga">Ofertas del día</h1>
       </div>
-      <Row className="justify-content-md-center ">
+
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={props.deviceType !== "mobile" ? true : false}
+        autoPlaySpeed={2000}
+        deviceType={props.deviceType}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        swipeable={true}
+        draggable={false}
+        showDots={false}
+      >
         {products.map((product) => (
-          <Item product={product} key={product._id}/>
+          <div className="item-carousel">
+            <Item product={product} key={product._id} />
+          </div>
         ))}
-      </Row>
+      </Carousel>
     </div>
   );
 };
