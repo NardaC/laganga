@@ -18,7 +18,7 @@ const Category = () => {
     useEffect(() => {
         getProductsDay();
         const filter = products.filter(
-            product => product.categoria === "deporte"
+            product => product.categoria === category
         )
         setFilterCategory(filter)
     }, [products]);
