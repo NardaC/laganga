@@ -6,27 +6,27 @@ import { useParams } from "react-router-dom";
 
 
 const Category = () => {
-    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [filterCategory, setFilterCategory] = useState([]);
     const { category } = useParams();
 
-    const getProductsDay = async () => {
+    const getCategory = async () => {
         //const res = await axios.get('http://localhost:3000/products');
-        const res = await axios.get('https://la-ganga-api.herokuapp.com/products');
-        setProducts(res.data.products);
+        const res = await axios.get(`https://la-ganga-api.herokuapp.com/category/${category}`);
+        setCategories(res.data.categories);
     };
     useEffect(() => {
-        getProductsDay();
-        const filter = products.filter(
-            product => product.categoria === category
+        getCategory();
+        /*const filter = products.filter(
+            product => product.categoria === "deporte"
         )
-        setFilterCategory(filter)
-    }, [products]);
+        setFilterCategory(filter)*/
+    }, [categories]);
 
     return (
         <Container className="container-ganga margin-box">
             <div className="box-category">
-                <h4>Categoría: {category}</h4>
+                <h4>Categoría: {categories}</h4>
             </div>
             <Row className="justify-content-md-center ">
                 { filterCategory.map(
