@@ -12,7 +12,7 @@ const item = ({ product }) => {
   return (
     <div className="col-12 col-sm-4 col-lg-3 mb-4">
       <Card className={"border-" + product.categoria}>
-        <div className="tag-offer">-{product.descuento}% Sale</div>
+        <div className="tag-offer">-{product.descuento}%</div>
         <div className="group-btn-like">
           {/* <a href="https://react-bootstrap.netlify.app/components/alerts/#additional-content">
             <FontAwesomeIcon icon={faShareAlt} className="btn-share" />

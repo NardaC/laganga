@@ -13,6 +13,7 @@ const Category = () => {
     const getCategory = async () => {
         //const res = await axios.get('http://localhost:3000/products');
         const res = await axios.get(`https://la-ganga-api.herokuapp.com/category/${category}`);
+        console.log("capturando datos de", res);
         setCategories(res.data.categories);
     };
     useEffect(() => {

@@ -6,17 +6,38 @@
   justify-content: center;
 }
 
+.border-ropa {
+  border: 1px solid #FF8629 !important;
+}
 .border-deporte {
-  border: 1px solid red !important;
+  border: 1px solid #FF003B !important;
 }
-
 .border-tecnologia {
-  border: 1px solid green !important;
+  border: 1px solid #A74FFF !important;
+}
+.border-calzado {
+  border: 1px solid #A74FFF !important;
+}
+.border-hogar {
+  border: 1px solid #2FC33A !important;
+}
+.border-juguete {
+  border: 1px solid #FF3552 !important;
+}
+.border-electroHogar {
+  border: 1px solid #3890E3 !important;
+}
+.border-belleza {
+  border: 1px solid #FF8DD1 !important;
+}
+.border-nuevo {
+  border: 1px solid #FFF6CD !important;
+}
+.border-escolarOficina {
+  border: 1px solid #7E4FFF !important;
 }
 
-.border-calzado {
-  border: 1px solid blue !important;
-}
+
 
 .box-img-item img {
   width: 50%;
