@@ -12,12 +12,7 @@ const Category = () => {
     const getProductsDay = async () => {
         //const res = await axios.get('http://localhost:3000/products');
         const res = await axios.get(`https://la-ganga-api.herokuapp.com/category/${category}`);
-<<<<<<< HEAD
-        console.log("capturando datos de", res);
-        setCategories(res.data.categories);
-=======
         setCategories(res.data.category);
->>>>>>> 94d0d0990996a84745f9de2faf6cd062da937894
     };
     useEffect(() => {
         getProductsDay();
