@@ -27,7 +27,7 @@ const ItemSpecific = () => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [productId]);
 
   return (
     <Container className="pt-4 box-home container-ganga fade-in animated">

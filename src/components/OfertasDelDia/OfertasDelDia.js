@@ -50,7 +50,7 @@ const OfertasDelDia = (props) => {
         responsive={responsive}
         infinite={true}
         autoPlay={props.deviceType !== "mobile" ? true : false}
-        autoPlaySpeed={2000}
+        autoPlaySpeed={2500}
         deviceType={props.deviceType}
         removeArrowOnDeviceType={["tablet", "mobile"]}
         swipeable={true}
@@ -58,8 +58,8 @@ const OfertasDelDia = (props) => {
         showDots={false}
       >
         {products.map((product) => (
-          <div className="item-carousel">
-            <Item product={product} key={product._id} />
+          <div className="item-carousel" key={product._id} >
+            <Item product={product} />
           </div>
         ))}
       </Carousel>

@@ -42,7 +42,7 @@ const FilterCategory = () => {
        handleClose();
     }
     const filterCategoryJuguetes =()=>{
-        history.push("/category/juguetes");
+        history.push("/category/juguete");
        handleClose();
     }
     const filterCategoryElectroHogar =()=>{
@@ -54,11 +54,11 @@ const FilterCategory = () => {
        handleClose();
     }
     const filterCategoryOficina =()=>{
-        history.push("/category/oficina");
+        history.push("/category/escolarOficina");
        handleClose();
     }
     const filterCategoryNuevos =()=>{
-        history.push("/category/nuevos");
+        history.push("/category/nuevo");
        handleClose();
     }
     
