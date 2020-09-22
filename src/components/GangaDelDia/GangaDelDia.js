@@ -52,16 +52,16 @@ const GangaDelDia = (props) => {
         responsive={responsive}
         infinite={true}
         autoPlay={props.deviceType !== "mobile" ? true : false}
-        autoPlaySpeed={2000}
+        autoPlaySpeed={2800}
         deviceType={props.deviceType}
         removeArrowOnDeviceType={["tablet", "mobile"]}
         swipeable={false}
         draggable={false}
         showDots={false}
       >
-        {products.map((product) => (
-          <div className="item-carousel">
-            <Item product={product} key={product._id} />
+        {products.map((product, index) => (
+          <div className="item-carousel" key={index}>
+            <Item product={product}  />
           </div>
         ))}
       </Carousel>

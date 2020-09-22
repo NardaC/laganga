@@ -42,6 +42,11 @@ hr {
     justify-content: center;
     align-items: center;
 }
+
+.icon-category figure img:hover, .icon-category figure img:focus{
+    cursor: pointer;
+}
+
 .box-marcas{
     padding: 1.5rem 4rem;
     display: flex;
