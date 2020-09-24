@@ -59,7 +59,7 @@ const OfertasDelDia = (props) => {
       >
         {products.map((product) => (
           <div className="item-carousel" key={product._id} >
-            <Item product={product} />
+            <Item product={product}  addInterest={props.addInterest}/>
           </div>
         ))}
       </Carousel>

@@ -81,6 +81,13 @@
   margin-right: 0.5rem;
 }
 
+
+.btn-like-active {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: #f31454;
+}
+
 .btn-like {
   margin-left: 0.5rem;
   margin-right: 0.5rem;

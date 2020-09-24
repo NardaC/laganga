@@ -1,5 +1,6 @@
-import React from "react";
-import {Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./Item.css";
 import Card from "react-bootstrap/Card";
@@ -8,7 +9,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 
-const item = ({ product }) => {
+const Item = ({ product, addInterest}) => {
+
+
   return (
     <div className="col-12 col-sm-4 col-lg-3 mb-4">
       <Card className={"border-" + product.categoria}>
@@ -17,8 +20,12 @@ const item = ({ product }) => {
           {/* <a href="https://react-bootstrap.netlify.app/components/alerts/#additional-content">
             <FontAwesomeIcon icon={faShareAlt} className="btn-share" />
           </a> */}
-          <a href="https://react-bootstrap.netlify.app/components/alerts/#additional-content">
-            <FontAwesomeIcon icon={faHeart} className="btn-like" />
+          <a>
+            <FontAwesomeIcon
+              icon={faHeart}
+              className={product.like? "btn-like-active": "btn-like"}
+              onClick={()=>addInterest(product)}
+            />
           </a>
         </div>
         <div className="box-img-item">
@@ -41,4 +48,4 @@ const item = ({ product }) => {
   );
 };
 
-export default item;
+export default Item;

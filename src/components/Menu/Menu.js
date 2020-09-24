@@ -16,28 +16,31 @@ const Menu = ({ functionFilterSearch }) => {
   let history = useHistory();
   const filterForm = (e) => {
     e.preventDefault();
-      const textInput = searchWord;
-      const dataInput = products;
-      if(textInput===""){
-        
-        return  history.push("/");
-       } else {
-        const newData = dataInput.filter(function (item) {
-          const itemData = item.nombre.toUpperCase();
-          const itemDataDescp = item.categoria.toUpperCase();
-          const campo = itemData + " " + itemDataDescp;
-          const textData = textInput.toUpperCase();
-  
-          return campo.indexOf(textData) > -1;
-        });
-         localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData))
-        //  functionFilterSearch(newData);
-         history.push("/buscar/" + textInput);
-      
-       }
-     
-  };
+    const textInput = searchWord;
+    const dataInput = products;
+    if (textInput === "") {
 
+      return history.push("/");
+    } else {
+      const newData = dataInput.filter(function (item) {
+        const itemData = item.nombre.toUpperCase();
+        const itemDataDescp = item.categoria.toUpperCase();
+        const campo = itemData + " " + itemDataDescp;
+        const textData = textInput.toUpperCase();
+
+        return campo.indexOf(textData) > -1;
+      });
+      localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData))
+      //  functionFilterSearch(newData);
+      history.push("/buscar/" + textInput);
+
+    }
+
+  };
+  const goToRoute =(e)=>{
+     e.preventDefault()
+     return history.push("/interest");
+  }
   const getProducts = async () => {
     //const res = await axios.get('http://localhost:3000/products');
     const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
@@ -70,7 +73,7 @@ const Menu = ({ functionFilterSearch }) => {
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </form>
-        <FontAwesomeIcon icon={faHeart} className="btn-like-menu" />
+        <FontAwesomeIcon icon={faHeart} className="btn-like-menu" onClick={goToRoute} />
         <FontAwesomeIcon icon={faUserCircle} className="btn-like-user" />
       </nav>
     </Container>
