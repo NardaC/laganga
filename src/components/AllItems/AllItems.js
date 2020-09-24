@@ -4,18 +4,7 @@ import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Item from "../Item/Item";
 
-const AllItems = () => {
-  const [products, setProducts] = useState([]);
-
-  const getProductsDay = async () => {
-    //const res = await axios.get('http://localhost:3000/products');
-    const res = await axios.get('https://la-ganga-api.herokuapp.com/products');
-    setProducts(res.data.products);
-  };
-
-  useEffect(() => {
-    getProductsDay();
-  }, []);
+const AllItems = ({products, addInterest, like}) => {
 
   return (
     <div className="mb-3 margin-box">
@@ -27,7 +16,7 @@ const AllItems = () => {
       </div>
       <Row className="justify-content-md-center ">
         {products.map((product) => (
-          <Item product={product} key={product._id}/>
+          <Item product={product} key={product._id} addInterest={addInterest} like= {like} />
         ))}
       </Row>
     </div>

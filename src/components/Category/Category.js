@@ -18,7 +18,7 @@ const Category = () => {
         getProductsDay();
 
     }, [category]);
-      console.log(categories, "judith")
+
     return (
         <Container className="container-ganga margin-box">
             <div className="box-category">
