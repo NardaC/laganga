@@ -10,7 +10,38 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 const Item = ({ product, addInterest}) => {
+  const [text, setText] = useState("");
+  const [dataNueva, setDataNueva] = useState([]);
+  const [dataOriginal, setDataOriginal] = useState([]);
+  const [timeLeft, setTimeLeft] = useState("");
+  const [timeDays, setTimeDays] = useState(0);
+  const [timeHours, setTimeHours] = useState(0);
+  const [timeMinutes, setTimeMinutes] = useState(0);
+  const [timeSeconds, setTimeSeconds] = useState(0);
+  const dateFuture = "10/10/2020"
+  React.useEffect(() => {
+    fetch("data/data.json")
+      .then((response) => response.json())
+      .then((datos) => {
+        setDataOriginal(datos);
+      });
+      calculateTimeLeft(dateFuture)
+    const timer = setInterval(() => {
+        calculateTimeLeft(dateFuture);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
+  const calculateTimeLeft = (dateFuture) => {
+    // let year = new Date().getFullYear(); 
+    const difference = +new Date(dateFuture) - +new Date();
+    if (difference > 0) {
+      setTimeDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
+      setTimeHours(Math.floor((difference / (1000 * 60 * 60)) % 24));
+      setTimeMinutes(Math.floor((difference / 1000 / 60) % 60));
+      setTimeSeconds(Math.floor((difference / 1000) % 60));
+    }
+  };
 
   return (
     <div className="col-12 col-sm-4 col-lg-3 mb-4">
@@ -34,7 +65,7 @@ const Item = ({ product, addInterest}) => {
         <a href={"/item-especific/" + product._id} className="link">
           <div className="group-time-item">
             <FontAwesomeIcon icon={faClock} />
-            <div className="ml-2 item-chronometer">5D 4h 1M</div>
+            <div className="ml-2 item-chronometer">{timeDays}D {timeHours}H  {timeSeconds}S</div>
           </div>
           <Card.Body>
             <Card.Title className="title-item">{product.nombre}</Card.Title>
