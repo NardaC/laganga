@@ -14,7 +14,7 @@ import Interest from "./components/Interest/Interest";
 function App() {
   const [filterSearch, setFilterSearch] = React.useState([]);
   const [products, setProducts] = useState([]);
-  const [arrayInterest, setArrayInterest] = useState(JSON.parse(localStorage.getItem("arrayInterestLocal")));
+  const [arrayInterest, setArrayInterest] = useState([]);
 
   const addInterest = (product) => {
     let registerInterest;

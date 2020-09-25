@@ -49,3 +49,12 @@
   font-size: .9rem;
 }
 
+@media (max-width: 769px) {
+  html {
+    font-size: 4.6vw;
+  }
+  .box-footer{
+    display: none;
+  }
+
+}
