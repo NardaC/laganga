@@ -90,7 +90,18 @@
   html {
     font-size: 4.6vw;
   }
+  .margin-box {
+    padding: 0rem 1rem !important;
+  }
 
+  .title-ganga {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle-ganga {
+    font-size: .9rem;
+  }
+  
 
 }
 

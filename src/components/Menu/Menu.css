@@ -88,3 +88,27 @@ input.search-bar:focus:-ms-input-placeholder {
   color: #f31454;
   cursor: pointer;
 }
+
+
+@media (max-width: 769px) {
+
+  .navbar {
+    padding: 1rem 2rem !important;
+  }
+
+  .search-container{
+    display: none;
+  }
+
+  .btn-like-menu{
+    display: none;
+  }
+
+  .logo-ganga{
+    width: 7rem;
+  }
+
+
+
+
+}
