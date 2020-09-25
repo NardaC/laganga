@@ -10,25 +10,34 @@ import ItemSpecific from "./components/ItemSpecific/ItemSpecific";
 import Search from "./components/Search/Search";
 import Category from "./components/Category/Category";
 import Interest from "./components/Interest/Interest";
-
+import { useLocalStorage } from "./components/Custom/useLocalStorage"
 function App() {
-  const [filterSearch, setFilterSearch] = React.useState([]);
+  const [filterSearch, setFilterSearch] = useState([]);
   const [products, setProducts] = useState([]);
-  const [arrayInterest, setArrayInterest] = useState(JSON.parse(localStorage.getItem("arrayInterestLocal")));
+  const [arrayInterest, setArrayInterest] = useState(() => {
+    try {
+      const item = window.localStorage.getItem("arrayInterestLocal");
+      return item ? JSON.parse(item) : [];
+    } catch (error) {
+      return []
+    }
+  });
 
   const addInterest = (product) => {
     let registerInterest;
 
-  
+
     for (let i = 0; i < products.length; i++) {
       if (products[i]._id === product._id) {
-        registerInterest = products[i]
-        registerInterest.like= true
+        registerInterest = product;
+        registerInterest.like = true;
+        product.like=true
       }
     }
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
-        registerInterest.like= false
+        registerInterest.like = false
+        product.like=false
         return setArrayInterest(arrayInterest.filter(product => product._id !== registerInterest._id))
       }
     }
@@ -54,7 +63,7 @@ function App() {
       <FilterCategory />
       <Switch>
         <Route path="/" exact>
-          <Home products={products} addInterest={addInterest}/>
+          <Home products={products} addInterest={addInterest} />
         </Route>
         <Route path="/interest" exact>
           <Interest products={products} addInterest={addInterest} />
