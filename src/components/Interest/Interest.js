@@ -1,10 +1,11 @@
 import React from 'react';
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import Item from "../Item/Item";
 
 const Interest = ({addInterest}) => {
     return (
-        <div className="mb-3 margin-box">
+        <Container className="mb-3 margin-box container-ganga">
             <div className="box-gangaDelDia">
                 <h1 className="title-ganga">Promociones que te interesan</h1>
                 <h5 className="subtitle-ganga">
@@ -16,7 +17,7 @@ const Interest = ({addInterest}) => {
                     <Item product={product} key={product._id} addInterest={addInterest} />
                 ))}
             </Row>
-        </div>
+        </Container>
     )
 }
 
