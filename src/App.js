@@ -29,13 +29,15 @@ function App() {
 
     for (let i = 0; i < products.length; i++) {
       if (products[i]._id === product._id) {
-        registerInterest = products[i]
-        registerInterest.like = true
+        registerInterest = product;
+        registerInterest.like = true;
+        product.like=true
       }
     }
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
         registerInterest.like = false
+        product.like=false
         return setArrayInterest(arrayInterest.filter(product => product._id !== registerInterest._id))
       }
     }
