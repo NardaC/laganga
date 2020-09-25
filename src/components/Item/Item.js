@@ -25,9 +25,9 @@ const Item = ({ product, addInterest}) => {
       .then((datos) => {
         setDataOriginal(datos);
       });
-      calculateTimeLeft(dateFuture)
+      calculateTimeLeft(product.fechaFinOferta)
     const timer = setInterval(() => {
-        calculateTimeLeft(dateFuture);
+        calculateTimeLeft(product.fechaFinOferta);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -65,10 +65,10 @@ const Item = ({ product, addInterest}) => {
         <a href={"/item-especific/" + product._id} className="link">
           <div className="group-time-item">
             <FontAwesomeIcon icon={faClock} />
-            <div className="ml-2 item-chronometer">{timeDays}D {timeHours}H  {timeSeconds}S</div>
+            <div className="ml-2 item-chronometer">{timeDays}D {timeHours}H  {timeMinutes}M</div>
           </div>
           <Card.Body>
-            <Card.Title className="title-item">{product.nombre}</Card.Title>
+        <Card.Title className="title-item">{product.nombre}{product.fechaFinOferta}</Card.Title>
             <Card.Text className="subtitle-item">
               {product.descripcion}
             </Card.Text>
