@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -10,7 +10,8 @@ import ItemSpecific from "./components/ItemSpecific/ItemSpecific";
 import Search from "./components/Search/Search";
 import Category from "./components/Category/Category";
 import Interest from "./components/Interest/Interest";
-import { useLocalStorage } from "./components/Custom/useLocalStorage"
+import { useLocalStorage } from "./components/Custom/useLocalStorage";
+import MenuMobile from "./components/Menu/MenuMobile";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -20,35 +21,38 @@ function App() {
       const item = window.localStorage.getItem("arrayInterestLocal");
       return item ? JSON.parse(item) : [];
     } catch (error) {
-      return []
+      return [];
     }
   });
 
   const addInterest = (product) => {
     let registerInterest;
 
-
     for (let i = 0; i < products.length; i++) {
       if (products[i]._id === product._id) {
         registerInterest = product;
         registerInterest.like = true;
-        product.like=true
+        product.like = true;
       }
     }
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
-        registerInterest.like = false
-        product.like=false
-        return setArrayInterest(arrayInterest.filter(product => product._id !== registerInterest._id))
+        registerInterest.like = false;
+        product.like = false;
+        return setArrayInterest(
+          arrayInterest.filter(
+            (product) => product._id !== registerInterest._id
+          )
+        );
       }
     }
-    setArrayInterest(arrayInterest => [...arrayInterest, registerInterest])
+    setArrayInterest((arrayInterest) => [...arrayInterest, registerInterest]);
   };
-  localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest))
-  console.log(arrayInterest, "judith")
+  localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
+  console.log(arrayInterest, "judith");
   const getProductsDay = async () => {
     //const res = await axios.get('http://localhost:3000/products');
-    const res = await axios.get('https://la-ganga-api.herokuapp.com/products');
+    const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
     setProducts(res.data.products);
   };
   useEffect(() => {
@@ -56,7 +60,10 @@ function App() {
   }, []);
   const functionFilterSearch = (arrayFilter) => {
     setFilterSearch(arrayFilter);
-  }
+  };
+
+  const width = window.innerWidth;
+  const breakpoint = 768;
 
   return (
     <Router className="box-home">
@@ -79,7 +86,7 @@ function App() {
           <Category />
         </Route>
       </Switch>
-      <Footer />
+      {width < breakpoint ? <MenuMobile /> : <Footer />}
     </Router>
   );
 }
