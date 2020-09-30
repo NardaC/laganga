@@ -90,6 +90,22 @@ input.search-bar:focus:-ms-input-placeholder {
 }
 
 
+.navbar-brand{
+  margin-right: 0rem!important;
+}
+
+
+.foo img:last-child {
+  display: none
+}
+
+.foo:hover img:first-child {
+  display: none
+}
+
+.foo:hover img:last-child {
+  display: inline-block
+}
 @media (max-width: 769px) {
 
   .navbar {

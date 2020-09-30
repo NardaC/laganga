@@ -68,3 +68,10 @@ hr {
 .w-70{
     width: 70%;
   }
+
+  @media (max-width: 769px) {
+    .fixed-filter{
+        display: none;
+    }
+
+}
