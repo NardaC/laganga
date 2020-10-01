@@ -17,6 +17,7 @@ const Item = ({ product, addInterest}) => {
   const [timeDays, setTimeDays] = useState(0);
   const [timeHours, setTimeHours] = useState(0);
   const [timeMinutes, setTimeMinutes] = useState(0);
+  const [agotadoProduct, setAgotadoProduct] = useState("");
   const [timeSeconds, setTimeSeconds] = useState(0);
   const dateFuture = "10/10/2020"
   React.useEffect(() => {
@@ -40,6 +41,8 @@ const Item = ({ product, addInterest}) => {
       setTimeHours(Math.floor((difference / (1000 * 60 * 60)) % 24));
       setTimeMinutes(Math.floor((difference / 1000 / 60) % 60));
       setTimeSeconds(Math.floor((difference / 1000) % 60));
+    } else {
+      setAgotadoProduct("Promoción Agotada")
     }
   };
 
@@ -65,7 +68,10 @@ const Item = ({ product, addInterest}) => {
         <a href={"/item-especific/" + product._id} className="link">
           <div className="group-time-item">
             <FontAwesomeIcon icon={faClock} />
-            <div className="ml-2 item-chronometer">{timeDays}D {timeHours}H  {timeMinutes}M</div>
+            {
+               agotadoProduct==="" ? (<div className="ml-2 item-chronometer">{timeDays}D {timeHours}H  {timeMinutes}M</div> ):(<div className="ml-2 item-chronometer">{agotadoProduct}</div>)
+            }
+            
           </div>
           <Card.Body>
         <Card.Title className="title-item">{product.nombre}{product.fechaFinOferta}</Card.Title>
