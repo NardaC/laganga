@@ -74,7 +74,7 @@ const Item = ({ product, addInterest}) => {
             
           </div>
           <Card.Body>
-        <Card.Title className="title-item">{product.nombre}{product.fechaFinOferta}</Card.Title>
+        <Card.Title className="title-item">{product.nombre}</Card.Title>
             <Card.Text className="subtitle-item">
               {product.descripcion}
             </Card.Text>
