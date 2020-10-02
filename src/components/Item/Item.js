@@ -53,27 +53,26 @@ const Item = ({ product, addInterest }) => {
           -{product.descuento}%
         </div> */}
 
-
+        {product.tipoDescuento === 'freeShipping' ?
         <div className="box-tag-offer">
           <div className="box-free-shipping">
             <div className="letter-free">free</div>
             <div className="box-letter-free">shipping</div>
           </div>
         </div>
-
-
-        {/* <div className="box-tag-offer">
+          : product.tipoDescuento === '3x2' ?
+        <div className="box-tag-offer">
           <div className="box-x">
             3x2
           </div>
-        </div> */}
-
-
-        {/* <div className="box-tag-offer">
+        </div>
+        :
+        <div className="box-tag-offer">
           <div className="box-porcent">
-            -25%
+            -{product.descuento}%
           </div>
-        </div> */}
+        </div>
+        }
 
 
 
