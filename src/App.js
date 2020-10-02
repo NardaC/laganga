@@ -76,13 +76,13 @@ function App() {
         <Route path="/interest" exact>
           <Interest products={products} addInterest={addInterest} />
         </Route>
-        <Route path="/item-especific/:productId">
+        <Route path="/item-especific/:productId" exact>
           <ItemSpecific />
         </Route>
-        <Route path="/buscar/:searchWords">
+        <Route path="/buscar/:searchWords" exact>
           <Search filterSearch={filterSearch} />
         </Route>
-        <Route path="/category/:category">
+        <Route path="/category/:category" exact>
           <Category />
         </Route>
       </Switch>

@@ -15,7 +15,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 const ItemSpecific = () => {
   const { productId } = useParams();
-  const [product, setproduct] = useState({});
+  const [product, setproduct] = useState([]);
 
   const getProduct = async () => {
     //const res = await axios.get(`http://localhost:3000/products/${productId}`);
