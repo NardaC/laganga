@@ -12,6 +12,7 @@ import Category from "./components/Category/Category";
 import Interest from "./components/Interest/Interest";
 import { useLocalStorage } from "./components/Custom/useLocalStorage";
 import MenuMobile from "./components/Menu/MenuMobile";
+import PromoSimilar from "./components/PromoSimilar/PromoSimilar";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -84,6 +85,7 @@ function App() {
         </Route>
         <Route path="/category/:category" exact>
           <Category />
+          <PromoSimilar/>
         </Route>
       </Switch>
       {width < breakpoint ? <MenuMobile /> : <Footer />}
