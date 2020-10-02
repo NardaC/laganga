@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 
 const Category = () => {
     const [categories, setCategories] = useState([]);
+
     const { category } = useParams();
 
     const getProductsDay = async () => {

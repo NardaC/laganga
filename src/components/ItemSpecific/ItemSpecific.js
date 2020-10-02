@@ -12,10 +12,11 @@ import { Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import banner from "../../images/banner/banner-bottom.png";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
+import PromoSimilar from "../PromoSimilar/PromoSimilar";
 
 const ItemSpecific = () => {
   const { productId } = useParams();
-  const [product, setproduct] = useState({});
+  const [product, setproduct] = useState([]);
 
   const getProduct = async () => {
     //const res = await axios.get(`http://localhost:3000/products/${productId}`);
@@ -23,6 +24,7 @@ const ItemSpecific = () => {
       `https://la-ganga-api.herokuapp.com/products/${productId}`
     );
     setproduct(res.data.product);
+    //setCategory(res.data.product.categoria);
   };
 
   useEffect(() => {
@@ -62,7 +64,8 @@ const ItemSpecific = () => {
       </div>
       <div>
         <div className="box-gangaDelDia margin-box">
-          <h1 className="title-ganga">Productos similares</h1>
+          <h1 className="title-producto-similar">Productos similares</h1>
+          <PromoSimilar category={product.categoria}/>
         </div>
         <Row className="justify-content-md-center ">
           {/*<Item />
