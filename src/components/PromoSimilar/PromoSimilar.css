@@ -1,0 +1,12 @@
+.box-gangaDelDia {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+@media (max-width: 769px) {
+
+  .box-gangaDelDia{
+    margin: 1.2rem 2rem 2rem 2rem;
+  }
+}
