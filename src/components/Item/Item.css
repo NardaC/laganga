@@ -113,6 +113,7 @@
 .item-chronometer {
   color: #08131f;
   font-weight: 600;
+  margin-left: .5rem;
 }
 .item-carousel div {
   max-width: 100% !important;
@@ -165,6 +166,68 @@
 .card{
   flex-direction: row!important;
   height: 9rem!important;
+  width: 100% ;
+}
+
+.box-tag-offer{
+  position: absolute;
+  left: 8%;
+  transform: translateX(-8%);
+  top: 8%;
+}
+
+.box-free-shipping{
+  width: 100%;
+}
+
+.box-porcent{
+position: relative;
+left: 15%;
+}
+
+.box-x{
+  position: relative;
+  left: 17%;
+}
+.box-img-item img{
+  width: 40%;
+  padding: 0rem;
+  position: relative;
+  top: 10%;
+}
+
+.box-img-item{
+  width: 40%;
+  height: 7.2rem;
+}
+
+.body-card{
+  width: 60%;
+}
+
+.group-time-item{
+  font-size: .7rem;
+  position: absolute;
+  bottom: 3%;
+  left: 1%;
+  margin-left: 0rem;
+}
+
+.item-chronometer{
+  margin-left: .2rem;
+}
+
+.title-item{
+  font-size: 1.1rem!important;
+}
+
+.subtitle-item{
+  font-size: .7rem;
+}
+.card-body{
+  /* position: relative;
+  top: 6%; */
+  padding: 1.6rem 1rem 1rem .8rem!important;
 }
 
 }

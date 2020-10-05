@@ -88,15 +88,15 @@ const Item = ({ product, addInterest }) => {
         <div className="box-img-item">
           <Card.Img variant="top" src={product.imagenMarcaURL} />
         </div>
-        <a href={"/item-especific/" + product._id} className="link">
+        <a href={"/item-especific/" + product._id} className="link body-card">
           <div className="group-time-item">
             <FontAwesomeIcon icon={faClock} />
             {agotadoProduct === "" ? (
-              <div className="ml-2 item-chronometer">
+              <div className=" item-chronometer">
                 {timeDays}D {timeHours}H {timeMinutes}M
               </div>
             ) : (
-              <div className="ml-2 item-chronometer">{agotadoProduct}</div>
+              <div className=" item-chronometer">{agotadoProduct}</div>
             )}
           </div>
           <Card.Body>
