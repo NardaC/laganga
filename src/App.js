@@ -87,11 +87,19 @@ function App() {
         <Route path="/buscar/:searchWords" exact>
           <Search filterSearch={filterSearch} />
         </Route>
-        <Route path="/category/:category" exact>
-          
+        <Route path="/category/:category?&:marca?">
+
           <Category />
           <PromoSimilar/>
         </Route>
+        {/* <Route path="/category/:category">
+          <Category />
+          <PromoSimilar/>
+        </Route>
+        <Route path="/category/:marca">
+          <Category />
+          <PromoSimilar/>
+        </Route> */}
       </Switch>
       {width < breakpoint ? <MenuMobile /> : <Footer />}
     </Router>

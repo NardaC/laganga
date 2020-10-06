@@ -18,66 +18,66 @@ import { useHistory } from "react-router-dom";
 
 const FilterCategory = () => {
     const [show, setShow] = useState(false);
-    const [valueCategory, setValueCategory] = useState("");
-    const [valueMarca, setValueMarca] = useState("");
+    const [valueCategory, setValueCategory] = useState('category=""');
+    const [valueMarca, setValueMarca] = useState('marca:""');
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     let history = useHistory();
-    const filterCategoryRopa = () => {
-        // history.push("/category/ropa");
-        // handleClose();
-    };
-    const filterCategoryDeporte = () => {
-        history.push("/category/deporte");
-        handleClose();
-    };
-    const filterCategoryTecnologia = () => {
-        history.push("/category/tecnologia");
-        handleClose();
-    };
-    const filterCategoryCalzado = () => {
-        history.push("/category/calzado");
-        handleClose();
-    };
-    const filterCategoryHogar = () => {
-        history.push("/category/hogar");
-        handleClose();
-    };
-    const filterCategoryJuguetes = () => {
-        history.push("/category/juguete");
-        handleClose();
-    };
-    const filterCategoryElectroHogar = () => {
-        history.push("/category/electroHogar");
-        handleClose();
-    };
-    const filterCategoryBelleza = () => {
-        history.push("/category/belleza");
-        handleClose();
-    };
-    const filterCategoryOficina = () => {
-        history.push("/category/escolarOficina");
-        handleClose();
-    };
-    const filterCategoryNuevos = () => {
-        history.push("/category/nuevo");
-        handleClose();
-    };
+    // const filterCategoryRopa = () => {
+    //     // history.push("/category/ropa");
+    //     // handleClose();
+    // };
+    // const filterCategoryDeporte = () => {
+    //     history.push("/category/deporte");
+    //     handleClose();
+    // };
+    // const filterCategoryTecnologia = () => {
+    //     history.push("/category/tecnologia");
+    //     handleClose();
+    // };
+    // const filterCategoryCalzado = () => {
+    //     history.push("/category/calzado");
+    //     handleClose();
+    // };
+    // const filterCategoryHogar = () => {
+    //     history.push("/category/hogar");
+    //     handleClose();
+    // };
+    // const filterCategoryJuguetes = () => {
+    //     history.push("/category/juguete");
+    //     handleClose();
+    // };
+    // const filterCategoryElectroHogar = () => {
+    //     history.push("/category/electroHogar");
+    //     handleClose();
+    // };
+    // const filterCategoryBelleza = () => {
+    //     history.push("/category/belleza");
+    //     handleClose();
+    // };
+    // const filterCategoryOficina = () => {
+    //     history.push("/category/escolarOficina");
+    //     handleClose();
+    // };
+    // const filterCategoryNuevos = () => {
+    //     history.push("/category/nuevo");
+    //     handleClose();
+    // };
     const sendFilter = (e) => {
-        history.push(`/category/${valueCategory} ${valueMarca}`);
-        setValueCategory("");
-        setValueMarca("");
+        e.preventDefault();
+        history.push(`/category/${valueCategory}&${valueMarca}`);
+        setValueCategory('category=""');
+        setValueMarca('marca=""');
         handleClose()
 
     }
     const handleInputChangeCategory = (e) => {
-        setValueCategory(e.target.value);
+        setValueCategory(`category=${e.target.value}`);
     }
     const handleInputChangeMarca = (e) => {
-        setValueMarca(e.target.value);
+        setValueMarca(`marca=${e.target.value}`);
     }
-    console.log(valueCategory, "juju")
-    console.log(valueMarca, "jmarca")
+
     return (
         <Container className="container-ganga">
             <div className="fixed-filter" onClick={handleShow}>
@@ -200,7 +200,7 @@ const FilterCategory = () => {
                             </form>
                         </div> */}
                         <div className="box-marcas">
-                            <input type="radio" name="marcas" value="adidas" id="adidas" onChange={handleInputChangeMarca} />
+                            <input type="radio" name="marcas" value="Adidas" id="adidas" onChange={handleInputChangeMarca} />
                             <label htmlFor="adidas">Adidas</label>
                             <input type="radio" name="marcas" value="fila" id="fila" onChange={handleInputChangeMarca} />
                             <label htmlFor="fila">Fila</label>
