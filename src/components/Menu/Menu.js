@@ -1,7 +1,9 @@
 import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import "./Menu.css";
+
 import logo from "../../images/logo-ganga.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -70,7 +72,7 @@ const Menu = ({ functionFilterSearch }) => {
             maxLength="100"
           />
           <button className="btn  my-2 my-sm-0  search-icon" type="submit">
-            <FontAwesomeIcon icon={faSearch} />
+            <FontAwesomeIcon icon={faSearch} className="" />
           </button>
         </form>
         <FontAwesomeIcon icon={faHeart} className="btn-like-menu" onClick={goToRoute} />

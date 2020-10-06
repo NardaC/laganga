@@ -13,6 +13,7 @@ import Interest from "./components/Interest/Interest";
 import { useLocalStorage } from "./components/Custom/useLocalStorage";
 import MenuMobile from "./components/Menu/MenuMobile";
 import PromoSimilar from "./components/PromoSimilar/PromoSimilar";
+import Construccion from "./components/Construccion/Construccion";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -80,10 +81,14 @@ function App() {
         <Route path="/item-especific/:productId" exact>
           <ItemSpecific />
         </Route>
+        <Route path="/en-cosntruccion" exact>
+        <Construccion></Construccion>
+        </Route>
         <Route path="/buscar/:searchWords" exact>
           <Search filterSearch={filterSearch} />
         </Route>
         <Route path="/category/:category?&:marca?">
+
           <Category />
           <PromoSimilar/>
         </Route>

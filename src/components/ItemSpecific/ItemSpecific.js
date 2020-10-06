@@ -48,6 +48,23 @@ const ItemSpecific = () => {
               <FontAwesomeIcon icon={faHeart} className="btn-like-especific" />
             </div>
           </div>
+          {product.tipoDescuento === "freeShipping" ? (
+            <div className="box-tag-offer-especific">
+              <div className="box-free-shipping">
+                <div className="letter-free">free</div>
+                <div className="box-letter-free">shipping</div>
+              </div>
+            </div>
+          ) : product.tipoDescuento === "3x2" ? (
+            <div className="box-tag-offer-especific">
+              <div className="box-x">3x2</div>
+            </div>
+          ) : (
+            <div className="box-tag-offer-especific">
+              <div className="box-porcent">-{product.descuento}%</div>
+            </div>
+          )}
+          <img src={product.imagenMarcaURL} alt="" className="marca-especific"/>
         </figure>
         <div></div>
         <div className="box-details-especific">
@@ -55,7 +72,7 @@ const ItemSpecific = () => {
             {product.descripcion}
           </h3>
           <div className="group-time">
-            <FontAwesomeIcon icon={faClock} className="img-clock"/>
+            <FontAwesomeIcon icon={faClock} className="img-clock" />
             <div className="ml-2">5D 4h 1M</div>
           </div>
           <div className="description-especific">{product.descripcion}</div>
@@ -65,7 +82,7 @@ const ItemSpecific = () => {
       <div>
         <div className="box-gangaDelDia margin-box">
           <h1 className="title-producto-similar">Productos similares</h1>
-          <PromoSimilar category={product.categoria}/>
+          <PromoSimilar category={product.categoria} />
         </div>
         <Row className="justify-content-md-center ">
           {/*<Item />

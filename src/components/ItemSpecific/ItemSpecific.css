@@ -86,3 +86,54 @@
 .title-producto-similar {
   margin-bottom: 40px;
 }
+.box-tag-offer-especific{
+  position: absolute;
+  top: 10%;
+  left: 0;
+  background-color: #fff;
+  padding: 0.4rem .5rem;
+}
+
+.marca-especific{
+  position: absolute;
+  top: 10%;
+  right: 4%;
+  width: 20%;
+  background-color: #fff;
+  
+}
+
+@media (max-width: 769px) {
+.box-details{
+  flex-direction: column;
+}
+.figure-product-especific{
+  width: 100%;
+  padding: .5rem;
+}
+.box-details-especific{
+  width: 100%;
+  padding: .5rem;
+}
+
+.margin-box{
+  padding: 0rem;
+
+}
+
+.description-especific{
+  font-size: 1rem;
+}
+
+.group-time {
+  font-size: 1rem;
+}
+
+.title-producto-similar{
+  font-size: 1.5rem;
+}
+.title-especific{
+  font-size: 1.3rem!important;
+}
+
+}

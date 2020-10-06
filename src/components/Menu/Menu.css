@@ -106,6 +106,35 @@ input.search-bar:focus:-ms-input-placeholder {
 .foo:hover img:last-child {
   display: inline-block
 }
+
+.navbar a .heart {
+  background-image: url("../../images/menu-icons/heart.svg");
+  background-size: contain;
+  width: 2rem;
+  height: 1.9rem;
+  background-repeat: no-repeat;
+  
+}
+.heartOn .heart{
+  background-image: url("../../images/menu-icons/heart-on.svg")!important;
+  background-size: contain;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-repeat: no-repeat;
+}
+
+
+.navbar a{
+  color: #A0A0A0;
+  width: 1.8rem!important;
+  height: auto;
+}
+.navbar .menu-on {
+  color: #f31454!important ;
+  /* background-color: #f31454; */
+}
+
+
 @media (max-width: 769px) {
 
   .navbar {
@@ -124,7 +153,20 @@ input.search-bar:focus:-ms-input-placeholder {
     width: 7rem;
   }
 
-
-
+  .card-category {
+    width: 4rem!important;
+    height: 4rem!important;
+    margin: .5rem!important;
+  }
+  .box-filter h5{
+    text-align: start!important;
+  }
+  .box-marcas{
+    justify-content: start!important;
+    padding: 0rem!important;
+  }
+  .box-marcas label{
+    margin: 0rem!important;
+  }
 
 }
