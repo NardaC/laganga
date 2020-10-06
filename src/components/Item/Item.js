@@ -53,28 +53,45 @@ const Item = ({ product, addInterest }) => {
           -{product.descuento}%
         </div> */}
 
-        {product.tipoDescuento === 'freeShipping' ?
-        <div className="box-tag-offer">
-          <div className="box-free-shipping">
-            <div className="letter-free">free</div>
-            <div className="box-letter-free">shipping</div>
+        {product.tipoDescuento === "freeShipping" ? (
+          <div className="box-tag-offer">
+            <div className="box-free-shipping">
+              <div
+                className={
+                  "letter-free" + " " + "letter-free-cl-" + product.categoria
+                }
+              >
+                free
+              </div>
+              <div
+                className={
+                  "box-letter-free" +
+                  " " +
+                  "box-letter-free-bg-" +
+                  product.categoria
+                }
+              >
+                shipping
+              </div>
+            </div>
           </div>
-        </div>
-          : product.tipoDescuento === '3x2' ?
-        <div className="box-tag-offer">
-          <div className="box-x">
-            3x2
+        ) : product.tipoDescuento === "3x2" ? (
+          <div className="box-tag-offer">
+            <div className={"box-x" + " " + "box-x-" + product.categoria}>
+              3x2
+            </div>
           </div>
-        </div>
-        :
-        <div className="box-tag-offer">
-          <div className="box-porcent">
-            -{product.descuento}%
+        ) : (
+          <div className="box-tag-offer">
+            <div
+              className={
+                "box-porcent" + " " + "box-porcent-" + product.categoria
+              }
+            >
+              -{product.descuento}%
+            </div>
           </div>
-        </div>
-        }
-
-
+        )}
 
         <div className="group-btn-like">
           <a>

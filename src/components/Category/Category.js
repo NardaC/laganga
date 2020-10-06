@@ -3,6 +3,7 @@ import axios from "axios";
 import { Container, Row } from "react-bootstrap";
 import Item from "./../Item/Item"
 import { useParams } from "react-router-dom";
+import "./category.css"
 
 
 const Category = () => {
@@ -52,7 +53,7 @@ const Category = () => {
     return (
         <Container className="container-ganga margin-box">
             <div className="box-category">
-                <h4>Categoría: {category} {marca}</h4>
+                <h4 className="title-ganga">Categoría: {category} {marca}</h4>
             </div>
             <Row className="justify-content-md-center ">
                 {filterCategoriesMarca.map(

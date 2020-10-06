@@ -123,6 +123,54 @@ input.search-bar:focus:-ms-input-placeholder {
   background-repeat: no-repeat;
 }
 
+.navbar a .category {
+  background-image: url("../../images/menu-icons/category.svg");
+  background-size: contain;
+  width: 2rem;
+  height: 1.9rem;
+  background-repeat: no-repeat;
+  
+}
+.categoryOn .category{
+  background-image: url("../../images/menu-icons/category-on.svg")!important;
+  background-size: contain;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-repeat: no-repeat;
+}
+
+.navbar a .fire {
+  background-image: url("../../images/menu-icons/fire.svg");
+  background-size: contain;
+  width: 2rem;
+  height: 1.9rem;
+  background-repeat: no-repeat;
+  
+}
+.fireOn .fire{
+  background-image: url("../../images/menu-icons/fire-on.svg")!important;
+  background-size: contain;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-repeat: no-repeat;
+}
+
+.navbar a .search {
+  background-image: url("../../images/menu-icons/search.svg");
+  background-size: contain;
+  width: 2rem;
+  height: 1.9rem;
+  background-repeat: no-repeat;
+  
+}
+.searchOn .search{
+  background-image: url("../../images/menu-icons/search-on.svg")!important;
+  background-size: contain;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-repeat: no-repeat;
+}
+
 
 .navbar a{
   color: #A0A0A0;

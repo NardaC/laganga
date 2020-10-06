@@ -81,7 +81,7 @@ function App() {
         <Route path="/item-especific/:productId" exact>
           <ItemSpecific />
         </Route>
-        <Route path="/en-cosntruccion" exact>
+        <Route path="/en-construccion" exact>
         <Construccion></Construccion>
         </Route>
         <Route path="/buscar/:searchWords" exact>

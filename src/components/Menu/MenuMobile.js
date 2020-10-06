@@ -2,17 +2,7 @@ import React, { useState } from "react";
 
 import "./Menu.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusSquare, faHeart } from "@fortawesome/free-solid-svg-icons";
 
-import category from "../../images/menu-icons/category.svg";
-import categoryOn from "../../images/menu-icons/category-on.svg";
-import heart from "../../images/menu-icons/heart.svg";
-import heartOn from "../../images/menu-icons/heart-on.svg";
-import fire from "../../images/menu-icons/fire.svg";
-import fireOn from "../../images/menu-icons/fire-on.svg";
-import search from "../../images/menu-icons/search.svg";
-import searchOn from "../../images/menu-icons/search-on.svg";
 import { Modal } from "react-bootstrap";
 import { useHistory, NavLink } from "react-router-dom";
 
@@ -43,26 +33,21 @@ const MenuMobile = () => {
   return (
     <>
       <nav class="navbar fixed-bottom navbar-light bg-light">
-        <NavLink class="" to="/" onClick={handleShow} activeClassName="menu-on">
-          {/* <FontAwesomeIcon icon={faPlusSquare} className="menu-off"/> */}
-          <img src={category} alt="" className="menu-off" />
-          {/* <p className="menu-off">a</p> */}
+        <NavLink class="" to="/" onClick={handleShow} activeClassName="categoryOn">
+          {/* <img src={category} alt="" className="menu-off" /> */}
+          <div className="category"></div>
         </NavLink>
         <NavLink class=" " to="/interest" activeClassName="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
-          {/* <FontAwesomeIcon icon={faHeart} className="menu-off"/> */}
           <div className="heart"></div>
-          {/* <p className="menu-off">e</p> */}
         </NavLink>
-        <NavLink class="" to="/en-cosntruccion" activeClassName="menu-on">
-          <img src={fire} alt="" className="menu-off" />
-          {/* <img src={fireOn} alt="" className="" /> */}
-          {/* <p className="menu-off">i</p> */}
+        <NavLink class="" to="/en-construccion" activeClassName="fireOn">
+          {/* <img src={fire} alt="" className="menu-off" /> */}
+          <div className="fire"></div>
         </NavLink>
-        <NavLink class="" to="/iu" activeClassName="menu-on">
-          <img src={search} alt="" className="menu-off" />
-          {/* <img src={searchOn} alt="" className="" /> */}
-          {/* <p className="menu-off">o</p> */}
+        <NavLink class="" to="/buscar" activeClassName="searchOn">
+          {/* <img src={search} alt="" className="menu-off" /> */}
+          <div className="search"></div>
         </NavLink>
       </nav>
       <Modal
