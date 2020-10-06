@@ -206,7 +206,7 @@ left: 15%;
 }
 
 .group-time-item{
-  font-size: .7rem;
+  font-size: .6rem;
   position: absolute;
   bottom: 3%;
   left: 1%;
@@ -218,7 +218,7 @@ left: 15%;
 }
 
 .title-item{
-  font-size: 1.1rem!important;
+  font-size: 1rem!important;
 }
 
 .subtitle-item{
@@ -227,7 +227,7 @@ left: 15%;
 .card-body{
   /* position: relative;
   top: 6%; */
-  padding: 1.6rem 1rem 1rem .8rem!important;
+  padding: 1.8rem 1rem 1rem .8rem!important;
 }
 
 }

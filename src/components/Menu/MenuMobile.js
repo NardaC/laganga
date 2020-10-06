@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./Menu.css"
+import "./Menu.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -20,8 +20,9 @@ const MenuMobile = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (e) => {
-  e.preventDefault();
-  setShow(true)}
+    e.preventDefault();
+    setShow(true);
+  };
   const [valueCategory, setValueCategory] = useState("");
   const [valueMarca, setValueMarca] = useState("");
   let history = useHistory();
@@ -42,7 +43,6 @@ const MenuMobile = () => {
   return (
     <>
       <nav class="navbar fixed-bottom navbar-light bg-light">
-        
         <NavLink class="" to="/" onClick={handleShow} activeClassName="menu-on">
           {/* <FontAwesomeIcon icon={faPlusSquare} className="menu-off"/> */}
           <img src={category} alt="" className="menu-off" />
@@ -59,12 +59,11 @@ const MenuMobile = () => {
           {/* <img src={fireOn} alt="" className="" /> */}
           {/* <p className="menu-off">i</p> */}
         </NavLink>
-        <NavLink class="" to="/iu"  activeClassName="menu-on">
+        <NavLink class="" to="/iu" activeClassName="menu-on">
           <img src={search} alt="" className="menu-off" />
           {/* <img src={searchOn} alt="" className="" /> */}
           {/* <p className="menu-off">o</p> */}
         </NavLink>
-        
       </nav>
       <Modal
         show={show}

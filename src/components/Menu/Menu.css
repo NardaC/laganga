@@ -153,7 +153,20 @@ input.search-bar:focus:-ms-input-placeholder {
     width: 7rem;
   }
 
-
-
+  .card-category {
+    width: 4rem!important;
+    height: 4rem!important;
+    margin: .5rem!important;
+  }
+  .box-filter h5{
+    text-align: start!important;
+  }
+  .box-marcas{
+    justify-content: start!important;
+    padding: 0rem!important;
+  }
+  .box-marcas label{
+    margin: 0rem!important;
+  }
 
 }

@@ -143,9 +143,9 @@ hr {
   -webkit-transition: all 100ms ease-in;
   -moz-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
-  -webkit-filter: opacity(0.6);
-  -moz-filter: opacity(0.6);
-  filter: opacity(0.6);
+  -webkit-filter: opacity(0.8);
+  -moz-filter: opacity(0.8);
+  filter: opacity(0.8);
 }
 .ropa {
   background-image: url("./../../images/categoria-ropa.png");
