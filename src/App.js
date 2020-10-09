@@ -88,7 +88,6 @@ function App() {
           <Search filterSearch={filterSearch} />
         </Route>
         <Route path="/category/:category?&:marca?">
-
           <Category />
           <PromoSimilar/>
         </Route>
