@@ -18,8 +18,8 @@ import { useHistory } from "react-router-dom";
 
 const FilterCategory = () => {
     const [show, setShow] = useState(false);
-    const [valueCategory, setValueCategory] = useState('category=""');
-    const [valueMarca, setValueMarca] = useState('marca:""');
+    const [valueCategory, setValueCategory] = useState("category=''");
+    const [valueMarca, setValueMarca] = useState("marca=''");
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     let history = useHistory();
@@ -66,8 +66,8 @@ const FilterCategory = () => {
     const sendFilter = (e) => {
         e.preventDefault();
         history.push(`/category/${valueCategory}&${valueMarca}`);
-        setValueCategory('category=""');
-        setValueMarca('marca=""');
+        setValueCategory("category=''");
+        setValueMarca("marca=''");
         handleClose()
 
     }

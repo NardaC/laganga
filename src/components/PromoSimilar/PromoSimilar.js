@@ -32,8 +32,8 @@ const PromoSimilar = (props) => {
   const [categories, setCategories] = useState([]);
   const getProductsDay = async () => {
       //const res = await axios.get('http://localhost:3000/products');
-      const res = await axios.get(`https://la-ganga-api.herokuapp.com/category/${props.category}`);
-      setCategories(res.data.category);
+      const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/category=${props.category}&marca=''`);
+      setCategories(res.data.categoriaYmarca);
   };
   useEffect(() => {
       getProductsDay();

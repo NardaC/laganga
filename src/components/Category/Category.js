@@ -30,8 +30,8 @@ const Category = () => {
             
             // setfilterCategoriesMarca(res.data.categoriaYmarca);
             // console.log(res.data, "Homer12")
-            // console.log(category, "category");
-            // console.log(marca, "marca")
+            console.log(category, "category");
+            console.log(marca, "marca")
         
         // } else  if( marca!=="" ){
             // const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterMarca/Adidas`);
