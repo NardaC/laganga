@@ -8,47 +8,23 @@ import "./category.css"
 
 const Category = () => {
     const [filterCategoriesMarca, setfilterCategoriesMarca] = useState([]);
-    const {category} = useParams();
-    const {marca} = useParams();
-  
+    const { category } = useParams();
+    const { marca } = useParams();
+
 
     const getProductsDay = async () => {
-        //const res = await axios.get('http://localhost:3000/products');
-        // if(category!=="" &&  marca!==""  ){
-            // if(category===undefined){
-            //     const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/category=""&marca=${marca}`);
-            // return    setfilterCategoriesMarca(res.data.categoriaYmarca);
-            // }
-            // if(marca===undefined){
-                const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/${category}&${marca}`);
-                setfilterCategoriesMarca(res.data.categoriaYmarca);
-            //     const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/category=${category}&marca=""`);
-            //  return    setfilterCategoriesMarca(res.data.categoriaYmarca);
-            // }
+        const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/${category}&${marca}`);
+        setfilterCategoriesMarca(res.data.categoriaYmarca);
+        console.log(category, "category");
+        console.log(marca, "marca")
 
-            // const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/${category ? category : " "}&${marca ? marca : " "}`);
-            
-            // setfilterCategoriesMarca(res.data.categoriaYmarca);
-            // console.log(res.data, "Homer12")
-            console.log(category, "category");
-            console.log(marca, "marca")
-        
-        // } else  if( marca!=="" ){
-            // const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterMarca/Adidas`);
-            // setfilterCategoriesMarca(res.data.marca);
-            //   console.log(res.data, "nardaMarca")
-        // }else if  (category!==""){
-        //     const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategory/${category}`);
-        //     setfilterCategoriesMarca(res.data.category);
-        //     console.log(res.data, "narda")
-        // }
     };
 
     useEffect(() => {
         getProductsDay();
-       
 
-    },[category,marca]);
+
+    }, [category, marca]);
 
     return (
         <Container className="container-ganga margin-box">
