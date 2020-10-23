@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 
+
 const Item = ({ product, addInterest }) => {
   const [text, setText] = useState("");
   const [dataNueva, setDataNueva] = useState([]);
@@ -19,16 +20,16 @@ const Item = ({ product, addInterest }) => {
   const [timeMinutes, setTimeMinutes] = useState(0);
   const [agotadoProduct, setAgotadoProduct] = useState("");
   const [timeSeconds, setTimeSeconds] = useState(0);
-  const dateFuture = "10/10/2020";
+  const dateFuture = "10/25/2020";
   React.useEffect(() => {
     fetch("data/data.json")
       .then((response) => response.json())
       .then((datos) => {
         setDataOriginal(datos);
       });
-    calculateTimeLeft(product.fechaFinOferta);
+    calculateTimeLeft(dateFuture);
     const timer = setInterval(() => {
-      calculateTimeLeft(product.fechaFinOferta);
+      calculateTimeLeft(dateFuture);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -36,6 +37,8 @@ const Item = ({ product, addInterest }) => {
   const calculateTimeLeft = (dateFuture) => {
     // let year = new Date().getFullYear();
     const difference = +new Date(dateFuture) - +new Date();
+    console.log(difference, "narda")
+    console.log(new Date(dateFuture), "narda1")
     if (difference > 0) {
       setTimeDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
       setTimeHours(Math.floor((difference / (1000 * 60 * 60)) % 24));
@@ -45,7 +48,12 @@ const Item = ({ product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
-
+//  console.log(new Date(), "hora")
+//  console.log(new Date(dateFuture) , "hora2")
+//  console.log(new Date(dateFuture) , "hora3")
+//  console.log(new Date(dateFuture).getDate() , "hora4")
+//  console.log(monthDayYear, "hora5")
+  //  console.log(new Date('10/17/2020').getTime(), "holitas")
   return (
     <div className="col-12 col-sm-4 col-lg-3 mb-4">
       <Card className={"border-" + product.categoria}>
