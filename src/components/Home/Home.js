@@ -7,14 +7,14 @@ import GangaDelDia from '../GangaDelDia/GangaDelDia';
 import OfertasDelDia from '../OfertasDelDia/OfertasDelDia';
 import AllItems from '../AllItems/AllItems';
 import banner from "../../images/banner/banner-bottom.png";
-
-const Home = ({products, addInterest}) => {
+import { Helmet } from "react-helmet";
+const Home = ({ products, addInterest }) => {
     return (
         <Container className="container-ganga box-home fade-in animated">
             <CarouselBanner />
             <GangaDelDia addInterest={addInterest} />
             <OfertasDelDia addInterest={addInterest} />
-            <AllItems products={products} addInterest={addInterest}/>
+            <AllItems products={products} addInterest={addInterest} />
             <figure className="m-0">
                 <img src={banner} alt="banner" className="w-100" />
             </figure>

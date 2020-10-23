@@ -88,7 +88,9 @@ const ItemSpecific = () => {
             <FontAwesomeIcon icon={faClock} className="img-clock" />
             <div className="ml-2">5D 4h 1M</div>
           </div>
-          <div className="description-especific">{product.descripcion}</div>
+          <div className="description-especific">{product.descripcion}
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus asperiores ullam voluptates modi hic, doloremque, magnam sit debitis praesentium dignissimos fugiat dolor at voluptatibus nisi cupiditate. Magnam itaque quae facere?
+          </div>
           <Button className="btn-ir-web">Ir a la web</Button>
         </div>
       </div>
