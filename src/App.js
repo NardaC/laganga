@@ -51,12 +51,16 @@ function App() {
     setArrayInterest((arrayInterest) => [...arrayInterest, registerInterest]);
   };
   localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
-  console.log(arrayInterest, "judith");
+
   const getProductsDay = async () => {
     //const res = await axios.get('http://localhost:3000/products');
     const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
-    setProducts(res.data.products);
+    const arrayProducts= res.data.products;
+   const filterProducts= arrayProducts.filter(product => new Date().getTime() >= new Date(product.fechaInicioOferta).getTime() )
+    setProducts(filterProducts);
+    console.log(filterProducts, "JUDITH")
   };
+
   useEffect(() => {
     getProductsDay();
   }, []);
