@@ -51,17 +51,30 @@ const ItemSpecific = () => {
           {product.tipoDescuento === "freeShipping" ? (
             <div className="box-tag-offer-especific">
               <div className="box-free-shipping">
-                <div className="letter-free">free</div>
-                <div className="box-letter-free">shipping</div>
+                <div className={
+                  "letter-free" + " " + "letter-free-cl-" + product.categoria
+                }>free</div>
+                <div className={
+                  "box-letter-free" +
+                  " " +
+                  "box-letter-free-bg-" +
+                  product.categoria
+                }>shipping</div>
               </div>
             </div>
           ) : product.tipoDescuento === "3x2" ? (
             <div className="box-tag-offer-especific">
-              <div className="box-x">3x2</div>
+              <div className={"box-x" + " " + "box-x-" + product.categoria}>3x2</div>
             </div>
           ) : (
             <div className="box-tag-offer-especific">
-              <div className="box-porcent">-{product.descuento}%</div>
+              <div
+              className={
+                "box-porcent" + " " + "box-porcent-" + product.categoria
+              }
+            >
+              -{product.descuento}%
+            </div>
             </div>
           )}
           <img src={product.imagenMarcaURL} alt="" className="marca-especific"/>

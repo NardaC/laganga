@@ -11,38 +11,16 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
+import SearchHeader from "./SearchHeader";
 
-const Menu = ({ functionFilterSearch }) => {
-  const [searchWord, setSearchWord] = useState("");
+const Menu = () => {
   const [products, setProducts] = useState([]);
   let history = useHistory();
-  const filterForm = (e) => {
+
+  const goToRoute = (e) => {
     e.preventDefault();
-    const textInput = searchWord;
-    const dataInput = products;
-    if (textInput === "") {
-
-      return history.push("/");
-    } else {
-      const newData = dataInput.filter(function (item) {
-        const itemData = item.nombre.toUpperCase();
-        const itemDataDescp = item.categoria.toUpperCase();
-        const campo = itemData + " " + itemDataDescp;
-        const textData = textInput.toUpperCase();
-
-        return campo.indexOf(textData) > -1;
-      });
-      localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData))
-      //  functionFilterSearch(newData);
-      history.push("/buscar/" + textInput);
-
-    }
-
+    return history.push("/interest");
   };
-  const goToRoute =(e)=>{
-     e.preventDefault()
-     return history.push("/interest");
-  }
   const getProducts = async () => {
     //const res = await axios.get('http://localhost:3000/products');
     const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
@@ -52,33 +30,45 @@ const Menu = ({ functionFilterSearch }) => {
   useEffect(() => {
     getProducts();
   }, []);
+  const width = window.innerWidth;
+  const breakpoint = 768;
 
   return (
-    <Container className="container-ganga">
-      <nav className="navbar navbar-light bg-light justify-content-between ">
-        <Link className="navbar-brand" to="/">
-          <img src={logo} alt="logo la ganga" className="logo-ganga" />
-        </Link>
-        <form className="search-container" onSubmit={filterForm}>
-          <input
-            className="search-bar"
-            type="search"
-            placeholder="Ingresa lo que estas buscando"
-            aria-label="Search"
-            onChange={(e) => setSearchWord(e.target.value)}
-            value={searchWord}
-            autoComplete="off"
-            autoCorrect="off"
-            maxLength="100"
-          />
-          <button className="btn  my-2 my-sm-0  search-icon" type="submit">
-            <FontAwesomeIcon icon={faSearch} className="" />
-          </button>
-        </form>
-        <FontAwesomeIcon icon={faHeart} className="btn-like-menu" onClick={goToRoute} />
-        <FontAwesomeIcon icon={faUserCircle} className="btn-like-user" />
-      </nav>
-    </Container>
+    <>
+      {width < breakpoint ? (
+        <Container>
+          <nav className="navbar navbar-light bg-light justify-content-between ">
+            <Link className="navbar-brand" to="/">
+              <img src={logo} alt="logo la ganga" className="logo-ganga" />
+            </Link>
+            <FontAwesomeIcon
+              icon={faHeart}
+              className="btn-like-menu"
+              onClick={goToRoute}
+            />
+            <FontAwesomeIcon icon={faUserCircle} className="btn-like-user" />
+          </nav>
+          <div className="box-search-mobile">
+          <SearchHeader />
+          </div>
+        </Container>
+      ) : (
+        <Container className="container-ganga">
+          <nav className="navbar navbar-light bg-light justify-content-between ">
+            <Link className="navbar-brand" to="/">
+              <img src={logo} alt="logo la ganga" className="logo-ganga" />
+            </Link>
+            <SearchHeader />
+            <FontAwesomeIcon
+              icon={faHeart}
+              className="btn-like-menu"
+              onClick={goToRoute}
+            />
+            <FontAwesomeIcon icon={faUserCircle} className="btn-like-user" />
+          </nav>
+        </Container>
+      )}
+    </>
   );
 };
 
