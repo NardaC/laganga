@@ -20,16 +20,16 @@ const Item = ({ product, addInterest }) => {
   const [timeMinutes, setTimeMinutes] = useState(0);
   const [agotadoProduct, setAgotadoProduct] = useState("");
   const [timeSeconds, setTimeSeconds] = useState(0);
-  const dateFuture = "10/25/2020";
+  // const dateFuture = "10/25/2020";
   React.useEffect(() => {
     fetch("data/data.json")
       .then((response) => response.json())
       .then((datos) => {
         setDataOriginal(datos);
       });
-    calculateTimeLeft(dateFuture);
+    calculateTimeLeft(product.fechaFinOferta);
     const timer = setInterval(() => {
-      calculateTimeLeft(dateFuture);
+      calculateTimeLeft(product.fechaFinOferta);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
