@@ -18,16 +18,23 @@ import Construccion from "./components/Construccion/Construccion";
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
   const [products, setProducts] = useState([]);
-  const [arrayInterest, setArrayInterest] = useState(() => {
-    try {
-      const item = window.localStorage.getItem("arrayInterestLocal");
-      return item ? JSON.parse(item) : [];
-    } catch (error) {
-      return [];
-    }
-  });
+  const [arrayInterest, setArrayInterest] = useState(
+  //   [() => {
+  //   try {
+  //     const item = window.localStorage.getItem("arrayInterestLocal");
+  //     return item ? JSON.parse(item) : [];
+  //   } catch (error) {
+  //     return [];
+  //   }
+  // }]
+  window.localStorage.getItem("arrayInterestLocal")== null ? []: JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
+  );
 
+  console.log(arrayInterest,"array")
+  console.log(JSON.parse(window.localStorage.getItem("arrayInterestLocal")),"itemInicial")
   const addInterest = (product) => {
+    console.log(product._id,"juanira")
+    console.log(products[2]._id,"juanira2")
     let registerInterest;
 
     for (let i = 0; i < products.length; i++) {
@@ -37,6 +44,8 @@ function App() {
         product.like = true;
       }
     }
+
+    console.log(arrayInterest.length,"janira3")
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
         registerInterest.like = false;
@@ -58,7 +67,7 @@ function App() {
     const arrayProducts= res.data.products;
    const filterProducts= arrayProducts.filter(product => new Date().getTime() >= new Date(product.fechaInicioOferta).getTime() )
     setProducts(filterProducts);
-    console.log(filterProducts, "JUDITH")
+    // console.log(filterProducts, "JUDITH")
   };
 
   useEffect(() => {

@@ -37,8 +37,8 @@ const Item = ({ product, addInterest }) => {
   const calculateTimeLeft = (dateFuture) => {
     // let year = new Date().getFullYear();
     const difference = +new Date(dateFuture) - +new Date();
-    console.log(difference, "narda")
-    console.log(new Date(dateFuture), "narda1")
+    // console.log(difference, "narda")
+    // console.log(new Date(dateFuture), "narda1")
     if (difference > 0) {
       setTimeDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
       setTimeHours(Math.floor((difference / (1000 * 60 * 60)) % 24));
@@ -48,6 +48,7 @@ const Item = ({ product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
+
 //  console.log(new Date(), "hora")
 //  console.log(new Date(dateFuture) , "hora2")
 //  console.log(new Date(dateFuture) , "hora3")
