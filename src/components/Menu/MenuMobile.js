@@ -4,7 +4,7 @@ import "./Menu.css";
 
 
 import { Modal } from "react-bootstrap";
-import { useHistory, NavLink } from "react-router-dom";
+import { useHistory, NavLink, Link } from "react-router-dom";
 
 const MenuMobile = () => {
   const [show, setShow] = useState(false);
@@ -33,10 +33,14 @@ const MenuMobile = () => {
   return (
     <>
       <nav class="navbar fixed-bottom navbar-light bg-light">
-        <NavLink class="" to="/" onClick={handleShow} activeClassName="categoryOn">
+        <NavLink class="" to="/" activeClassName="homeOn">
+          {/* <img src={category} alt="" className="menu-off" /> */}
+          <div className="home"></div>
+        </NavLink>
+        <a class=""  onClick={handleShow} activeClassName="categoryOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="category"></div>
-        </NavLink>
+        </a>
         <NavLink class=" " to="/interest" activeClassName="heartOn">
           {/* <img src={heart} alt="" className="menu-off" /> */}
           <div className="heart"></div>
@@ -44,10 +48,6 @@ const MenuMobile = () => {
         <NavLink class="" to="/en-construccion" activeClassName="fireOn">
           {/* <img src={fire} alt="" className="menu-off" /> */}
           <div className="fire"></div>
-        </NavLink>
-        <NavLink class="" to="/buscar" activeClassName="searchOn">
-          {/* <img src={search} alt="" className="menu-off" /> */}
-          <div className="search"></div>
         </NavLink>
       </nav>
       <Modal

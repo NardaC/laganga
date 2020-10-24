@@ -1,5 +1,6 @@
-import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 
 import "./Menu.css";
@@ -11,11 +12,33 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
-import SearchHeader from "./SearchHeader";
+import burger from "../../images/menu-icons/burger-menu.svg"
 
-const Menu = () => {
+const Menu = ({ functionFilterSearch }) => {
+  const [searchWord, setSearchWord] = useState("");
   const [products, setProducts] = useState([]);
   let history = useHistory();
+
+  const filterForm = (e) => {
+    e.preventDefault();
+    const textInput = searchWord;
+    const dataInput = products;
+    if (textInput === "") {
+      return history.push("/");
+    } else {
+      const newData = dataInput.filter(function(item) {
+        const itemData = item.nombre.toUpperCase();
+        const itemDataDescp = item.categoria.toUpperCase();
+        const campo = itemData + " " + itemDataDescp;
+        const textData = textInput.toUpperCase();
+
+        return campo.indexOf(textData) > -1;
+      });
+      localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData));
+      //  functionFilterSearch(newData);
+      history.push("/buscar/" + textInput);
+    }
+  };
 
   const goToRoute = (e) => {
     e.preventDefault();
@@ -41,15 +64,31 @@ const Menu = () => {
             <Link className="navbar-brand" to="/">
               <img src={logo} alt="logo la ganga" className="logo-ganga" />
             </Link>
-            <FontAwesomeIcon
-              icon={faHeart}
-              className="btn-like-menu"
-              onClick={goToRoute}
-            />
-            <FontAwesomeIcon icon={faUserCircle} className="btn-like-user" />
+            <img src={burger} alt="burger menu la ganga" className="burger-menu"/>
           </nav>
           <div className="box-search-mobile">
-          <SearchHeader />
+            <form className="search-container" onSubmit={filterForm}>
+              <input
+                className="search-bar search-bar-mobile"
+                type="search"
+                placeholder="Ingresa lo que estas buscando"
+                aria-label="Search"
+                onChange={(e) => setSearchWord(e.target.value)}
+                value={searchWord}
+                autoComplete="off"
+                autoCorrect="off"
+                maxLength="100"
+              />
+              <button
+                className="btn  my-2 my-sm-0  search-icon search-icon-mobile"
+                type="submit"
+              >
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  className="icon-searh-mobile"
+                />
+              </button>
+            </form>
           </div>
         </Container>
       ) : (
@@ -58,7 +97,22 @@ const Menu = () => {
             <Link className="navbar-brand" to="/">
               <img src={logo} alt="logo la ganga" className="logo-ganga" />
             </Link>
-            <SearchHeader />
+            <form className="search-container" onSubmit={filterForm}>
+              <input
+                className="search-bar "
+                type="search"
+                placeholder="Ingresa lo que estas buscando"
+                aria-label="Search"
+                onChange={(e) => setSearchWord(e.target.value)}
+                value={searchWord}
+                autoComplete="off"
+                autoCorrect="off"
+                maxLength="100"
+              />
+              <button className="btn  my-2 my-sm-0  search-icon " type="submit">
+                <FontAwesomeIcon icon={faSearch} className="" />
+              </button>
+            </form>
             <FontAwesomeIcon
               icon={faHeart}
               className="btn-like-menu"

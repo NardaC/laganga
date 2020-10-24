@@ -79,6 +79,9 @@ function App() {
         <Route path="/" exact>
           <Home products={products} addInterest={addInterest} />
         </Route>
+        {/* <Route path="/home" exact>
+          <Home products={products} addInterest={addInterest} />
+        </Route> */}
         <Route path="/interest" exact>
           <Interest products={products} addInterest={addInterest} />
         </Route>
