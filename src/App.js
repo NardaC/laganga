@@ -18,16 +18,23 @@ import Construccion from "./components/Construccion/Construccion";
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
   const [products, setProducts] = useState([]);
-  const [arrayInterest, setArrayInterest] = useState(() => {
-    try {
-      const item = window.localStorage.getItem("arrayInterestLocal");
-      return item ? JSON.parse(item) : [];
-    } catch (error) {
-      return [];
-    }
-  });
+  const [arrayInterest, setArrayInterest] = useState(
+    //   [() => {
+    //   try {
+    //     const item = window.localStorage.getItem("arrayInterestLocal");
+    //     return item ? JSON.parse(item) : [];
+    //   } catch (error) {
+    //     return [];
+    //   }
+    // }]
+    window.localStorage.getItem("arrayInterestLocal") == null ? [] : JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
+  );
 
+  // console.log(arrayInterest, "array")
+  // console.log(JSON.parse(window.localStorage.getItem("arrayInterestLocal")), "itemInicial")
+  
   const addInterest = (product) => {
+    //Solo guardará en interest productos totales//
     let registerInterest;
 
     for (let i = 0; i < products.length; i++) {
@@ -37,6 +44,8 @@ function App() {
         product.like = true;
       }
     }
+
+    console.log(arrayInterest.length, "janira3")
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
         registerInterest.like = false;
@@ -55,10 +64,10 @@ function App() {
   const getProductsDay = async () => {
     //const res = await axios.get('http://localhost:3000/products');
     const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
-    const arrayProducts= res.data.products;
-   const filterProducts= arrayProducts.filter(product => new Date().getTime() >= new Date(product.fechaInicioOferta).getTime() )
+    const arrayProducts = res.data.products;
+    const filterProducts = arrayProducts.filter(product => new Date().getTime() >= new Date(product.fechaInicioOferta).getTime())
     setProducts(filterProducts);
-    console.log(filterProducts, "JUDITH")
+    // console.log(filterProducts, "JUDITH")
   };
 
   useEffect(() => {
@@ -89,14 +98,14 @@ function App() {
           <ItemSpecific />
         </Route>
         <Route path="/en-construccion" exact>
-        <Construccion></Construccion>
+          <Construccion></Construccion>
         </Route>
         <Route path="/buscar/:searchWords" exact>
           <Search filterSearch={filterSearch} />
         </Route>
         <Route path="/category/:category?&:marca?">
           <Category />
-          <PromoSimilar/>
+          <PromoSimilar />
         </Route>
         {/* <Route path="/category/:category">
           <Category />
