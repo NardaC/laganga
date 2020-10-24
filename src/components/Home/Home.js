@@ -7,7 +7,7 @@ import GangaDelDia from '../GangaDelDia/GangaDelDia';
 import OfertasDelDia from '../OfertasDelDia/OfertasDelDia';
 import AllItems from '../AllItems/AllItems';
 import banner from "../../images/banner/banner-bottom.png";
-import { Helmet } from "react-helmet";
+
 const Home = ({ products, addInterest }) => {
     return (
         <Container className="container-ganga box-home fade-in animated">

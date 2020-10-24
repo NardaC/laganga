@@ -1,5 +1,6 @@
-import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 
 import "./Menu.css";
@@ -11,20 +12,21 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
+import burger from "../../images/menu-icons/burger-menu.svg"
 
 const Menu = ({ functionFilterSearch }) => {
   const [searchWord, setSearchWord] = useState("");
   const [products, setProducts] = useState([]);
   let history = useHistory();
+
   const filterForm = (e) => {
     e.preventDefault();
     const textInput = searchWord;
     const dataInput = products;
     if (textInput === "") {
-
       return history.push("/");
     } else {
-      const newData = dataInput.filter(function (item) {
+      const newData = dataInput.filter(function(item) {
         const itemData = item.nombre.toUpperCase();
         const itemDataDescp = item.categoria.toUpperCase();
         const campo = itemData + " " + itemDataDescp;
@@ -32,17 +34,16 @@ const Menu = ({ functionFilterSearch }) => {
 
         return campo.indexOf(textData) > -1;
       });
-      localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData))
+      localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData));
       //  functionFilterSearch(newData);
       history.push("/buscar/" + textInput);
-
     }
-
   };
-  const goToRoute =(e)=>{
-     e.preventDefault()
-     return history.push("/interest");
-  }
+
+  const goToRoute = (e) => {
+    e.preventDefault();
+    return history.push("/interest");
+  };
   const getProducts = async () => {
     //const res = await axios.get('http://localhost:3000/products');
     const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
@@ -52,33 +53,76 @@ const Menu = ({ functionFilterSearch }) => {
   useEffect(() => {
     getProducts();
   }, []);
+  const width = window.innerWidth;
+  const breakpoint = 768;
 
   return (
-    <Container className="container-ganga">
-      <nav className="navbar navbar-light bg-light justify-content-between ">
-        <Link className="navbar-brand" to="/">
-          <img src={logo} alt="logo la ganga" className="logo-ganga" />
-        </Link>
-        <form className="search-container" onSubmit={filterForm}>
-          <input
-            className="search-bar"
-            type="search"
-            placeholder="Ingresa lo que estas buscando"
-            aria-label="Search"
-            onChange={(e) => setSearchWord(e.target.value)}
-            value={searchWord}
-            autoComplete="off"
-            autoCorrect="off"
-            maxLength="100"
-          />
-          <button className="btn  my-2 my-sm-0  search-icon" type="submit">
-            <FontAwesomeIcon icon={faSearch} className="" />
-          </button>
-        </form>
-        <FontAwesomeIcon icon={faHeart} className="btn-like-menu" onClick={goToRoute} />
-        <FontAwesomeIcon icon={faUserCircle} className="btn-like-user" />
-      </nav>
-    </Container>
+    <>
+      {width < breakpoint ? (
+        <Container>
+          <nav className="navbar navbar-light bg-light justify-content-between ">
+            <Link className="navbar-brand" to="/">
+              <img src={logo} alt="logo la ganga" className="logo-ganga" />
+            </Link>
+            <img src={burger} alt="burger menu la ganga" className="burger-menu"/>
+          </nav>
+          <div className="box-search-mobile">
+            <form className="search-container" onSubmit={filterForm}>
+              <input
+                className="search-bar search-bar-mobile"
+                type="search"
+                placeholder="Ingresa lo que estas buscando"
+                aria-label="Search"
+                onChange={(e) => setSearchWord(e.target.value)}
+                value={searchWord}
+                autoComplete="off"
+                autoCorrect="off"
+                maxLength="100"
+              />
+              <button
+                className="btn  my-2 my-sm-0  search-icon search-icon-mobile"
+                type="submit"
+              >
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  className="icon-searh-mobile"
+                />
+              </button>
+            </form>
+          </div>
+        </Container>
+      ) : (
+        <Container className="container-ganga">
+          <nav className="navbar navbar-light bg-light justify-content-between ">
+            <Link className="navbar-brand" to="/">
+              <img src={logo} alt="logo la ganga" className="logo-ganga" />
+            </Link>
+            <form className="search-container" onSubmit={filterForm}>
+              <input
+                className="search-bar "
+                type="search"
+                placeholder="Ingresa lo que estas buscando"
+                aria-label="Search"
+                onChange={(e) => setSearchWord(e.target.value)}
+                value={searchWord}
+                autoComplete="off"
+                autoCorrect="off"
+                maxLength="100"
+              />
+              <button className="btn  my-2 my-sm-0  search-icon " type="submit">
+                <FontAwesomeIcon icon={faSearch} className="" />
+              </button>
+            </form>
+            <FontAwesomeIcon
+              icon={faHeart}
+              className="btn-like-menu"
+              onClick={goToRoute}
+            />
+            <FontAwesomeIcon icon={faUserCircle} className="btn-like-user" />
+          </nav>
+        </Container>
+      )}
+    </>
   );
 };
 

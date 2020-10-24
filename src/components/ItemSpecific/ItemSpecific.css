@@ -89,17 +89,16 @@
 .box-tag-offer-especific{
   position: absolute;
   top: 10%;
-  left: 0;
-  background-color: #fff;
+  left: 5%;
   padding: 0.4rem .5rem;
 }
 
 .marca-especific{
   position: absolute;
   top: 10%;
-  right: 4%;
+  right: 5%;
   width: 20%;
-  background-color: #fff;
+  /* background-color: #fff; */
   
 }
 
