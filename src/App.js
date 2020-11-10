@@ -14,10 +14,14 @@ import { useLocalStorage } from "./components/Custom/useLocalStorage";
 import MenuMobile from "./components/Menu/MenuMobile";
 import PromoSimilar from "./components/PromoSimilar/PromoSimilar";
 import Construccion from "./components/Construccion/Construccion";
+import MenuNuevo from "./components/Menu/MenuNuevo";
+import Sidedrawer from "./components/Menu/MenuBurger/Sidedrawer";
+import Backdrop from "./components/Menu/MenuBurger/Backdrop";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
   const [products, setProducts] = useState([]);
+  const [menuBurgerOpen, setmenuBurgerOpen] = React.useState(false);
   const [arrayInterest, setArrayInterest] = useState(
     //   [() => {
     //   try {
@@ -27,12 +31,14 @@ function App() {
     //     return [];
     //   }
     // }]
-    window.localStorage.getItem("arrayInterestLocal") == null ? [] : JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
+    window.localStorage.getItem("arrayInterestLocal") == null
+      ? []
+      : JSON.parse(window.localStorage.getItem("arrayInterestLocal"))
   );
 
   // console.log(arrayInterest, "array")
   // console.log(JSON.parse(window.localStorage.getItem("arrayInterestLocal")), "itemInicial")
-  
+
   const addInterest = (product) => {
     //Solo guardará en interest productos totales//
     let registerInterest;
@@ -45,7 +51,7 @@ function App() {
       }
     }
 
-    console.log(arrayInterest.length, "janira3")
+    console.log(arrayInterest.length, "janira3");
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
         registerInterest.like = false;
@@ -65,7 +71,10 @@ function App() {
     //const res = await axios.get('http://localhost:3000/products');
     const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
     const arrayProducts = res.data.products;
-    const filterProducts = arrayProducts.filter(product => new Date().getTime() >= new Date(product.fechaInicioOferta).getTime())
+    const filterProducts = arrayProducts.filter(
+      (product) =>
+        new Date().getTime() >= new Date(product.fechaInicioOferta).getTime()
+    );
     setProducts(filterProducts);
     // console.log(filterProducts, "JUDITH")
   };
@@ -77,12 +86,35 @@ function App() {
     setFilterSearch(arrayFilter);
   };
 
+  const drawerToggleClickHandler = () => {
+    setmenuBurgerOpen(true);
+  };
+
+  const ocultarMenuMobile = () => {
+    console.log("cerraooo");
+    setmenuBurgerOpen(false);
+  };
+  let backdrop;
+  if (menuBurgerOpen) {
+    backdrop = <Backdrop click={ocultarMenuMobile} />;
+  }
+
   const width = window.innerWidth;
   const breakpoint = 768;
 
   return (
     <Router className="box-home">
-      <Menu functionFilterSearch={functionFilterSearch} />
+      {/* <Menu functionFilterSearch={functionFilterSearch} /> */}
+      <MenuNuevo
+        functionFilterSearch={functionFilterSearch}
+        ocultarMenuMobile={ocultarMenuMobile}
+        drawerClickHandler={drawerToggleClickHandler}
+      />
+      <Sidedrawer
+        show={menuBurgerOpen}
+        ocultarMenuMobile={ocultarMenuMobile}
+      ></Sidedrawer>
+      {backdrop}
       <FilterCategory />
       <Switch>
         <Route path="/" exact>

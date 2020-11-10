@@ -64,24 +64,30 @@
 .carousel-control-prev {
   width: 8% !important;
 }
+
+
 @media (min-width: 576px) {
   .container-ganga {
     max-width: 900px !important;
+    margin: auto;
   }
 }
 @media (min-width: 900px) {
   .container-ganga {
     max-width: 992px !important;
+    margin: auto;
   }
 }
 @media (min-width: 992px) {
   .container-ganga {
     max-width: 1200px !important;
+    margin: auto;
   }
 }
 @media (min-width: 1200px) {
   .container-ganga {
     max-width: 1500px !important;
+    margin: auto;
   }
 }
 

@@ -1,44 +1,46 @@
 .box-img-item {
   background: #f0f0f0;
-  height: 9rem;
+  height: 45%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .border-ropa {
-  border: 1px solid #ff8629 !important;
+  border: 2px solid #ff8629 !important;
 }
 .border-deporte {
-  border: 1px solid #ff003b !important;
+  border: 2px solid #ff003b !important;
 }
 .border-tecnologia {
-  border: 1px solid #a74fff !important;
+  border: 2px solid #a74fff !important;
 }
 .border-calzado {
-  border: 1px solid #a74fff !important;
+  border: 2px solid #a74fff !important;
 }
 .border-hogar {
-  border: 1px solid #2fc33a !important;
+  border: 2px solid #2fc33a !important;
 }
 .border-juguete {
-  border: 1px solid #ff3552 !important;
+  border: 2px solid #ff3552 !important;
 }
 .border-electroHogar {
-  border: 1px solid #3890e3 !important;
+  border: 2px solid #3890e3 !important;
 }
 .border-belleza {
-  border: 1px solid #ff8dd1 !important;
+  border: 2px solid #ff8dd1 !important;
 }
 .border-nuevo {
-  border: 1px solid #fff6cd !important;
+  border: 2px solid #ffdb40 !important;
+  
 }
 .border-escolarOficina {
-  border: 1px solid #7e4fff !important;
+  border: 2px solid #7e4fff !important;
 }
 
 .card {
-  height: 17rem !important;
+  max-height: 20rem !important;
+  height: 19rem!important;
 }
 
 .box-img-item img {
@@ -179,7 +181,7 @@ color: #a74fff;
 }
 
 .letter-free-cl-nuevo {
-  color: #fff6cd;
+  color: #ffdb40;
 }
 
 .letter-free-cl-escolarOficina {
@@ -219,7 +221,7 @@ color: #a74fff;
 }
 
 .box-letter-free-bg-nuevo {
-  background-color: #fff6cd;
+  background-color: #ffdb40;
 }
 
 .box-letter-free-bg-escolarOficina {
@@ -275,8 +277,8 @@ border: 2px solid #a74fff;
 }
 
 .box-x-nuevo {
-  color: #fff6cd;
-  border: 2px solid #fff6cd;
+  color: #ffdb40;
+  border: 2px solid #ffdb40;
 }
 
 .box-x-escolarOficina {
@@ -325,7 +327,7 @@ color: #a74fff;
 }
 
 .box-porcent-nuevo {
-  color: #fff6cd;
+  color: #ffdb40;
 }
 
 .box-porcent-escolarOficina {
@@ -375,6 +377,7 @@ color: #a74fff;
 
   .body-card {
     width: 60%;
+    height: 55%;
   }
 
   .group-time-item {

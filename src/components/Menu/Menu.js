@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 
@@ -11,8 +12,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
-import axios from "axios";
-import burger from "../../images/menu-icons/burger-menu.svg"
+
+import burger from "../../images/menu-icons/burger-menu.svg";
 
 const Menu = ({ functionFilterSearch }) => {
   const [searchWord, setSearchWord] = useState("");
@@ -59,12 +60,27 @@ const Menu = ({ functionFilterSearch }) => {
   return (
     <>
       {width < breakpoint ? (
-        <Container>
+        <Container className="navbar-mobile">
           <nav className="navbar navbar-light bg-light justify-content-between ">
             <Link className="navbar-brand" to="/">
               <img src={logo} alt="logo la ganga" className="logo-ganga" />
             </Link>
-            <img src={burger} alt="burger menu la ganga" className="burger-menu"/>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <img
+              src={burger}
+              alt="burger menu la ganga"
+              className="burger-menu"
+            />
           </nav>
           <div className="box-search-mobile">
             <form className="search-container" onSubmit={filterForm}>
@@ -92,7 +108,7 @@ const Menu = ({ functionFilterSearch }) => {
           </div>
         </Container>
       ) : (
-        <Container className="container-ganga">
+        <Container className="container-ganga navbar-desktop">
           <nav className="navbar navbar-light bg-light justify-content-between ">
             <Link className="navbar-brand" to="/">
               <img src={logo} alt="logo la ganga" className="logo-ganga" />
