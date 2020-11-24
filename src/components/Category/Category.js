@@ -4,6 +4,7 @@ import { Container, Row } from "react-bootstrap";
 import Item from "./../Item/Item"
 import { useParams } from "react-router-dom";
 import "./category.css"
+import clienteAxiosBusiness from "../config/axiosBusiness";
 
 
 const Category = () => {
@@ -13,7 +14,8 @@ const Category = () => {
 
 
     const getProductsDay = async () => {
-        const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/${category}&${marca}`);
+        //const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/${category}&${marca}`);
+        const res = await clienteAxiosBusiness.get(`/filterCategoryMarca/${category}&${marca}`)
         setfilterCategoriesMarca(res.data.categoriaYmarca);
         console.log(category, "category");
         console.log(marca, "marca")

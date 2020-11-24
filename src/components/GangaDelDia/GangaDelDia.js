@@ -5,6 +5,7 @@ import axios from 'axios';
 import "./GangaDelDia.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import clienteAxiosBusiness from "../config/axiosBusiness";
 
 
 const responsive = {
@@ -32,7 +33,8 @@ const GangaDelDia = (props) => {
 
   const getProductsDay = async () => {
     //const res = await axios.get('http://localhost:3000/productsLast24');
-    const res = await axios.get('https://la-ganga-api.herokuapp.com/productsLast24');
+    // const res = await axios.get('https://la-ganga-api.herokuapp.com/productsLast24');
+    const res = await clienteAxiosBusiness.get('/productsLast24');
     setProducts(res.data.products);
   };
 
