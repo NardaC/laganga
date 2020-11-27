@@ -17,6 +17,7 @@ import Construccion from "./components/Construccion/Construccion";
 import MenuNuevo from "./components/Menu/MenuNuevo";
 import Sidedrawer from "./components/Menu/MenuBurger/Sidedrawer";
 import Backdrop from "./components/Menu/MenuBurger/Backdrop";
+import clienteAxiosBusiness from "./components/config/axiosBusiness";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -69,7 +70,9 @@ function App() {
 
   const getProductsDay = async () => {
     //const res = await axios.get('http://localhost:3000/products');
-    const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
+    //const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
+    const res = await clienteAxiosBusiness.get("/products");
+    console.log('con .env', res)
     const arrayProducts = res.data.products;
     const filterProducts = arrayProducts.filter(
       (product) =>

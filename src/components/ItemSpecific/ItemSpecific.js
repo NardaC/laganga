@@ -13,6 +13,7 @@ import Row from "react-bootstrap/Row";
 import banner from "../../images/banner/banner-bottom.png";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import PromoSimilar from "../PromoSimilar/PromoSimilar";
+import clienteAxiosBusiness from "../config/axiosBusiness";
 
 const ItemSpecific = () => {
   const { productId } = useParams();
@@ -20,9 +21,8 @@ const ItemSpecific = () => {
 
   const getProduct = async () => {
     //const res = await axios.get(`http://localhost:3000/products/${productId}`);
-    const res = await axios.get(
-      `https://la-ganga-api.herokuapp.com/products/${productId}`
-    );
+    // const res = await axios.get(`https://la-ganga-api.herokuapp.com/products/${productId}`);
+    const res = await clienteAxiosBusiness.get(`/products/${productId}`);
     setproduct(res.data.product);
     //setCategory(res.data.product.categoria);
   };
