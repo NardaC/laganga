@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import "./PromoSimilar.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import clienteAxiosBusiness from "../config/axiosBusiness";
 
 
 const responsive = {
@@ -32,7 +33,8 @@ const PromoSimilar = (props) => {
   const [categories, setCategories] = useState([]);
   const getProductsDay = async () => {
       //const res = await axios.get('http://localhost:3000/products');
-      const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/category=${props.category}&marca=''`);
+      // const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/category=${props.category}&marca=''`);
+      const res = await clienteAxiosBusiness.get(`/filterCategoryMarca/category=${props.category}&marca=''`);
       setCategories(res.data.categoriaYmarca);
   };
   useEffect(() => {

@@ -14,6 +14,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 
 import burger from "../../images/menu-icons/burger-menu.svg";
+import clienteAxiosBusiness from "../config/axiosBusiness";
 
 const Menu = ({ functionFilterSearch }) => {
   const [searchWord, setSearchWord] = useState("");
@@ -47,7 +48,8 @@ const Menu = ({ functionFilterSearch }) => {
   };
   const getProducts = async () => {
     //const res = await axios.get('http://localhost:3000/products');
-    const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
+    // const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
+    const res = await clienteAxiosBusiness.get("/products");
     setProducts(res.data.products);
   };
 
