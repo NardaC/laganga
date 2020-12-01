@@ -33,7 +33,7 @@ const MenuMobile = () => {
   return (
     <>
       <nav class="navbar fixed-bottom navbar-light bg-light">
-        <NavLink class="" to="/" activeClassName="homeOn">
+        <NavLink class="" exact={true}  to="" activeClassName="homeOn">
           {/* <img src={category} alt="" className="menu-off" /> */}
           <div className="home"></div>
         </NavLink>

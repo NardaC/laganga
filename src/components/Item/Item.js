@@ -20,16 +20,18 @@ const Item = ({ product, addInterest }) => {
   const [timeMinutes, setTimeMinutes] = useState(0);
   const [agotadoProduct, setAgotadoProduct] = useState("");
   const [timeSeconds, setTimeSeconds] = useState(0);
-  // const dateFuture = "10/25/2020";
+  const dateFuture = "2020/12/01";
   React.useEffect(() => {
     fetch("data/data.json")
       .then((response) => response.json())
       .then((datos) => {
         setDataOriginal(datos);
       });
-    calculateTimeLeft(product.fechaFinOferta);
+    // calculateTimeLeft(product.fechaFinOferta);
+    calculateTimeLeft(dateFuture);
     const timer = setInterval(() => {
-      calculateTimeLeft(product.fechaFinOferta);
+      // calculateTimeLeft(product.fechaFinOferta);
+      calculateTimeLeft(dateFuture);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -48,7 +50,9 @@ const Item = ({ product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
-
+console.log(new Date(dateFuture).getMonth() )
+console.log(new Date(dateFuture).getDate() )
+console.log(new Date(dateFuture).getFullYear() )
 //  console.log(new Date(), "hora")
 //  console.log(new Date(dateFuture) , "hora2")
 //  console.log(new Date(dateFuture) , "hora3")
