@@ -10,7 +10,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 
-const Item = ({ product, addInterest }) => {
+const Item = ({ products, product, addInterest }) => {
   const [text, setText] = useState("");
   const [dataNueva, setDataNueva] = useState([]);
   const [dataOriginal, setDataOriginal] = useState([]);
@@ -21,6 +21,7 @@ const Item = ({ product, addInterest }) => {
   const [agotadoProduct, setAgotadoProduct] = useState("");
   const [timeSeconds, setTimeSeconds] = useState(0);
   const dateFuture = "2020/12/01";
+  console.log(products)
   React.useEffect(() => {
     fetch("data/data.json")
       .then((response) => response.json())
@@ -50,9 +51,9 @@ const Item = ({ product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
-console.log(new Date(dateFuture).getMonth() )
-console.log(new Date(dateFuture).getDate() )
-console.log(new Date(dateFuture).getFullYear() )
+// console.log(new Date(dateFuture).getMonth() )
+// console.log(new Date(dateFuture).getDate() )
+// console.log(new Date(dateFuture).getFullYear() )
 //  console.log(new Date(), "hora")
 //  console.log(new Date(dateFuture) , "hora2")
 //  console.log(new Date(dateFuture) , "hora3")
@@ -111,7 +112,7 @@ console.log(new Date(dateFuture).getFullYear() )
             <FontAwesomeIcon
               icon={faHeart}
               className={product.like ? "btn-like-active" : "btn-like"}
-              onClick={() => addInterest(product)}
+              onClick={() => addInterest(products, product)}
             />
           </a>
         </div>

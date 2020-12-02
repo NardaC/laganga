@@ -16,7 +16,7 @@ const AllItems = ({products, addInterest, like}) => {
       </div>
       <Row className="justify-content-md-center ">
         {products.map((product) => (
-          <Item product={product} key={product._id} addInterest={addInterest} like= {like} />
+          <Item product={product} products={products}  key={product._id} addInterest={addInterest} like= {like} />
         ))}
       </Row>
     </div>

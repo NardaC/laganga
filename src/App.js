@@ -39,24 +39,43 @@ function App() {
 
   // console.log(arrayInterest, "array")
   // console.log(JSON.parse(window.localStorage.getItem("arrayInterestLocal")), "itemInicial")
+  useEffect(() => {
+    getProductsDay();
+  }, []);
 
-  const addInterest = (product) => {
+  const getProductsDay = async () => {
+    //const res = await axios.get('http://localhost:3000/products');
+    //const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
+    const res = await clienteAxiosBusiness.get("/products");
+    console.log('con .env', res)
+    const arrayProducts = res.data.products;
+    // const filterProducts = arrayProducts.filter(
+    //   (product) =>
+    //     new Date().getTime() >= new Date(product.fechaInicioOferta).getTime()
+    // );
+    setProducts(arrayProducts);
+    // console.log(filterProducts, "JUDITH")
+  };
+
+
+  const addInterest = (products,product) => {
     //Solo guardará en interest productos totales//
     let registerInterest;
 
     for (let i = 0; i < products.length; i++) {
       if (products[i]._id === product._id) {
         registerInterest = product;
-        registerInterest.like = true;
-        product.like = true;
+        registerInterest.liked = true;
+        product.liked = true;
       }
     }
+    console.log(registerInterest, "°°°°")
 
     console.log(arrayInterest.length, "janira3");
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
-        registerInterest.like = false;
-        product.like = false;
+        registerInterest.liked = false;
+        product.liked = false;
         return setArrayInterest(
           arrayInterest.filter(
             (product) => product._id !== registerInterest._id
@@ -68,23 +87,6 @@ function App() {
   };
   localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
 
-  const getProductsDay = async () => {
-    //const res = await axios.get('http://localhost:3000/products');
-    //const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
-    const res = await clienteAxiosBusiness.get("/products");
-    console.log('con .env', res)
-    const arrayProducts = res.data.products;
-    const filterProducts = arrayProducts.filter(
-      (product) =>
-        new Date().getTime() >= new Date(product.fechaInicioOferta).getTime()
-    );
-    setProducts(filterProducts);
-    // console.log(filterProducts, "JUDITH")
-  };
-
-  useEffect(() => {
-    getProductsDay();
-  }, []);
   const functionFilterSearch = (arrayFilter) => {
     setFilterSearch(arrayFilter);
   };

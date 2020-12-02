@@ -63,7 +63,7 @@ const GangaDelDia = (props) => {
       >
         {products.map((product, index) => (
           <div className="item-carousel" key={index}>
-            <Item product={product}   addInterest={props.addInterest}/>
+            <Item product={product}   products={products}  addInterest={props.addInterest}/>
           </div>
         ))}
       </Carousel>

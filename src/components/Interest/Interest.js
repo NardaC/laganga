@@ -14,7 +14,7 @@ const Interest = ({addInterest}) => {
             </div>
             <Row className="justify-content-md-center ">
                 {JSON.parse(localStorage.getItem("arrayInterestLocal")).map((product) => (
-                    <Item product={product} key={product._id} addInterest={addInterest} />
+                    <Item product={product} products={JSON.parse(localStorage.getItem("arrayInterestLocal"))} key={product._id} addInterest={addInterest} />
                 ))}
             </Row>
         </Container>
