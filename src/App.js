@@ -44,8 +44,6 @@ function App() {
   }, []);
 
   const getProductsDay = async () => {
-    //const res = await axios.get('http://localhost:3000/products');
-    //const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
     const res = await clienteAxiosBusiness.get("/products");
     console.log('con .env', res)
     const arrayProducts = res.data.products;
@@ -54,7 +52,6 @@ function App() {
     //     new Date().getTime() >= new Date(product.fechaInicioOferta).getTime()
     // );
     setProducts(arrayProducts);
-    // console.log(filterProducts, "JUDITH")
   };
 
 
@@ -142,16 +139,7 @@ function App() {
         </Route>
         <Route path="/category/:category?&:marca?">
           <Category />
-          <PromoSimilar />
         </Route>
-        {/* <Route path="/category/:category">
-          <Category />
-          <PromoSimilar/>
-        </Route>
-        <Route path="/category/:marca">
-          <Category />
-          <PromoSimilar/>
-        </Route> */}
       </Switch>
       {width < breakpoint ? <MenuMobile /> : <Footer />}
     </Router>

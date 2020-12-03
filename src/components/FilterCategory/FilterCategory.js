@@ -23,46 +23,6 @@ const FilterCategory = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     let history = useHistory();
-    // const filterCategoryRopa = () => {
-    //     // history.push("/category/ropa");
-    //     // handleClose();
-    // };
-    // const filterCategoryDeporte = () => {
-    //     history.push("/category/deporte");
-    //     handleClose();
-    // };
-    // const filterCategoryTecnologia = () => {
-    //     history.push("/category/tecnologia");
-    //     handleClose();
-    // };
-    // const filterCategoryCalzado = () => {
-    //     history.push("/category/calzado");
-    //     handleClose();
-    // };
-    // const filterCategoryHogar = () => {
-    //     history.push("/category/hogar");
-    //     handleClose();
-    // };
-    // const filterCategoryJuguetes = () => {
-    //     history.push("/category/juguete");
-    //     handleClose();
-    // };
-    // const filterCategoryElectroHogar = () => {
-    //     history.push("/category/electroHogar");
-    //     handleClose();
-    // };
-    // const filterCategoryBelleza = () => {
-    //     history.push("/category/belleza");
-    //     handleClose();
-    // };
-    // const filterCategoryOficina = () => {
-    //     history.push("/category/escolarOficina");
-    //     handleClose();
-    // };
-    // const filterCategoryNuevos = () => {
-    //     history.push("/category/nuevo");
-    //     handleClose();
-    // };
     const sendFilter = (e) => {
         e.preventDefault();
         history.push(`/category/${valueCategory}&${valueMarca}`);
