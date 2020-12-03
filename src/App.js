@@ -93,7 +93,6 @@ function App() {
   };
 
   const ocultarMenuMobile = () => {
-    console.log("cerraooo");
     setmenuBurgerOpen(false);
   };
   let backdrop;

@@ -11,6 +11,7 @@ const Category = () => {
     const [filterCategoriesMarca, setfilterCategoriesMarca] = useState([]);
     const { category } = useParams();
     const { marca } = useParams();
+    console.log(marca,"marca")
 
 
     const getProductsDay = async () => {

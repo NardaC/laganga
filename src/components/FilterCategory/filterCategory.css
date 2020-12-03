@@ -6,6 +6,9 @@
   padding: 1.5rem 0rem;
   cursor: pointer;
 }
+.select-marca{
+  width: 100%;
+}
 .fixed-filter p {
   color: #ffffff;
   font-size: 1.2rem;

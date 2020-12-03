@@ -21,7 +21,7 @@ const Item = ({ products, product, addInterest }) => {
   const [agotadoProduct, setAgotadoProduct] = useState("");
   const [timeSeconds, setTimeSeconds] = useState(0);
   const dateFuture = "2020/12/01";
-  console.log(products)
+  // console.log(products)
   React.useEffect(() => {
     fetch("data/data.json")
       .then((response) => response.json())
