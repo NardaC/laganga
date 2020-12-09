@@ -15,7 +15,6 @@ const Category = () => {
 
 
     const getProductsDay = async () => {
-        //const res = await axios.get(`https://la-ganga-api.herokuapp.com/filterCategoryMarca/${category}&${marca}`);
         const res = await clienteAxiosBusiness.get(`/filterCategoryMarca/${category}&${marca}`)
         setfilterCategoriesMarca(res.data.categoriaYmarca);
         console.log(category, "category");

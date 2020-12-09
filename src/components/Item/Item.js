@@ -28,6 +28,21 @@ const Item = ({ products, product, addInterest }) => {
       .then((datos) => {
         setDataOriginal(datos);
       });
+
+    let arrayMeInteresa = JSON.parse(localStorage.getItem("arrayInterestLocal"));
+    // let suma = 0
+    for ( let i = 0; i < arrayMeInteresa.length; i++) {
+      if (product._id === arrayMeInteresa[i]._id) {
+         product.liked = true
+        //  suma = suma +1
+          console.log("cambio")
+          
+      } else {
+        product.liked =false
+      }
+    }
+    // console.log(arrayMeInteresa, "array")y
+    console.log(product, "editado :)")
     // calculateTimeLeft(product.fechaFinOferta);
     calculateTimeLeft(dateFuture);
     const timer = setInterval(() => {
@@ -35,7 +50,7 @@ const Item = ({ products, product, addInterest }) => {
       calculateTimeLeft(dateFuture);
     }, 1000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [product]);
 
   const calculateTimeLeft = (dateFuture) => {
     // let year = new Date().getFullYear();
@@ -51,14 +66,14 @@ const Item = ({ products, product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
-// console.log(new Date(dateFuture).getMonth() )
-// console.log(new Date(dateFuture).getDate() )
-// console.log(new Date(dateFuture).getFullYear() )
-//  console.log(new Date(), "hora")
-//  console.log(new Date(dateFuture) , "hora2")
-//  console.log(new Date(dateFuture) , "hora3")
-//  console.log(new Date(dateFuture).getDate() , "hora4")
-//  console.log(monthDayYear, "hora5")
+  // console.log(new Date(dateFuture).getMonth() )
+  // console.log(new Date(dateFuture).getDate() )
+  // console.log(new Date(dateFuture).getFullYear() )
+  //  console.log(new Date(), "hora")
+  //  console.log(new Date(dateFuture) , "hora2")
+  //  console.log(new Date(dateFuture) , "hora3")
+  //  console.log(new Date(dateFuture).getDate() , "hora4")
+  //  console.log(monthDayYear, "hora5")
   //  console.log(new Date('10/17/2020').getTime(), "holitas")
   return (
     <div className="col-12 col-sm-4 col-lg-3 mb-4">
@@ -96,22 +111,22 @@ const Item = ({ products, product, addInterest }) => {
             </div>
           </div>
         ) : (
-          <div className="box-tag-offer">
-            <div
-              className={
-                "box-porcent" + " " + "box-porcent-" + product.categoria
-              }
-            >
-              -{product.descuento}%
+              <div className="box-tag-offer">
+                <div
+                  className={
+                    "box-porcent" + " " + "box-porcent-" + product.categoria
+                  }
+                >
+                  -{product.descuento}%
             </div>
-          </div>
-        )}
+              </div>
+            )}
 
         <div className="group-btn-like">
           <a>
             <FontAwesomeIcon
               icon={faHeart}
-              className={product.like ? "btn-like-active" : "btn-like"}
+              className={product.liked ? "btn-like-active" : "btn-like"}
               onClick={() => addInterest(products, product)}
             />
           </a>
@@ -127,8 +142,8 @@ const Item = ({ products, product, addInterest }) => {
                 {timeDays}D {timeHours}H {timeMinutes}M
               </div>
             ) : (
-              <div className=" item-chronometer">{agotadoProduct}</div>
-            )}
+                <div className=" item-chronometer">{agotadoProduct}</div>
+              )}
           </div>
           <Card.Body>
             <Card.Title className="title-item">{product.nombre}</Card.Title>

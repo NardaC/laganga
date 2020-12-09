@@ -72,6 +72,7 @@ function App() {
     for (let i = 0; i < arrayInterest.length; i++) {
       if (arrayInterest[i]._id === registerInterest._id) {
         registerInterest.liked = false;
+        arrayInterest[i].liked = false;
         product.liked = false;
         return setArrayInterest(
           arrayInterest.filter(
