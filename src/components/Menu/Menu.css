@@ -269,6 +269,7 @@ input.search-bar-mobile {
     display: block;
     width: auto;
     background-color: red;
+    padding: .2rem 0rem;
   }
   .box-search-mobile form{
     width: 90%;

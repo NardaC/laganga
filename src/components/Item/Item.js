@@ -31,16 +31,16 @@ const Item = ({ products, product, addInterest }) => {
 
     let arrayMeInteresa = JSON.parse(localStorage.getItem("arrayInterestLocal"));
     // let suma = 0
-    for ( let i = 0; i < arrayMeInteresa.length; i++) {
-      if (product._id === arrayMeInteresa[i]._id) {
-         product.liked = true
-        //  suma = suma +1
-          console.log("cambio")
+    // for ( let i = 0; i < arrayMeInteresa.length; i++) {
+    //   if (product._id === arrayMeInteresa[i]._id) {
+    //      product.liked = true
+    //     //  suma = suma +1
+    //       console.log("cambio")
           
-      } else {
-        product.liked =false
-      }
-    }
+    //   } else {
+    //     product.liked =false
+    //   }
+    // }
     // console.log(arrayMeInteresa, "array")y
     console.log(product, "editado :)")
     // calculateTimeLeft(product.fechaFinOferta);
@@ -76,7 +76,7 @@ const Item = ({ products, product, addInterest }) => {
   //  console.log(monthDayYear, "hora5")
   //  console.log(new Date('10/17/2020').getTime(), "holitas")
   return (
-    <div className="col-12 col-sm-4 col-lg-3 mb-4">
+    <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
       <Card className={"border-" + product.categoria}>
         {/* <div className="tag-offer">
           -{product.descuento}%
