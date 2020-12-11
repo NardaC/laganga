@@ -309,7 +309,7 @@ input.search-bar-mobile {
 
   svg.svg-inline--fa.fa-search.fa-w-16.icon-searh-mobile{
     position: relative;
-    left: -.1rem;
+    left: -.5rem;
   }
 
   .burger-menu{
@@ -324,4 +324,12 @@ input.search-bar-mobile {
     display: block!important;
   }
 
+}
+
+@media (max-width: 420px){
+  svg.svg-inline--fa.fa-search.fa-w-16.icon-searh-mobile{
+    position: relative;
+    left: -.1rem;
+  }
+  
 }
