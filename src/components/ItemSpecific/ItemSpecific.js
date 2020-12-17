@@ -42,7 +42,7 @@ console.log(error,"njkh")
         {!product ? "" :
 
      <Container className="pt-4 box-home container-ganga fade-in animated">
-       <h4 className="title-ganga title-especific">{product.promocion.nombre}</h4>
+       <h4 className="title-ganga title-especific">Ver mas detalles:</h4>
        <div className="box-details margin-box">
          <figure className="figure-product-especific">
            <img src={ product.imagenes[1].typeImage === "O" ? product.imagenes[1].url : product.imagenes[0].url} alt="" className="w-100" />
@@ -96,19 +96,18 @@ console.log(error,"njkh")
              </div>
              </div>
            )}
-           <img src={product.promocion.imagenMarcaURL} alt="" className="marca-especific"/>
+           <img src={product.imagenes[1].typeImage === "M" ? product.imagenes[1].url : product.imagenes[0].url} alt="" className="marca-especific"/>
          </figure>
          <div></div>
          <div className="box-details-especific">
            <h3 className="title-ganga subtitle-especific">
-             {product.promocion.descripcion}
+           {product.promocion.nombre}
            </h3>
            <div className="group-time">
              <FontAwesomeIcon icon={faClock} className="img-clock" />
              <div className="ml-2">5D 4h 1M</div>
            </div>
            <div className="description-especific">{product.promocion.descripcion}
-           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus asperiores ullam voluptates modi hic, doloremque, magnam sit debitis praesentium dignissimos fugiat dolor at voluptatibus nisi cupiditate. Magnam itaque quae facere?
            </div>
            <Button className="btn-ir-web">Ir a la web</Button>
          </div>

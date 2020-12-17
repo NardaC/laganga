@@ -31,21 +31,33 @@ const Item = ({ products, product, addInterest }) => {
 
     let arrayMeInteresa = JSON.parse(localStorage.getItem("arrayInterestLocal"));
     // let suma = 0
-    for ( let i = 0; i < arrayMeInteresa.length; i++) {
-      if (product._id === arrayMeInteresa[i]._id) {
-         product.liked = true
-        //  suma = suma +1
-      } else {
-        product.liked =false
-      }
-    }
+    // for ( let i = 0; i < arrayMeInteresa.length; i++) {
+    //   if (product._id === arrayMeInteresa[i]._id) {
+    //      product.liked = true
+    //     //  suma = suma +1
+    //       console.log("cambio")
+          
+    //   } else {
+    //     product.liked =false
+    //   }
+    // }
     // console.log(arrayMeInteresa, "array")y
     // console.log(product, "editado :)")
     // calculateTimeLeft(product.fechaFinOferta);
-    calculateTimeLeft(dateFuture);
+    const fechaFinalInputISOString = new Date(product.promocion.fechaFinOferta).toISOString();
+    const fechaFinalInputInstancia = new Date(fechaFinalInputISOString);
+    const fechaFinalOutput = new Date(fechaFinalInputInstancia.getTime() + (fechaFinalInputInstancia.getTimezoneOffset() * 60000));
+    const fechaInicioInputISOString = new Date(product.promocion.fechaInicioOferta).toISOString();
+    const fechaInicioInputInstancia = new Date(fechaInicioInputISOString);
+    const fechaInicioOutput = new Date(fechaInicioInputInstancia.getTime() + (fechaInicioInputInstancia.getTimezoneOffset() * 60000));
+
+    if (fechaInicioOutput.getTime() > new Date()) {
+      setAgotadoProduct("Promoción por empezar");
+    }
+    calculateTimeLeft(fechaFinalOutput);
     const timer = setInterval(() => {
       // calculateTimeLeft(product.fechaFinOferta);
-      calculateTimeLeft(dateFuture);
+      calculateTimeLeft(fechaFinalOutput);
     }, 1000);
     return () => clearTimeout(timer);
   }, [product]);
@@ -64,8 +76,7 @@ const Item = ({ products, product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
-  console.log(product,"juju-product")
-  console.log(product.promocion.categoria,"juju-product-categoris")
+
   // console.log(new Date(dateFuture).getMonth() )
   // console.log(new Date(dateFuture).getDate() )
   // console.log(new Date(dateFuture).getFullYear() )
@@ -76,9 +87,13 @@ const Item = ({ products, product, addInterest }) => {
   //  console.log(monthDayYear, "hora5")
   //  console.log(new Date('10/17/2020').getTime(), "holitas")
   return (
-    <div className="col-12 col-sm-4 col-lg-3 mb-4">
+    <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
       <Card className={"border-" + product.promocion.categoria}>
-        {product.promocion.tipoDescuento === "freeShipping" ? (
+        {/* <div className="tag-offer">
+          -{product.descuento}%
+        </div> */}
+
+        {product.tipoDescuento === "freeShipping" ? (
           <div className="box-tag-offer">
             <div className="box-free-shipping">
               <div
@@ -154,7 +169,7 @@ const Item = ({ products, product, addInterest }) => {
           <Card.Body>
             <Card.Title className="title-item">{product.promocion.nombre}</Card.Title>
             <Card.Text className="subtitle-item">
-              {product.promocion.descripcion}
+            {`${product.promocion.descripcion.substr(0,70)}...`}
             </Card.Text>
           </Card.Body>
         </a>

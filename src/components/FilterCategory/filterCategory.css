@@ -26,7 +26,7 @@
 .box-filter h5 {
   font-family: "made-tomy-sof-regular";
   text-align: center;
-  color: #878787;
+  color: #000;
 }
 .box-filter{
     margin-top: 1rem;
@@ -92,7 +92,7 @@ hr {
   -webkit-filter: none;
   -moz-filter: none;
   filter: none;
-  border: 4px solid #f31454;
+  border: 4px solid #000;
   border-radius: 10px;
 }
 
@@ -146,9 +146,9 @@ hr {
   -webkit-transition: all 100ms ease-in;
   -moz-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
-  -webkit-filter: opacity(0.8);
+  /* -webkit-filter: opacity(0.8);
   -moz-filter: opacity(0.8);
-  filter: opacity(0.8);
+  filter: opacity(0.8); */
 }
 .ropa {
   background-image: url("./../../images/categoria-ropa.png");
