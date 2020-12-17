@@ -18,6 +18,7 @@ import MenuNuevo from "./components/Menu/MenuNuevo";
 import Sidedrawer from "./components/Menu/MenuBurger/Sidedrawer";
 import Backdrop from "./components/Menu/MenuBurger/Backdrop";
 import clienteAxiosBusiness from "./components/config/axiosBusiness";
+import  clienteAxiosBusinessLocal from "./components/config/axiosBusinessLocal";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -39,19 +40,24 @@ function App() {
 
   // console.log(arrayInterest, "array")
   // console.log(JSON.parse(window.localStorage.getItem("arrayInterestLocal")), "itemInicial")
-  useEffect(() => {
-    getProductsDay();
-  }, []);
-
   const getProductsDay = async () => {
-    const res = await clienteAxiosBusiness.get("/products");
-    console.log('con .env', res)
-    const arrayProducts = res.data.products;
-    // const filterProducts = arrayProducts.filter(
-    //   (product) =>
-    //     new Date().getTime() >= new Date(product.fechaInicioOferta).getTime()
-    // );
-    setProducts(arrayProducts);
+    await clienteAxiosBusinessLocal.get("/get-promotion-all/user")
+    .then((res) => {
+      if (res.data.MensajeRespuesta === "NO EXISTEN DATOS") {
+        setProducts([]);
+        // setTotalPromotions(0)
+      } else {
+        // setProducts(res.data.promocionesGeneral);
+        // setProducts(res.data.promociones);
+           setProducts(res.data);
+        console.log(res.data,"dataj")
+        // setTotalPromotions(res.data.totalDePromociones)
+      }
+      // setLoading(false);
+    })
+    .catch((e) => {
+      console.log(e, "error:)");
+    });
   };
 
 
@@ -103,6 +109,12 @@ function App() {
 
   const width = window.innerWidth;
   const breakpoint = 768;
+  console.log(products, "productos:) 0")
+  
+  useEffect(() => {
+    getProductsDay();
+  }, []);
+
 
   return (
     <Router className="box-home">

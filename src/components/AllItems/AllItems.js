@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Item from "../Item/Item";
 
 const AllItems = ({products, addInterest, like}) => {
+  console.log(products, "productos:) 3")
 
   return (
     <div className="mb-3 margin-box">

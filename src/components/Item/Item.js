@@ -35,14 +35,12 @@ const Item = ({ products, product, addInterest }) => {
       if (product._id === arrayMeInteresa[i]._id) {
          product.liked = true
         //  suma = suma +1
-          console.log("cambio")
-          
       } else {
         product.liked =false
       }
     }
     // console.log(arrayMeInteresa, "array")y
-    console.log(product, "editado :)")
+    // console.log(product, "editado :)")
     // calculateTimeLeft(product.fechaFinOferta);
     calculateTimeLeft(dateFuture);
     const timer = setInterval(() => {
@@ -66,6 +64,8 @@ const Item = ({ products, product, addInterest }) => {
       setAgotadoProduct("Promoción Agotada");
     }
   };
+  console.log(product,"juju-product")
+  console.log(product.promocion.categoria,"juju-product-categoris")
   // console.log(new Date(dateFuture).getMonth() )
   // console.log(new Date(dateFuture).getDate() )
   // console.log(new Date(dateFuture).getFullYear() )
@@ -77,17 +77,13 @@ const Item = ({ products, product, addInterest }) => {
   //  console.log(new Date('10/17/2020').getTime(), "holitas")
   return (
     <div className="col-12 col-sm-4 col-lg-3 mb-4">
-      <Card className={"border-" + product.categoria}>
-        {/* <div className="tag-offer">
-          -{product.descuento}%
-        </div> */}
-
-        {product.tipoDescuento === "freeShipping" ? (
+      <Card className={"border-" + product.promocion.categoria}>
+        {product.promocion.tipoDescuento === "freeShipping" ? (
           <div className="box-tag-offer">
             <div className="box-free-shipping">
               <div
                 className={
-                  "letter-free" + " " + "letter-free-cl-" + product.categoria
+                  "letter-free" + " " + "letter-free-cl-" + product.promocion.categoria
                 }
               >
                 free
@@ -97,16 +93,26 @@ const Item = ({ products, product, addInterest }) => {
                   "box-letter-free" +
                   " " +
                   "box-letter-free-bg-" +
-                  product.categoria
+                  product.promocion.categoria
                 }
               >
                 shipping
               </div>
             </div>
           </div>
-        ) : product.tipoDescuento === "3x2" ? (
+        ): product.promocion.tipoDescuento === "2x1" ? (
+          <div className="box-tag-offer-especific">
+            <div
+              className={
+                "box-x" + " " + "box-x-" + product.promocion.categoria
+              }
+            >
+              2x1
+            </div>
+          </div>
+        ) : product.promocion.tipoDescuento === "3x2" ? (
           <div className="box-tag-offer">
-            <div className={"box-x" + " " + "box-x-" + product.categoria}>
+            <div className={"box-x" + " " + "box-x-" + product.promocion.categoria}>
               3x2
             </div>
           </div>
@@ -114,10 +120,10 @@ const Item = ({ products, product, addInterest }) => {
               <div className="box-tag-offer">
                 <div
                   className={
-                    "box-porcent" + " " + "box-porcent-" + product.categoria
+                    "box-porcent" + " " + "box-porcent-" + product.promocion.categoria
                   }
                 >
-                  -{product.descuento}%
+                  -{product.promocion.descuento}%
             </div>
               </div>
             )}
@@ -126,15 +132,15 @@ const Item = ({ products, product, addInterest }) => {
           <a>
             <FontAwesomeIcon
               icon={faHeart}
-              className={product.liked ? "btn-like-active" : "btn-like"}
+              className={product.promocion.liked ? "btn-like-active" : "btn-like"}
               onClick={() => addInterest(products, product)}
             />
           </a>
         </div>
         <div className="box-img-item">
-          <Card.Img variant="top" src={product.imagenMarcaURL} />
+        <Card.Img variant="top" src={product.imagenes[1].typeImage === "M" ? product.imagenes[1].url : product.imagenes[0].url} />
         </div>
-        <a href={"/item-especific/" + product._id} className="link body-card">
+        <a href={"/item-especific/" + product.promocion._id} className="link body-card">
           <div className="group-time-item">
             <FontAwesomeIcon icon={faClock} />
             {agotadoProduct === "" ? (
@@ -146,9 +152,9 @@ const Item = ({ products, product, addInterest }) => {
               )}
           </div>
           <Card.Body>
-            <Card.Title className="title-item">{product.nombre}</Card.Title>
+            <Card.Title className="title-item">{product.promocion.nombre}</Card.Title>
             <Card.Text className="subtitle-item">
-              {product.descripcion}
+              {product.promocion.descripcion}
             </Card.Text>
           </Card.Body>
         </a>
