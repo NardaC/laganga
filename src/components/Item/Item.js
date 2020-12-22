@@ -23,24 +23,15 @@ const Item = ({ products, product, addInterest }) => {
   const dateFuture = "2020/12/01";
   // console.log(products)
   React.useEffect(() => {
-    fetch("data/data.json")
-      .then((response) => response.json())
-      .then((datos) => {
-        setDataOriginal(datos);
-      });
-
     let arrayMeInteresa = JSON.parse(localStorage.getItem("arrayInterestLocal"));
+    console.log(arrayMeInteresa,"arrayMeInteresa")
     // let suma = 0
-    // for ( let i = 0; i < arrayMeInteresa.length; i++) {
-    //   if (product._id === arrayMeInteresa[i]._id) {
-    //      product.liked = true
-    //     //  suma = suma +1
-    //       console.log("cambio")
-          
-    //   } else {
-    //     product.liked =false
-    //   }
-    // }
+    for ( let i = 0; i < arrayMeInteresa.length; i++) {
+      if (product.promocion._id === arrayMeInteresa[i].promocion._id) {
+        product.promocion.liked = true
+      } 
+    }
+    // localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
     // console.log(arrayMeInteresa, "array")y
     // console.log(product, "editado :)")
     // calculateTimeLeft(product.fechaFinOferta);
@@ -93,7 +84,7 @@ const Item = ({ products, product, addInterest }) => {
           -{product.descuento}%
         </div> */}
 
-        {product.tipoDescuento === "freeShipping" ? (
+        {product.promocion.tipoDescuento === "freeShipping" ? (
           <div className="box-tag-offer">
             <div className="box-free-shipping">
               <div
@@ -115,8 +106,8 @@ const Item = ({ products, product, addInterest }) => {
               </div>
             </div>
           </div>
-        ): product.promocion.tipoDescuento === "2x1" ? (
-          <div className="box-tag-offer-especific">
+        ) : product.promocion.tipoDescuento === "2x1" ? (
+          <div className="box-tag-offer">
             <div
               className={
                 "box-x" + " " + "box-x-" + product.promocion.categoria
@@ -131,17 +122,27 @@ const Item = ({ products, product, addInterest }) => {
               3x2
             </div>
           </div>
-        ) : (
-              <div className="box-tag-offer">
-                <div
-                  className={
-                    "box-porcent" + " " + "box-porcent-" + product.promocion.categoria
-                  }
-                >
-                  -{product.promocion.descuento}%
+        ) : product.promocion.tipoDescuento === "otros" ? (
+          <div className="box-tag-offer">
+            <div
+              className={
+                "box-x" + " " + "box-x-" + product.promocion.categoria
+              }
+            >
+              {product.promocion.descuentoOtros}
             </div>
-              </div>
-            )}
+          </div>
+        ) : (
+                  <div className="box-tag-offer">
+                    <div
+                      className={
+                        "box-porcent" + " " + "box-porcent-" + product.promocion.categoria
+                      }
+                    >
+                      -{product.promocion.descuento}%
+            </div>
+                  </div>
+                )}
 
         <div className="group-btn-like">
           <a>
@@ -153,7 +154,7 @@ const Item = ({ products, product, addInterest }) => {
           </a>
         </div>
         <div className="box-img-item">
-        <Card.Img variant="top" src={product.imagenes[1].typeImage === "M" ? product.imagenes[1].url : product.imagenes[0].url} />
+          <Card.Img variant="top" src={product.imagenes[1].typeImage === "M" ? product.imagenes[1].url : product.imagenes[0].url} />
         </div>
         <a href={"/item-especific/" + product.promocion._id} className="link body-card">
           <div className="group-time-item">
@@ -169,7 +170,7 @@ const Item = ({ products, product, addInterest }) => {
           <Card.Body>
             <Card.Title className="title-item">{product.promocion.nombre}</Card.Title>
             <Card.Text className="subtitle-item">
-            {`${product.promocion.descripcion.substr(0,70)}...`}
+              {`${product.promocion.descripcion.substr(0, 70)}...`}
             </Card.Text>
           </Card.Body>
         </a>

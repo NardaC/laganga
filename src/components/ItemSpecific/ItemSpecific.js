@@ -85,7 +85,11 @@ console.log(error,"njkh")
              <div className="box-tag-offer-especific">
                <div className={"box-x" + " " + "box-x-" + product.promocion.categoria}>3x2</div>
              </div>
-           ) : (
+           ) : product.promocion.descuentoOtros === "otros" ? (
+            <div className="box-tag-offer-especific">
+              <div className={"box-x" + " " + "box-x-" + product.promocion.categoria}>{product.promocion.descuentoOtros}</div>
+            </div>
+          ): (
              <div className="box-tag-offer-especific">
                <div
                className={
@@ -107,7 +111,7 @@ console.log(error,"njkh")
              <FontAwesomeIcon icon={faClock} className="img-clock" />
              <div className="ml-2">5D 4h 1M</div>
            </div>
-           <div className="description-especific">{product.promocion.descripcion}
+           <div className="description-especific">{product.promocion.descripcion}{product.promocion.categoria}
            </div>
            <Button className="btn-ir-web">Ir a la web</Button>
          </div>
@@ -115,7 +119,7 @@ console.log(error,"njkh")
        <div>
          <div className="box-gangaDelDia margin-box">
            <h1 className="title-producto-similar">Productos similares</h1>
-           {/* <PromoSimilar category={product.promocion.categoria} /> */}
+           <PromoSimilar category={product.promocion.categoria} />
          </div>
          <Row className="justify-content-md-center ">
            {/*<Item />

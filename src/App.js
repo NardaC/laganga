@@ -60,29 +60,30 @@ function App() {
     });
   };
 
-
+console.log(products,"productsInterest")
   const addInterest = (products,product) => {
     //Solo guardará en interest productos totales//
     let registerInterest;
-
+    console.log(products, "productos:) 0")
     for (let i = 0; i < products.length; i++) {
-      if (products[i]._id === product._id) {
+      if (products[i].promocion._id === product.promocion._id) {
         registerInterest = product;
-        registerInterest.liked = true;
-        product.liked = true;
+        registerInterest.promocion.liked = true;
+        product.promocion.liked = true;
       }
     }
     console.log(registerInterest, "°°°°")
+    console.log(product, "°°product°°")
 
     console.log(arrayInterest.length, "janira3");
     for (let i = 0; i < arrayInterest.length; i++) {
-      if (arrayInterest[i]._id === registerInterest._id) {
-        registerInterest.liked = false;
-        arrayInterest[i].liked = false;
-        product.liked = false;
+      if (arrayInterest[i].promocion._id === registerInterest.promocion._id) {
+        registerInterest.promocion.liked = false;
+        arrayInterest[i].promocion.liked = false;
+        product.promocion.liked = false;
         return setArrayInterest(
           arrayInterest.filter(
-            (product) => product._id !== registerInterest._id
+            (product) => product.promocion._id !== registerInterest.promocion._id
           )
         );
       }
@@ -109,7 +110,6 @@ function App() {
 
   const width = window.innerWidth;
   const breakpoint = 768;
-  console.log(products, "productos:) 0")
   
   useEffect(() => {
     getProductsDay();

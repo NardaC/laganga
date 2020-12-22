@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState, useMemo } from "react";
+import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "react-bootstrap/Navbar";
@@ -17,6 +17,7 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Container from "react-bootstrap/Container";
 import clienteAxiosBusiness from "../config/axiosBusiness";
+import clienteAxiosBusinessLocal from "../config/axiosBusinessLocal";
 
 const MenuNuevo = (props) => {
   const [searchWord, setSearchWord] = useState("");
@@ -24,37 +25,51 @@ const MenuNuevo = (props) => {
   let history = useHistory();
 
   const filterForm = (e) => {
-    e.preventDefault();
-    const textInput = searchWord;
+    e.preventDefault()
+    const searchFilter = searchWord.toLowerCase();
     const dataInput = products;
-    if (textInput === "") {
+    if (searchFilter === "") {
       return history.push("/");
     } else {
-      const newData = dataInput.filter(function(item) {
-        const itemData = item.nombre.toUpperCase();
-        const itemDataDescp = item.categoria.toUpperCase();
-        const campo = itemData + " " + itemDataDescp;
-        const textData = textInput.toUpperCase();
-
-        return campo.indexOf(textData) > -1;
+      const newData = dataInput.filter((item)=> {
+        const matchName = item.promocion.nombre.toLowerCase().includes(searchFilter);
+        const matchCategory = item.promocion.categoria.toLowerCase().includes(searchFilter);
+        const matchDescription= item.promocion.descripcion.toLowerCase().includes(searchFilter);
+        return matchName || matchCategory || matchDescription
       });
       localStorage.setItem("searchFilterLocalStorage", JSON.stringify(newData));
       //  functionFilterSearch(newData);
-      history.push("/buscar/" + textInput);
+      history.push("/buscar/" + searchFilter);
     }
   };
+
+
+
 
   const goToRoute = (e) => {
     e.preventDefault();
     return history.push("/interest");
   };
   const getProducts = async () => {
-    //const res = await axios.get('http://localhost:3000/products');
-    // const res = await axios.get("https://la-ganga-api.herokuapp.com/products");
-    const res = await clienteAxiosBusiness.get("/products");
-    setProducts(res.data.products);
+    await clienteAxiosBusinessLocal.get("/get-promotion-all/user")
+    .then((res) => {
+      if (res.data.MensajeRespuesta === "NO EXISTEN DATOS") {
+        setProducts([]);
+        // setTotalPromotions(0)
+      } else {
+        // setProducts(res.data.promocionesGeneral);
+        // setProducts(res.data.promociones);
+           setProducts(res.data);
+        console.log(res.data,"dataj")
+        // setTotalPromotions(res.data.totalDePromociones)
+      }
+      // setLoading(false);
+    })
+    .catch((e) => {
+      console.log(e, "error:)");
+    })
   };
-
+  
   useEffect(() => {
     getProducts();
   }, []);
@@ -65,9 +80,9 @@ const MenuNuevo = (props) => {
   return (
     <div className="container-ganga">
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/" className="box-logo">
+        <NavLink to="/" className="box-logo">
           <img src={logo} alt="logo la ganga" className="" />
-        </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={props.drawerClickHandler}>
           <img
             src={burger}
@@ -96,16 +111,16 @@ const MenuNuevo = (props) => {
                 />
               </Button>
             </Form>
-            <Nav.Link href="/interest" className="mr-3 ">
+            <NavLink to="/interest"  exact="true" className="mr-3 " activeClassName='is-active'>
               <FontAwesomeIcon
                 icon={faHeart}
                 className="btn-like-menu"
                 onClick={goToRoute}
               />
-            </Nav.Link>
-            <Nav.Link href="#" className="ml-3 ">
+            </NavLink>
+            <NavLink to="#" className="ml-3 ">
               <FontAwesomeIcon icon={faUserCircle} className="btn-like-user " />
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

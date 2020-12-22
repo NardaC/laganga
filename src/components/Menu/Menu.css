@@ -88,6 +88,9 @@ input.search-bar:focus:-ms-input-placeholder {
   border: 1px solid #f31454 !important;
 }
 
+.is-active .btn-like-menu {
+  color: #f31454;
+}
 .btn-like-menu {
   margin-left: 0.6rem;
   margin-right: 0.8rem;

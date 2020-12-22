@@ -5,21 +5,28 @@ import Item from "./../Item/Item"
 import { useParams } from "react-router-dom";
 import "./category.css"
 import clienteAxiosBusiness from "../config/axiosBusiness";
-
+import clienteAxiosBusinessLocal from "../config/axiosBusinessLocal"
 
 const Category = () => {
     const [filterCategoriesMarca, setfilterCategoriesMarca] = useState([]);
     const { category } = useParams();
     const { marca } = useParams();
-    console.log(marca,"marca")
+
 
 
     const getProductsDay = async () => {
-        const res = await clienteAxiosBusiness.get(`/filterCategoryMarca/${category}&${marca}`)
-        setfilterCategoriesMarca(res.data.categoriaYmarca);
-        console.log(category, "category");
-        console.log(marca, "marca")
-
+        await clienteAxiosBusinessLocal.get(`/filterCategoryMarca/${category}&${marca}`)
+        .then((res) => {
+            if(res.data.MensajeRespuesta === "NO EXISTEN DATOS" ){
+                setfilterCategoriesMarca([]);
+            } else {
+                setfilterCategoriesMarca(res.data.promocionesFilterCategoriaMarca); 
+        }
+            // setLoading(false);
+        })
+        .catch((e) => {
+            console.log(e, "error");
+        });
     };
 
     useEffect(() => {
