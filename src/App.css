@@ -113,6 +113,13 @@
 
 
 /* ANIMACIONES */
+.react-parallax-bgimage{
+  position: fixed!important;
+  /* height: 36rem!important;
+    width: 100%!important; */
+}
+
+
 .fade-in {
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;

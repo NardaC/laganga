@@ -8,6 +8,7 @@
   align-items: center;
   color: #ffff;
   font-family: "made-tomy-sof-regular";
+  position: relative;
 }
 .icon {
   color: #ffff;

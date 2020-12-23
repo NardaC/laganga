@@ -18,7 +18,9 @@ import MenuNuevo from "./components/Menu/MenuNuevo";
 import Sidedrawer from "./components/Menu/MenuBurger/Sidedrawer";
 import Backdrop from "./components/Menu/MenuBurger/Backdrop";
 import clienteAxiosBusiness from "./components/config/axiosBusiness";
-import  clienteAxiosBusinessLocal from "./components/config/axiosBusinessLocal";
+import clienteAxiosBusinessLocal from "./components/config/axiosBusinessLocal";
+import { Parallax, Background } from "react-parallax";
+import fondo from "../src/images/background-ganga.png";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -41,30 +43,31 @@ function App() {
   // console.log(arrayInterest, "array")
   // console.log(JSON.parse(window.localStorage.getItem("arrayInterestLocal")), "itemInicial")
   const getProductsDay = async () => {
-    await clienteAxiosBusinessLocal.get("/get-promotion-all/user")
-    .then((res) => {
-      if (res.data.MensajeRespuesta === "NO EXISTEN DATOS") {
-        setProducts([]);
-        // setTotalPromotions(0)
-      } else {
-        // setProducts(res.data.promocionesGeneral);
-        // setProducts(res.data.promociones);
-           setProducts(res.data);
-        console.log(res.data,"dataj")
-        // setTotalPromotions(res.data.totalDePromociones)
-      }
-      // setLoading(false);
-    })
-    .catch((e) => {
-      console.log(e, "error:)");
-    });
+    await clienteAxiosBusinessLocal
+      .get("/get-promotion-all/user")
+      .then((res) => {
+        if (res.data.MensajeRespuesta === "NO EXISTEN DATOS") {
+          setProducts([]);
+          // setTotalPromotions(0)
+        } else {
+          // setProducts(res.data.promocionesGeneral);
+          // setProducts(res.data.promociones);
+          setProducts(res.data);
+          console.log(res.data, "dataj");
+          // setTotalPromotions(res.data.totalDePromociones)
+        }
+        // setLoading(false);
+      })
+      .catch((e) => {
+        console.log(e, "error:)");
+      });
   };
 
-console.log(products,"productsInterest")
-  const addInterest = (products,product) => {
+  console.log(products, "productsInterest");
+  const addInterest = (products, product) => {
     //Solo guardará en interest productos totales//
     let registerInterest;
-    console.log(products, "productos:) 0")
+    console.log(products, "productos:) 0");
     for (let i = 0; i < products.length; i++) {
       if (products[i].promocion._id === product.promocion._id) {
         registerInterest = product;
@@ -72,8 +75,8 @@ console.log(products,"productsInterest")
         product.promocion.liked = true;
       }
     }
-    console.log(registerInterest, "°°°°")
-    console.log(product, "°°product°°")
+    console.log(registerInterest, "°°°°");
+    console.log(product, "°°product°°");
 
     console.log(arrayInterest.length, "janira3");
     for (let i = 0; i < arrayInterest.length; i++) {
@@ -83,7 +86,8 @@ console.log(products,"productsInterest")
         product.promocion.liked = false;
         return setArrayInterest(
           arrayInterest.filter(
-            (product) => product.promocion._id !== registerInterest.promocion._id
+            (product) =>
+              product.promocion._id !== registerInterest.promocion._id
           )
         );
       }
@@ -110,14 +114,19 @@ console.log(products,"productsInterest")
 
   const width = window.innerWidth;
   const breakpoint = 768;
-  
+
   useEffect(() => {
     getProductsDay();
   }, []);
 
-
   return (
     <Router className="box-home">
+            <Parallax
+        blur={0}
+        bgImage={fondo}
+        bgImageAlt="the cat"
+        strength={100}
+      ></Parallax>
       {/* <Menu functionFilterSearch={functionFilterSearch} /> */}
       <MenuNuevo
         functionFilterSearch={functionFilterSearch}
@@ -134,6 +143,7 @@ console.log(products,"productsInterest")
         <Route path="/" exact>
           <Home products={products} addInterest={addInterest} />
         </Route>
+
         {/* <Route path="/home" exact>
           <Home products={products} addInterest={addInterest} />
         </Route> */}
