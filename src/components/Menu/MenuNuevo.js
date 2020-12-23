@@ -81,7 +81,7 @@ const MenuNuevo = (props) => {
     <div className="container-ganga">
       <Navbar bg="light" expand="lg">
         <NavLink to="/" className="box-logo">
-          <img src={logo} alt="logo la ganga" className="" />
+          <img src={logo} alt="logo la ganga" className="logo-ganga" />
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={props.drawerClickHandler}>
           <img
@@ -103,8 +103,9 @@ const MenuNuevo = (props) => {
                 autoComplete="off"
                 autoCorrect="off"
                 maxLength="100"
+                className="input-search-menu"
               />
-              <Button variant="outline-success" >
+              <Button variant="outline-success btn-search-menu" >
                 <FontAwesomeIcon
                   icon={faSearch}
                   className="icon-searh-mobile"

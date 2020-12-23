@@ -23,7 +23,9 @@ const Item = ({ products, product, addInterest }) => {
   const dateFuture = "2020/12/01";
   // console.log(products)
   React.useEffect(() => {
+
     let arrayMeInteresa = JSON.parse(localStorage.getItem("arrayInterestLocal"));
+    
     console.log(arrayMeInteresa,"arrayMeInteresa")
     // let suma = 0
     for ( let i = 0; i < arrayMeInteresa.length; i++) {
@@ -41,6 +43,7 @@ const Item = ({ products, product, addInterest }) => {
     const fechaInicioInputISOString = new Date(product.promocion.fechaInicioOferta).toISOString();
     const fechaInicioInputInstancia = new Date(fechaInicioInputISOString);
     const fechaInicioOutput = new Date(fechaInicioInputInstancia.getTime() + (fechaInicioInputInstancia.getTimezoneOffset() * 60000));
+
 
     if (fechaInicioOutput.getTime() > new Date()) {
       setAgotadoProduct("Promoción por empezar");
@@ -66,6 +69,7 @@ const Item = ({ products, product, addInterest }) => {
     } else {
       setAgotadoProduct("Promoción Agotada");
     }
+   
   };
 
   // console.log(new Date(dateFuture).getMonth() )
@@ -77,6 +81,7 @@ const Item = ({ products, product, addInterest }) => {
   //  console.log(new Date(dateFuture).getDate() , "hora4")
   //  console.log(monthDayYear, "hora5")
   //  console.log(new Date('10/17/2020').getTime(), "holitas")
+ 
   return (
     <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
       <Card className={"border-" + product.promocion.categoria}>
