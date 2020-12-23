@@ -1,6 +1,6 @@
 .box-img-item {
   background: #f0f0f0;
-  height: 45%;
+  height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +46,7 @@
 .box-img-item img {
   width: 30%;
   margin: auto;
-  padding: 4rem 0rem 0rem 0rem;
+  padding: 3.5rem 0rem 0rem 0rem;
   display: block;
 }
 
@@ -229,11 +229,14 @@ color: #a74fff;
 }
 
 .box-x {
-  border-radius: 8%;
-  padding: 0rem 0.5rem;
+  border-radius: 6%;
+  padding: .3rem 0.5rem;
   font-weight: 800;
-  font-size: 1.4rem;
+  font-size: 1rem;
+  line-height: 1.05rem;
+  text-align: center;
   color: red;
+width: 100%;
 }
 
 .box-x-ropa {

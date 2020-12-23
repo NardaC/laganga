@@ -199,9 +199,18 @@ input.search-bar:focus:-ms-input-placeholder {
     border-bottom-right-radius: 0%!important;
 }
 
+.input-search-menu:focus{
+  border-color: #f31454!important;
+  box-shadow: 0 0 0 0.2rem rgb(241 195 211 / 25%)!important;
+}
+
 .btn-search-menu{
   border-top-left-radius: 0%!important;
     border-bottom-left-radius: 0%!important;
+}
+
+.btn-search-menu:hover{
+  background-color: #ebe2e2!important;
 }
 
 .navbar a{
