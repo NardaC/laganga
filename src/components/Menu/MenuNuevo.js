@@ -119,7 +119,7 @@ const MenuNuevo = (props) => {
                 onClick={goToRoute}
               />
             </NavLink>
-            <NavLink to="#" className="ml-3 ">
+            <NavLink to="/en-construccion" className="ml-3 ">
               <FontAwesomeIcon icon={faUserCircle} className="btn-like-user " />
             </NavLink>
           </Nav>

@@ -43,7 +43,7 @@ const SideDrawer = (props) => {
               Inicio
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/nosotros"
               onClick={props.ocultarMenuMobile}
@@ -52,10 +52,10 @@ const SideDrawer = (props) => {
               <img src={categoria} className="w-15 mr-2" />
               Categorias
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
-              to="/aprendamos"
+              to="/interest"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
@@ -66,7 +66,7 @@ const SideDrawer = (props) => {
 
           <li>
             <NavLink
-              to="/contactanos"
+              to="/en-construccion"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >
@@ -76,7 +76,7 @@ const SideDrawer = (props) => {
           </li>
           <li>
             <NavLink
-              to="/contactanos"
+              to="/en-construccion"
               onClick={props.ocultarMenuMobile}
               activeClassName="is-activeHomeMobile"
             >

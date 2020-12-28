@@ -1,0 +1,41 @@
+.bg-mantenimiento{
+    position: relative;
+    height:100vh;
+    width: 100vw;
+}
+
+.img-bg{
+    background-image: url(../../images/pagina-mantenimiento.png);
+    width: 100%;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    background-position: center center;
+}
+
+.title-mantenimento{
+    font-family: "made-tomy-sof-regular";
+    text-transform: uppercase;
+    color: #ffff;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    text-align: center;
+    letter-spacing: .1rem;
+    padding-top: 7rem;
+}
+
+
+.div-btn-mantenimiento{
+    margin: auto;
+    text-align: center;
+}
+.btn-matenimiento{
+    font-family: "made-tomy-sof-regular";
+    color: #ffff;
+    background-color: #73BFB8;
+    margin: 1rem auto;
+    text-align: center;
+    display: inline-flex;
+    padding: .5rem 1rem;
+    border-radius: 4%;
+}
