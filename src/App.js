@@ -151,7 +151,7 @@ function App() {
           <Interest products={products} addInterest={addInterest} />
         </Route>
         <Route path="/item-especific/:productId" exact>
-          <ItemSpecific />
+          <ItemSpecific products={products}  addInterest={addInterest} />
         </Route>
         <Route path="/en-construccion" exact>
           <Construccion></Construccion>

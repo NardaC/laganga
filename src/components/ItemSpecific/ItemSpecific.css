@@ -63,6 +63,11 @@
   color: #BFBFBF;
 }
 
+
+.btn-like-especific-active {
+  font-size: 1.5rem;
+  color: #f31454;
+}
 .btn-share-especific:hover,
 .btn-like-especific:hover,
 .btn-share-especific:focus,

@@ -39,6 +39,7 @@ const PromoSimilar = (props) => {
   useEffect(() => {
       getProductsDay();
 
+
   }, [props.category]);
 
   return (
@@ -56,7 +57,7 @@ const PromoSimilar = (props) => {
       >
         {categories.map((category, index) => (
           <div className="item-carousel" key={index}>
-            <Item product={category} addInterest={props.addInterest}/>
+            <Item product={category} addInterest={props.addInterest} products={props.products}/>
           </div>
         ))}
       </Carousel>

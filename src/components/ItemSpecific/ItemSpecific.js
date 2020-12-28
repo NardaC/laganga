@@ -16,9 +16,11 @@ import PromoSimilar from "../PromoSimilar/PromoSimilar";
 import clienteAxiosBusiness from "../config/axiosBusiness";
 import clienteAxiosBusinessLocal from "../config/axiosBusinessLocal";
 
-const ItemSpecific = () => {
+const ItemSpecific = ({addInterest, products}) => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const [interest, setInterest] = useState(false);
+
 
   const getProduct = async () => {
   await clienteAxiosBusinessLocal.get(`/get-promotion/${productId}`)
@@ -32,10 +34,18 @@ console.log(error,"njkh")
   };
 
   console.log(productId,"id-ju")
-
+  const arrayLocalStorage = JSON.parse(localStorage.getItem("arrayInterestLocal"))
+  console.log("🚀 ~ file: ItemSpecific.js ~ line 36 ~ ItemSpecific ~  arrayLocalStorage",  arrayLocalStorage)
   useEffect(() => {
     getProduct();
+    setInterest(arrayLocalStorage.some(item => item.promocion._id === productId))
+
   }, [productId]);
+
+  const addInterestEspecific = ()=>{
+    addInterest(products, product);
+    window.location.reload();
+  }
 
   return (
     <div>
@@ -54,7 +64,7 @@ console.log(error,"njkh")
                />
              </div>
              <div className="btn-cirle-especific">
-               <FontAwesomeIcon icon={faHeart} className="btn-like-especific" />
+               <FontAwesomeIcon icon={faHeart} className={interest? "btn-like-especific-active" : "btn-like-especific"}  onClick={addInterestEspecific}/> 
              </div>
            </div>
            {product.promocion.tipoDescuento === "freeShipping" ? (
@@ -119,7 +129,7 @@ console.log(error,"njkh")
        <div>
          <div className="box-gangaDelDia margin-box">
            <h1 className="title-producto-similar">Productos similares</h1>
-           <PromoSimilar category={product.promocion.categoria} />
+           <PromoSimilar addInterest={addInterest} products={products} category={product.promocion.categoria} />
          </div>
          <Row className="justify-content-md-center ">
            {/*<Item />
