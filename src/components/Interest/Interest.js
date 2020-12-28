@@ -2,7 +2,6 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Item from "../Item/Item";
-import Footer from "../Footer/Footer";
 
 const Interest = ({ addInterest }) => {
   return (

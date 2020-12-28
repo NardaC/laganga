@@ -32,7 +32,6 @@
 }
 .border-nuevo {
   border: 2px solid #ffdb40 !important;
-  
 }
 .border-escolarOficina {
   border: 2px solid #7e4fff !important;
@@ -40,7 +39,7 @@
 
 .card {
   max-height: 20rem !important;
-  height: 19rem!important;
+  height: 19rem !important;
 }
 
 .box-img-item img {
@@ -161,7 +160,7 @@
 }
 
 .letter-free-cl-calzado {
-color: #a74fff;
+  color: #a74fff;
 }
 
 .letter-free-cl-hogar {
@@ -230,18 +229,18 @@ color: #a74fff;
 
 .box-x {
   border-radius: 6%;
-  padding: .3rem 0.5rem;
+  padding: 0.3rem 0.5rem;
   font-weight: 800;
   font-size: 1rem;
   line-height: 1.05rem;
   text-align: center;
   color: red;
-width: 100%;
+  width: 100%;
 }
 
 .box-x-ropa {
   color: #ff8629;
-  border: 2px solid #ff8629 ;
+  border: 2px solid #ff8629;
 }
 
 .box-x-deporte {
@@ -255,8 +254,8 @@ width: 100%;
 }
 
 .box-x-calzado {
-color: #a74fff;
-border: 2px solid #a74fff;
+  color: #a74fff;
+  border: 2px solid #a74fff;
 }
 
 .box-x-hogar {
@@ -289,13 +288,11 @@ border: 2px solid #a74fff;
   border: 2px solid #7e4fff;
 }
 
-
 .box-porcent {
   font-weight: 800;
   font-size: 1.6rem;
   color: red;
 }
-
 
 .box-porcent-ropa {
   color: #ff8629;
@@ -310,7 +307,7 @@ border: 2px solid #a74fff;
 }
 
 .box-porcent-calzado {
-color: #a74fff;
+  color: #a74fff;
 }
 
 .box-porcent-hogar {
@@ -336,8 +333,6 @@ color: #a74fff;
 .box-porcent-escolarOficina {
   color: #7e4fff;
 }
-
-
 
 @media (max-width: 769px) {
   .card {
