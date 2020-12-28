@@ -301,6 +301,7 @@ input.search-bar-mobile {
   }
 
   input.search-bar-mobile {
+    position: relative;
     display: block;
     height: 2rem;
     margin: auto;
