@@ -14,7 +14,7 @@ const Home = ({ products, addInterest }) => {
         <Container className="container-ganga box-home fade-in animated">
             <CarouselBanner />
             <OfertasDelDia addInterest={addInterest} />
-              <GangaDelDia addInterest={addInterest} />
+            <GangaDelDia addInterest={addInterest} />
             <figure className="m-0">
                 <img src={banner} alt="banner" className="w-100" />
             </figure>

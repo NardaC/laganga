@@ -31,8 +31,19 @@ const OfertasDelDia = (props) => {
   const [products, setProducts] = useState([]);
 
   const getProductsDay = async () => {
-    const res = await clienteAxiosBusinessLocal.get("/get-promotion/day/user");
-    setProducts(res.data.promocionesDelDia);
+    await clienteAxiosBusinessLocal.get("/get-promotion/day/user")
+    .then((res) => {
+      if (res.data.MensajeRespuesta === "NO EXISTEN DATOS") {
+        setProducts([]);
+      } else {
+        setProducts(res.data.promocionesDelDia);
+      }
+
+      // setLoading(false);
+    })
+    .catch((e) => {
+      console.log(e, "error");
+    })
   };
 
   useEffect(() => {
