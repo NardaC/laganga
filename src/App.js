@@ -21,6 +21,7 @@ import clienteAxiosBusiness from "./components/config/axiosBusiness";
 import clienteAxiosBusinessLocal from "./components/config/axiosBusinessLocal";
 import { Parallax, Background } from "react-parallax";
 import fondo from "../src/images/background-ganga.png";
+import fondo2 from "../src/images/bg-ganga.svg";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -123,7 +124,7 @@ function App() {
     <Router className="box-home">
             <Parallax
         blur={0}
-        bgImage={fondo}
+        bgImage={fondo2}
         bgImageAlt="the cat"
         strength={100}
       ></Parallax>

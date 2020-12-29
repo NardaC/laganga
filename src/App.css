@@ -115,8 +115,8 @@
 /* ANIMACIONES */
 .react-parallax-bgimage{
   position: fixed!important;
-  height:  100%!important;;
-    width: auto!important;
+  height:  auto!important;;
+    width: 100%!important;
 }
 
 
