@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 
-
 const Item = ({ products, product, addInterest }) => {
   const [text, setText] = useState("");
   const [dataNueva, setDataNueva] = useState([]);
@@ -23,27 +22,38 @@ const Item = ({ products, product, addInterest }) => {
   const dateFuture = "2020/12/01";
   // console.log(products)
   React.useEffect(() => {
+    let arrayMeInteresa = JSON.parse(
+      localStorage.getItem("arrayInterestLocal")
+    );
 
-    let arrayMeInteresa = JSON.parse(localStorage.getItem("arrayInterestLocal"));
-    
-    console.log(arrayMeInteresa,"arrayMeInteresa")
+    console.log(arrayMeInteresa, "arrayMeInteresa");
+
     // let suma = 0
-    for ( let i = 0; i < arrayMeInteresa.length; i++) {
+    for (let i = 0; i < arrayMeInteresa.length; i++) {
       if (product.promocion._id === arrayMeInteresa[i].promocion._id) {
-        product.promocion.liked = true
-      } 
+        product.promocion.liked = true;
+      }
     }
     // localStorage.setItem("arrayInterestLocal", JSON.stringify(arrayInterest));
     // console.log(arrayMeInteresa, "array")y
     // console.log(product, "editado :)")
     // calculateTimeLeft(product.fechaFinOferta);
-    const fechaFinalInputISOString = new Date(product.promocion.fechaFinOferta).toISOString();
+    const fechaFinalInputISOString = new Date(
+      product.promocion.fechaFinOferta
+    ).toISOString();
     const fechaFinalInputInstancia = new Date(fechaFinalInputISOString);
-    const fechaFinalOutput = new Date(fechaFinalInputInstancia.getTime() + (fechaFinalInputInstancia.getTimezoneOffset() * 60000));
-    const fechaInicioInputISOString = new Date(product.promocion.fechaInicioOferta).toISOString();
+    const fechaFinalOutput = new Date(
+      fechaFinalInputInstancia.getTime() +
+        fechaFinalInputInstancia.getTimezoneOffset() * 60000
+    );
+    const fechaInicioInputISOString = new Date(
+      product.promocion.fechaInicioOferta
+    ).toISOString();
     const fechaInicioInputInstancia = new Date(fechaInicioInputISOString);
-    const fechaInicioOutput = new Date(fechaInicioInputInstancia.getTime() + (fechaInicioInputInstancia.getTimezoneOffset() * 60000));
-
+    const fechaInicioOutput = new Date(
+      fechaInicioInputInstancia.getTime() +
+        fechaInicioInputInstancia.getTimezoneOffset() * 60000
+    );
 
     if (fechaInicioOutput.getTime() > new Date()) {
       setAgotadoProduct("Promoción por empezar");
@@ -69,7 +79,6 @@ const Item = ({ products, product, addInterest }) => {
     } else {
       setAgotadoProduct("Promoción Agotada");
     }
-   
   };
 
   // console.log(new Date(dateFuture).getMonth() )
@@ -81,7 +90,7 @@ const Item = ({ products, product, addInterest }) => {
   //  console.log(new Date(dateFuture).getDate() , "hora4")
   //  console.log(monthDayYear, "hora5")
   //  console.log(new Date('10/17/2020').getTime(), "holitas")
- 
+
   return (
     <div className="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3  mb-4">
       <Card className={"border-" + product.promocion.categoria}>
@@ -94,7 +103,10 @@ const Item = ({ products, product, addInterest }) => {
             <div className="box-free-shipping">
               <div
                 className={
-                  "letter-free" + " " + "letter-free-cl-" + product.promocion.categoria
+                  "letter-free" +
+                  " " +
+                  "letter-free-cl-" +
+                  product.promocion.categoria
                 }
               >
                 free
@@ -114,54 +126,67 @@ const Item = ({ products, product, addInterest }) => {
         ) : product.promocion.tipoDescuento === "2x1" ? (
           <div className="box-tag-offer">
             <div
-              className={
-                "box-x" + " " + "box-x-" + product.promocion.categoria
-              }
+              className={"box-x" + " " + "box-x-" + product.promocion.categoria}
             >
               2x1
             </div>
           </div>
         ) : product.promocion.tipoDescuento === "3x2" ? (
           <div className="box-tag-offer">
-            <div className={"box-x" + " " + "box-x-" + product.promocion.categoria}>
+            <div
+              className={"box-x" + " " + "box-x-" + product.promocion.categoria}
+            >
               3x2
             </div>
           </div>
         ) : product.promocion.tipoDescuento === "otros" ? (
           <div className="box-tag-offer">
             <div
-              className={
-                "box-x" + " " + "box-x-" + product.promocion.categoria
-              }
+              className={"box-x" + " " + "box-x-" + product.promocion.categoria}
             >
               {product.promocion.descuentoOtros}
             </div>
           </div>
         ) : (
-                  <div className="box-tag-offer">
-                    <div
-                      className={
-                        "box-porcent" + " " + "box-porcent-" + product.promocion.categoria
-                      }
-                    >
-                      -{product.promocion.descuento}%
+          <div className="box-tag-offer">
+            <div
+              className={
+                "box-porcent" +
+                " " +
+                "box-porcent-" +
+                product.promocion.categoria
+              }
+            >
+              -{product.promocion.descuento}%
             </div>
-                  </div>
-                )}
+          </div>
+        )}
 
         <div className="group-btn-like">
           <a>
             <FontAwesomeIcon
               icon={faHeart}
-              className={product.promocion.liked ? "btn-like-active" : "btn-like"}
+              className={
+                product.promocion.liked ? "btn-like-active" : "btn-like"
+              }
               onClick={() => addInterest(products, product)}
             />
           </a>
         </div>
         <div className="box-img-item">
-          <Card.Img variant="top" src={product.imagenes[1].typeImage === "M" ? product.imagenes[1].url : product.imagenes[0].url} />
+          <Card.Img
+            variant="top"
+            src={
+              product.imagenes[1].typeImage === "M"
+                ? product.imagenes[1].url
+                : product.imagenes[0].url
+            }
+          />
         </div>
-        <a href={"/item-especific/" + product.promocion._id} className="link body-card">
+        <a
+          href={"/item-especific/" + product.promocion._id}
+          className="link body-card"
+        >
           <div className="group-time-item">
             <FontAwesomeIcon icon={faClock} />
             {agotadoProduct === "" ? (
@@ -169,11 +194,13 @@ const Item = ({ products, product, addInterest }) => {
                 {timeDays}D {timeHours}H {timeMinutes}M
               </div>
             ) : (
-                <div className=" item-chronometer">{agotadoProduct}</div>
-              )}
+              <div className=" item-chronometer">{agotadoProduct}</div>
+            )}
           </div>
           <Card.Body>
-            <Card.Title className="title-item">{product.promocion.nombre}</Card.Title>
+            <Card.Title className="title-item">
+              {product.promocion.nombre}
+            </Card.Title>
             <Card.Text className="subtitle-item">
               {`${product.promocion.descripcion.substr(0, 70)}...`}
             </Card.Text>
