@@ -75,8 +75,8 @@ function App() {
         product.promocion.liked = true;
       }
     }
-    console.log(registerInterest, "°°°°");
-    console.log(product, "°°product°°");
+    // console.log(registerInterest, "°°°°");
+    // console.log(product, "°°product°°");
 
     console.log(arrayInterest.length, "janira3");
     for (let i = 0; i < arrayInterest.length; i++) {

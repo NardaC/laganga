@@ -1,26 +1,55 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const PreloadersCards = props => {
+const PreloaderCards = props => {
   return (
-    <ContentLoader viewBox="0 0 400 475" height={475} width={400} {...props}>
-      <circle cx="56" cy="35" r="28" />
-      <rect x="14" y="81" rx="4" ry="4" width="91" height="8" />
-      <rect x="130" y="73" rx="5" ry="5" width="159" height="172" />
-      <rect x="96" y="86" rx="0" ry="0" width="0" height="0" />
-      <rect x="23" y="103" rx="0" ry="0" width="70" height="6" />
-      <rect x="131" y="22" rx="0" ry="0" width="154" height="40" />
-      <rect x="286" y="111" rx="0" ry="0" width="0" height="0" />
-    </ContentLoader>
+    <ContentLoader viewBox="0 0 1360 900" height={900} width={1360} {...props}>
+    <rect x="30" y="20" rx="8" ry="8" width="200" height="200" />
+    <rect x="30" y="250" rx="0" ry="0" width="200" height="18" />
+    <rect x="30" y="275" rx="0" ry="0" width="120" height="20" />
+    <rect x="250" y="20" rx="8" ry="8" width="200" height="200" />
+    <rect x="250" y="250" rx="0" ry="0" width="200" height="18" />
+    <rect x="250" y="275" rx="0" ry="0" width="120" height="20" />
+    <rect x="470" y="20" rx="8" ry="8" width="200" height="200" />
+    <rect x="470" y="250" rx="0" ry="0" width="200" height="18" />
+    <rect x="470" y="275" rx="0" ry="0" width="120" height="20" />
+    <rect x="690" y="20" rx="8" ry="8" width="200" height="200" />
+    <rect x="690" y="250" rx="0" ry="0" width="200" height="18" />
+    <rect x="690" y="275" rx="0" ry="0" width="120" height="20" />
+    <rect x="910" y="20" rx="8" ry="8" width="200" height="200" />
+    <rect x="910" y="250" rx="0" ry="0" width="200" height="18" />
+    <rect x="910" y="275" rx="0" ry="0" width="120" height="20" />
+    <rect x="1130" y="20" rx="8" ry="8" width="200" height="200" />
+    <rect x="1130" y="250" rx="0" ry="0" width="200" height="18" />
+    <rect x="1130" y="275" rx="0" ry="0" width="120" height="20" />
+    <rect x="30" y="340" rx="8" ry="8" width="200" height="200" />
+    <rect x="30" y="570" rx="0" ry="0" width="200" height="18" />
+    <rect x="30" y="595" rx="0" ry="0" width="120" height="20" />
+    <rect x="250" y="340" rx="8" ry="8" width="200" height="200" />
+    <rect x="250" y="570" rx="0" ry="0" width="200" height="18" />
+    <rect x="250" y="595" rx="0" ry="0" width="120" height="20" />
+    <rect x="470" y="340" rx="8" ry="8" width="200" height="200" />
+    <rect x="470" y="570" rx="0" ry="0" width="200" height="18" />
+    <rect x="470" y="595" rx="0" ry="0" width="120" height="20" />
+    <rect x="690" y="340" rx="8" ry="8" width="200" height="200" />
+    <rect x="690" y="570" rx="0" ry="0" width="200" height="18" />
+    <rect x="690" y="595" rx="0" ry="0" width="120" height="20" />
+    <rect x="910" y="340" rx="8" ry="8" width="200" height="200" />
+    <rect x="910" y="570" rx="0" ry="0" width="200" height="18" />
+    <rect x="910" y="595" rx="0" ry="0" width="120" height="20" />
+    <rect x="1130" y="340" rx="8" ry="8" width="200" height="200" />
+    <rect x="1130" y="570" rx="0" ry="0" width="200" height="18" />
+    <rect x="1130" y="595" rx="0" ry="0" width="120" height="20" />
+  </ContentLoader>
   )
 }
 
-LinkedInStyle.metadata = {
-  name: 'Victoria Mei',
-  github: 'vm930',
-  description: 'LinkedIn Style',
-  filename: 'LinkedIn',
-}
+// LinkedInStyle.metadata = {
+//   name: 'Victoria Mei',
+//   github: 'vm930',
+//   description: 'LinkedIn Style',
+//   filename: 'LinkedIn',
+// }
 
 export default PreloaderCards
 

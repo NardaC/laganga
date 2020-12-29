@@ -13,8 +13,8 @@ const Home = ({ products, addInterest }) => {
     return (
         <Container className="container-ganga box-home fade-in animated">
             <CarouselBanner />
-            {/* <GangaDelDia addInterest={addInterest} />
-            <OfertasDelDia addInterest={addInterest} /> */}
+            <OfertasDelDia addInterest={addInterest} />
+              <GangaDelDia addInterest={addInterest} />
             <figure className="m-0">
                 <img src={banner} alt="banner" className="w-100" />
             </figure>

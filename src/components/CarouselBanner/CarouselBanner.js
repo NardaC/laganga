@@ -46,21 +46,6 @@ const CarouselBanner = () => {
           </Carousel.Item>
           ))
         }
-      
-        {/* <Carousel.Item>
-          {width < breakpoint ? (
-            <img className="d-block w-100" src={banner2M} alt="Second slide" />
-          ) : (
-            <img className="d-block w-100" src={banner2D} alt="Second slide"  />
-          )}
-        </Carousel.Item>
-        <Carousel.Item>
-          {width < breakpoint ? (
-            <img className="d-block w-100" src={banner3M} alt="Third slide" />
-          ) : (
-            <img className="d-block w-100" src={banner3D} alt="Third slide" />
-          )}
-        </Carousel.Item> */}
       </Carousel>
     </>
   );

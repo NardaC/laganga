@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import clienteAxiosBusiness from "../config/axiosBusiness";
+import clienteAxiosBusinessLocal from "../config/axiosBusinessLocal";
 import Item from "../Item/Item";
 
 const responsive = {
@@ -31,10 +31,8 @@ const OfertasDelDia = (props) => {
   const [products, setProducts] = useState([]);
 
   const getProductsDay = async () => {
-    //const res = await axios.get('http://localhost:3000/productsBiggerDiscount');
-    // const res = await axios.get("https://la-ganga-api.herokuapp.com/productsBiggerDiscount");
-    const res = await clienteAxiosBusiness.get("/productsBiggerDiscount");
-    setProducts(res.data.products);
+    const res = await clienteAxiosBusinessLocal.get("/get-promotion/day/user");
+    setProducts(res.data.promocionesDelDia);
   };
 
   useEffect(() => {
@@ -63,7 +61,7 @@ const OfertasDelDia = (props) => {
             <Item product={product}  products={products} addInterest={props.addInterest}/>
           </div>
         ))}
-      </Carousel>
+      </Carousel> 
     </div>
   );
 };

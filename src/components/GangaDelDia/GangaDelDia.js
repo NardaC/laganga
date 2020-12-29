@@ -1,12 +1,12 @@
-import React, { useEffect, useState }  from "react";
+import React, { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import axios from 'axios';
 
 import "./GangaDelDia.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import clienteAxiosBusiness from "../config/axiosBusiness";
-
+import clienteAxiosBusinessLocal from "../config/axiosBusinessLocal";
+import PreloaderCards from "../preloader/PreloaderCards"
 
 const responsive = {
   superLargeDesktop: {
@@ -31,41 +31,65 @@ const responsive = {
 
 const GangaDelDia = (props) => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
-  const getProductsDay = async () => {
-    const res = await clienteAxiosBusiness.get('/productsLast24');
-    setProducts(res.data.products);
+  const getProductsWeek = async () => {
+    await clienteAxiosBusinessLocal.get("/get-promotion/new/user")
+      .then((res) => {
+        if (res.data.MensajeRespuesta === "NO EXISTEN DATOS") {
+          setProducts([]);
+        } else {
+          setProducts(res.data.nuevasPromociones);
+        }
+
+        setLoading(false);
+      })
+      .catch((e) => {
+        console.log(e, "error");
+      })
   };
 
   useEffect(() => {
-    getProductsDay();
+    if (isLoading === false) {
+      setLoading(true);
+    }
+    getProductsWeek();
   }, []);
 
   return (
     <div className="margin-box">
       <div className="box-gangaDelDia">
-        <h1 className="title-ganga">La ganga del día</h1>
+        <h1 className="title-ganga">Ofertas de la Semana</h1>
         <h5 className="subtitle-ganga">
           Aprovecha las mejores marcas, con el descuento que tú deseas.
         </h5>
       </div>
-      <Carousel
-        responsive={responsive}
-        infinite={true}
-        autoPlay={props.deviceType !== "mobile" ? true : false}
-        autoPlaySpeed={2800}
-        deviceType={props.deviceType}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        swipeable={false}
-        draggable={false}
-        showDots={false}
-      >
-        {products.map((product, index) => (
-          <div className="item-carousel" key={index}>
-            <Item product={product}   products={products}  addInterest={props.addInterest}/>
-          </div>
-        ))}
-      </Carousel>
+      {
+        isLoading &&
+        <PreloaderCards />
+      }
+      {
+        !isLoading &&
+        <Carousel
+          responsive={responsive}
+          infinite={true}
+          autoPlay={props.deviceType !== "mobile" ? true : false}
+          autoPlaySpeed={2800}
+          deviceType={props.deviceType}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          swipeable={false}
+          draggable={false}
+          showDots={false}
+        >
+          {products.map((product, index) => (
+            <div className="item-carousel" key={index}>
+
+              <Item product={product} products={products} addInterest={props.addInterest} />
+
+            </div>
+          ))}
+        </Carousel>
+      }
     </div >
   );
 };
