@@ -22,6 +22,7 @@ import clienteAxiosBusinessLocal from "./components/config/axiosBusinessLocal";
 import { Parallax, Background } from "react-parallax";
 import fondo from "../src/images/background-ganga.png";
 import fondo2 from "../src/images/bg-ganga.svg";
+import Error from "./components/Error/Error";
 
 function App() {
   const [filterSearch, setFilterSearch] = useState([]);
@@ -156,6 +157,9 @@ function App() {
         </Route>
         <Route path="/en-construccion" exact>
           <Construccion></Construccion>
+        </Route>
+        <Route path="/error" exact>
+          <Error></Error>
         </Route>
         <Route path="/buscar/:searchWords" exact>
           <Search filterSearch={filterSearch} />
