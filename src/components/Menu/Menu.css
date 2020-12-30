@@ -89,27 +89,54 @@ input.search-bar:focus:-ms-input-placeholder {
 }
 
 .is-active .btn-like-menu {
+  animation: animateHeart .3s linear forwards;
   color: #f31454;
 }
 .btn-like-menu {
-  margin-left: 0.6rem;
+  /* margin-left: 0.6rem;
   margin-right: 0.8rem;
   font-size: 1.4rem;
+   */
+   cursor: pointer;
+   font-size: 1.4rem;
+   transition: all .3s;
+   transform-origin: center;
+   color: #8c8c8c;
 }
 
 .btn-like-user {
+  /* font-size: 1.4rem; */
+  cursor: pointer;
   font-size: 1.4rem;
+  transition: all .3s;
+  transform-origin: center;
+  color: #8c8c8c;
+}
+
+.is-active .btn-like-user {
+  animation: animateHeart .3s linear forwards;
+  color: #f31454;
 }
 .btn-like-menu:hover,
 .btn-like-menu:focus {
-  color: #f31454;
-  cursor: pointer;
+  /* color: #f31454;
+  cursor: pointer; */
+  transform: scale(1.2);
 }
+
+/* ...... */
+@keyframes animateHeart{
+  0%{transform:scale(.2);}
+  40%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
 
 .btn-like-user:hover,
 .btn-like-user:focus {
-  color: #f31454;
-  cursor: pointer;
+  /* color: #f31454;
+  cursor: pointer; */
+  transform: scale(1.2);
 }
 
 

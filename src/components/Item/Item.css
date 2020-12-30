@@ -76,7 +76,7 @@
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 .btn-share {
@@ -85,22 +85,48 @@
 }
 
 .btn-like-active {
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem;
   margin-right: 0.5rem;
+  color: #f31454;
+  animation: like-a 0.2s 0.1s ease-in;
+  cursor: pointer; */
+  animation: animateHeart .3s linear forwards;
   color: #f31454;
 }
 
+
 .btn-like {
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem;
   margin-right: 0.5rem;
+  color: #8c8c8c;
+  cursor: pointer; */
+  cursor: pointer;
+  padding: .1rem;
+  width: .5rem;
+  transition: all .3s;
+  transform-origin: center;
   color: #8c8c8c;
 }
 
 .btn-like:hover,
 .btn-like:focus {
-  color: #f31454;
+  /* color: #f31454;
+  opacity: .5;
   cursor: pointer;
+  transition: none; */
+  transform: scale(1.2);
 }
+
+
+/* ...... */
+@keyframes animateHeart{
+  0%{transform:scale(.2);}
+  40%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+
+
 
 .group-time-item {
   display: flex;
@@ -351,6 +377,10 @@
   .box-free-shipping {
     width: 100%;
   }
+  .letter-free,
+.box-letter-free {
+  font-size: .7rem;
+}
 
   .box-porcent {
     position: relative;

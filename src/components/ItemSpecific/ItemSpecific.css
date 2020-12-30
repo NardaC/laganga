@@ -55,25 +55,33 @@
   border-radius: 50%;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-share-especific,
 .btn-like-especific {
   font-size: 1.5rem;
   color: #BFBFBF;
+  transition: all .3s;
 }
 
 
 .btn-like-especific-active {
   font-size: 1.5rem;
   color: #f31454;
+  animation: animateHeart .3s linear forwards;
 }
 .btn-share-especific:hover,
 .btn-like-especific:hover,
 .btn-share-especific:focus,
 .btn-like-especific:focus {
   color: #f31454;
+  opacity: .5;
   cursor: pointer;
+  transform: scale(1.2);
+ 
 }
 
 .btn-ir-web{
@@ -106,6 +114,17 @@
   /* background-color: #fff; */
   
 }
+
+
+
+@keyframes animateHeart{
+  0%{transform:scale(.2);}
+  40%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+
+
 
 @media (max-width: 769px) {
 .box-details{

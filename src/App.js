@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Menu from "./components/Menu/Menu";
+
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import FilterCategory from "./components/FilterCategory/FilterCategory";

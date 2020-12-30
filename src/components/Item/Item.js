@@ -163,7 +163,7 @@ const Item = ({ products, product, addInterest }) => {
         )}
 
         <div className="group-btn-like">
-          <a>
+          {/* <a> */}
             <FontAwesomeIcon
               icon={faHeart}
               className={
@@ -171,7 +171,7 @@ const Item = ({ products, product, addInterest }) => {
               }
               onClick={() => addInterest(products, product)}
             />
-          </a>
+          {/* </a> */}
         </div>
         <div className="box-img-item">
           <Card.Img
